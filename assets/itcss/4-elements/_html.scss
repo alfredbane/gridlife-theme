@@ -1,0 +1,23 @@
+// ----------------------------------------------
+// HTML (PAGE)
+// ----------------------------------------------
+
+/**
+ * Simple page-level setup.
+ *
+ * 1. Set the default `font-size` and `line-height` for the entire project.
+ * 2. Ensure the page always fills at least the entire height of the viewport.
+ */
+
+html {
+  min-height: 100%;
+  overflow-y: visible;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+html {
+  &.nav-active {
+    overflow: hidden;
+  }
+}

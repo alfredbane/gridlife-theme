@@ -1,0 +1,30 @@
+// ----------------------------------------------
+// Themes Color Style
+// ----------------------------------------------
+
+
+@function palette($palette, $tone: 'base') {
+    @return map-get( map-get($palettes, $palette), $tone );
+}
+
+$palettes: (
+    mono: (
+        white:  #ffffff,
+        light:  #D6D6D6,
+        base:   #909090,
+        dark:   #575757,
+        x-dark: #3a3a3a,
+        black:  #272727,
+    ),
+    green: (
+        base:   #10B0BE,
+        dark:   #0085B6,
+    ),
+    blue: (
+        light:  #2A4E85,
+        base:   #1D3A6A,
+    ),
+    cyan-blue: (
+        base:   #1486B7,
+    ),
+);

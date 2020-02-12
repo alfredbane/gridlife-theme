@@ -1,0 +1,60 @@
+@charset "UTF-8";
+/*!
+Theme Name: Autumn Ecommerce
+Theme URI: https://memorres.com
+Author: Memorres digital pvt. ltd.
+Author URI: https://memorres.com/
+Description: Ecommerce theme built for the sites using gutenberg. Fast site load and beautiful designs.Featuring ample whitespace and modern sans-serif headlines paired with classic serif body text, it's built to be beautiful on all screen sizes.
+Requires at least: WordPress 4.9.6
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: twentynineteen
+Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-menu, custom-logo, editor-style.
+*/
+// --
+
+// -----------------------------------------------------------------------------------------------------------
+// Settings - Global variables like fonts and colors.
+// -----------------------------------------------------------------------------------------------------------
+@import '1-settings/colors';//............................................Grab all of our brand colors in.
+
+@import '1-settings/fonts';//.............................................Set all font-family after Generate font face.
+@import '1-settings/variables';//.........................................Create all the default values in variables.
+@import '1-settings/global';//............................................Grab all of our default settings in one go.
+@import '1-settings/typography';//........................................Default typography settings for theme.
+
+
+// -----------------------------------------------------------------------------------------------------------
+// Tools - Default mixins.
+// -----------------------------------------------------------------------------------------------------------
+@import '2-tools/media-queries';//........................................Media query mixin for responsive design.
+@import '2-tools/mixins';//...............................................Define styles that can be re-used throughout your stylesheet.
+@import '2-tools/animation';//............................................All animation style css go here.
+@import '2-tools/paths';//................................................Simple Asset Helper Functions.
+@import '2-tools/modifier';//.............................................To changes quickly use modifier.
+
+
+// -----------------------------------------------------------------------------------------------------------
+// Generic - Ground-zero styles (resets, box-sizing, etc.).
+// -----------------------------------------------------------------------------------------------------------
+@import '3-generic/box-sizing';//.........................................Better default box-sizing rules.
+@import '3-generic/normalize';//..........................................Snapshot of Normalize.css as of v5.0.0.
+@import '3-generic/reset';//..............................................Small reset on top of Normalize.css.
+@import '3-generic/shared';//.............................................Share vertical rhythm etc. across multiple elements.
+
+
+// -----------------------------------------------------------------------------------------------------------
+// Elements - Unclassed HTML elements (type selectors).
+// -----------------------------------------------------------------------------------------------------------
+@import '4-elements/blockquote';//........................................HTML tag pair that is used to define long quotations.
+@import '4-elements/body';//..............................................BODY element styles.
+@import '4-elements/em';//................................................em element styles.
+@import '4-elements/headings';//..........................................Simple default styles for headings 1 through 6.
+@import '4-elements/hr';//................................................HR tag represents a horizontal rule or dividing element (`HR`).
+@import '4-elements/html';//..............................................Simple page-level setup.
+@import '4-elements/images';//............................................Sensible defaults for IMG elements.
+@import '4-elements/links';//.............................................Basic hyperlink styles.
+@import '4-elements/lists';//.............................................UL, OL element styles.
+@import '4-elements/tables';//............................................Ensure tables fill up as much space as possible.
+@import '4-elements/fieldset';//..........................................Group related elements in a form.

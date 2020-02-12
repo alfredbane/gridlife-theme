@@ -1,0 +1,30 @@
+// ----------------------------------------------
+// TABLE
+// ----------------------------------------------
+
+
+/**
+ * 1. Ensure tables fill up as much space as possible.
+ */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid palatte(mono, black);
+  padding: 0.5rem;
+}
+
+
+
+/**
+ * Remove default table spacing.
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}

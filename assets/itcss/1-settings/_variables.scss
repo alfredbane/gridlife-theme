@@ -1,0 +1,28 @@
+// ----------------------------------------------
+// Variables
+// ----------------------------------------------
+
+
+$primary-font:            	'Comfortaa', cursive;
+
+$secondary-font:            'Hind', sans-serif;
+
+
+// Default
+$default-font:               $primary-font;
+$default-size:               17px;
+$default-linehieght:         30px;
+$default-weight:             normal;
+$default-color:              palette(mono, black);
+
+
+
+
+// button style
+$btn-font:                   $primary-font;
+$btn-font-size:              16px;
+$btn-color:                  palette(mono, white);
+$btn-padding:                18px 24px;
+$btn-margin:                 0;
+$btn-text-align:             center;
+$btn-text-transform:         capitalize;

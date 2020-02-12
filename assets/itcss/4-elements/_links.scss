@@ -1,0 +1,15 @@
+// ----------------------------------------------
+// LINKS
+// ----------------------------------------------
+
+a {
+  font-family: $primary-font;
+  color: inherit;
+  text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+      color: palette(blue, base);
+    }
+
+}

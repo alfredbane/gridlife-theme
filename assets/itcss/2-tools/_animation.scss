@@ -1,0 +1,92 @@
+// ----------------------------------------------
+// Animation
+// ----------------------------------------------
+
+// Index
+//  1. slide animation
+//  2. fade in up animation
+
+// =============================================================================
+// 1. slide animation
+// =============================================================================
+.slide {
+	&:before,
+	&:after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		background: rgba(76, 176, 189, 0.3);
+		z-index: -1;
+		@include floating-element(fixed, 0px);
+		@include transition(transform cubic-bezier(0.77, 0, 0.175, 1) 0.8s);
+		@include transform(translate(0%, -100%));
+	}
+	&:after {
+		background: palette(mono, white);
+		@include transition-delay(0s);
+	}
+	&:before {
+		@include transition-delay(.1s);
+	}
+	&--right {
+		&:before,
+		&:after {
+			right: 0;
+			@include transform(translate(100%, 0%));
+			// @include mobile {
+			// 	width: 100%;
+			// }
+		}
+	}
+	&--left {
+		&:before,
+		&:after {
+			left: 0;
+			@include transform(translate(-100%, 0%));
+			// @include mobile {
+			// 	width: 100%;
+			// }
+		}
+	}
+}
+
+//slider active state
+.nav-active {
+	.slide {
+
+		&:before,
+		&:after {
+			@include transform(translate(0%, 0%));
+		}
+		&:after {
+			@include transition-delay(.1s);
+		}
+		&:before {
+			@include transition-delay(0s);
+		}
+	}
+}
+
+// =============================================================================
+// 2. fade in up animation
+// =============================================================================
+.fadeinup {
+	opacity: 0;
+	@include transition-delay(.8s);
+	@include transform(translate(0%, 100%));
+	@include transition(opacity .2s ease, transform .3s ease);
+}
+
+//fade in up active state
+.nav-active {
+	.fadeinup {
+		opacity: 1;
+		@include transform(translate(0%));
+		@include transition(opacity .3s ease, transform .3s ease, color .3s ease);
+		@for $i from 0 through 4 {
+			&:nth-child(#{$i}) {
+				@include transition-delay(.8 * $i / 8 + .5 + s);
+			}
+		}
+	}
+}

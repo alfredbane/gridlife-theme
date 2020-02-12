@@ -1,0 +1,33 @@
+{
+  "name": "snow-theme-v1.0",
+  "version": "1.0.0",
+  "description": "Snow is designed using simple dynamics of wordpress and a little bit of block editor. Organizations and businesses have the ability to create pages with predefined layouts using the group and column blocks. The fine-tuned typography also makes it perfect for traditional blogs. You can give your site a personal touch by changing the background colors and the accent colorusing the Redux Customizer.",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build --prod=true",
+    "watch": "gulp watchForChanges"
+  },
+  "keywords": [
+    "sass",
+    "gulp"
+  ],
+  "author": "pheonix",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/register": "^7.8.3",
+    "autoprefixer": "^9.7.3",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^6.2.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "postcss-assets": "^5.0.0",
+    "yargs": "^15.1.0"
+  }
+}

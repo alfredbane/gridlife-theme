@@ -1,0 +1,17 @@
+// ----------------------------------------------
+// BODY
+// ----------------------------------------------
+
+
+body {
+  font-family: $primary-font;
+  font-size: $default-size;
+  line-height: $default-linehieght;
+  color: palette(mono, black);
+  position: relative;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 0.1px; // so body is stretched to the bottom
+  overflow-y: visible;
+  overflow-x: hidden;
+}
