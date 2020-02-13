@@ -315,36 +315,48 @@
 
     // -> START Active campaign settings
     Redux::setSection( $opt_name, array(
-        'title' => __( 'Active Campaign', 'snow' ),
-        'id'    => 'active-campaign-settings',
-        'desc'  => __( 'Add all the active campaign related settings here. These settings include API keys, form settings, images, Text, headings, subheadings', 'snow' ),
+        'title' => __( 'Newsletter settings', 'snow' ),
+        'id'    => 'newsletter-settings',
+        'desc'  => __( 'Add all the newsletter related settings here. These settings include images, Text, headings, subheadings', 'snow' ),
         'icon'  => 'el el-envelope',
         'subsection' => true,
         'fields'     => array(
+            
             array(
-                'id'       => 'opt-api-url',
-                'type'     => 'text',
-                'title'    => __( 'API URL', 'snow' ),
-                'subtitle' => __( 'Add an Api url for the active campaign, used to connect your email campaign to active campaign accounts', 'snow' ),
+                'id'       => 'opt-toggle',
+                'type'     => 'switch',
+                'title'    => __( 'Enable newsletter popup', 'snow' ),
+                'subtitle' => __( 'Show subscription pop up on site load.', 'snow' ),
             ),
-            array(
-                'id'       => 'opt-api-key',
-                'type'     => 'text',
-                'title'    => __( 'API KEY', 'snow' ),
-                'subtitle' => __( 'Add an API key for the active campaign, used to connect your email campaign to active campaign accounts', 'snow' ),
-            ),
+
             array(
                 'id'       => 'opt-newsletter-image',
                 'type'     => 'media',
                 'title'    => __( 'Newsletter popup image', 'snow' ),
                 'subtitle' => __( 'Image used in the popup for newsletter, this popup will appear on website whenevre the site is loaded', 'snow' ),
+                'required' => array('opt-toggle','equals',true),
                 'desc'     => __( 'The image dimension for normal screen must be atleast 600 X 600', 'snow' ),
             ),
+
             array(
                 'id'       => 'opt-newsletter-heading',
                 'type'     => 'text',
-                'title'    => __( 'Newsletter text', 'snow' ),
-                'subtitle' => __( 'Text used in the popup for newsletter, this popup will appear on website whenevre the site is loaded', 'snow' ),
+                'title'    => __( 'Newsletter heading', 'snow' ),
+                'subtitle' => __( 'Heading used in the popup for newsletter, this popup will appear on website whenever the site is loaded', 'snow' ),
+            ),
+
+            array(
+                'id'       => 'opt-newsletter-text',
+                'type'     => 'text',
+                'title'    => __( 'Newsletter Text', 'snow' ),
+                'subtitle' => __( 'Text used in the popup for newsletter, this popup will appear on website whenever the site is loaded', 'snow' ),
+            ),
+
+            array(
+                'id'       => 'opt-newsletter-form',
+                'type'     => 'textarea',
+                'title'    => __( 'Form shortcode', 'snow' ),
+                'subtitle' => __( 'Add your form shortcode for the site.', 'snow' ),
             ),
         )
     ) );

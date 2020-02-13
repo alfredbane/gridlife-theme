@@ -28,6 +28,21 @@ if ( version_compare( $GLOBALS['wp_version'], '4.4-alpha', '<' ) ) {
 	require get_template_directory() . '/core/back-compat.php';
 }
 
+ /**
+  * Include SVG upload support to wordpress media upload.
+  * @since snow 1.0
+  */
+
+//add SVG to allowed file uploads
+function add_file_types_to_uploads($file_types){
+
+     $new_filetypes = array();
+     $new_filetypes['svg'] = 'image/svg';
+     $file_types = array_merge($file_types, $new_filetypes );
+
+     return $file_types; 
+} 
+add_action('upload_mimes', 'add_file_types_to_uploads');
 
 
 if ( ! function_exists( 'snow_setup' ) ) :

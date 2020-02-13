@@ -10,7 +10,8 @@
 =======================
         INDEX
 =======================
-1). Shortcode support to widgets
+0). Shortcode support to widgets
+1). Global theme settings
 2). Get Logo url
     2.1). Display Logo
 3). Get product categories
@@ -19,12 +20,31 @@
 */
 
 /**
- * 1). Add shortcode support to widgets
+ * 0). Add shortcode support to widgets
  * @method add_action hooks
  * @since snow v1.0.0
  */
 
 add_filter( 'widget_text', 'do_shortcode' );
+
+/**
+ * 1).Theme options global
+ * Load the global autumn settings variable from redux
+ * @return array
+ *
+ * @since autumn v1.0.0
+ */
+function snow_settings() {
+
+  $snow_settings ='';
+
+  if (file_exists( dirname( __FILE__ ) . '/ReduxFramework/ReduxCore/framework.php' )) {
+     global $snow_settings;
+  }
+
+  return $snow_settings;
+
+}
 
 /**
  * 2).Get Logo url
@@ -75,6 +95,14 @@ if ( ! function_exists( 'snow_theme_logo' ) ) :
       $site_logo = get_snow_theme_logo();
       $itemtype = isset($schema['itemtype']) ? $schema['itemtype'] : '';
       $class = isset($custom_class) ? $custom_class : '';
+
+      if(!get_snow_theme_logo()){
+        if( current_user_can( 'administrator' ) ):
+          return sprintf('<span>%s</span>', esc_html__('Add a logo from theme settings', 'snow'));
+        else:
+          return;
+        endif;
+      }
 
       // Link attributes
       $title = get_bloginfo('description');

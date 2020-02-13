@@ -58,3 +58,9 @@ Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-me
 @import '4-elements/lists';//.............................................UL, OL element styles.
 @import '4-elements/tables';//............................................Ensure tables fill up as much space as possible.
 @import '4-elements/fieldset';//..........................................Group related elements in a form.
+
+// -----------------------------------------------------------------------------------------------------------
+// Componens - Unclassed HTML elements (type selectors).
+// -----------------------------------------------------------------------------------------------------------
+
+@import '5-components/header';//........................................Site header component.
