@@ -21,7 +21,7 @@ get_header(); ?>
 
 			if ( is_singular( 'post' ) ) {
 				// Previous/next post navigation.
-				echo autumn_the_post_navigation ('Previous', 'Next');
+				//echo autumn_the_post_navigation ('Previous', 'Next');
 			}
 			// End of the loop.
 		endwhile;

@@ -15,34 +15,28 @@
   
 <div class="container-fluid">
   <div class="row between-xs">
-    <div class="col-xs-4">
-      <div itemprop class="c-sidebar__logo">
-        <?php get_template_part( 'template-parts/header/site', 'branding' ); ?>
+    <div itemprop class="c-header__logo c-header__logo--has-background col-xs-2">
+      <?php get_template_part( 'template-parts/header/site', 'branding' ); ?>
+    </div>
+
+    <!--
+      SEARCH FORM
+      Html stored in ./searchform.php
+    
+    <div class="c-header__search-bar">
+      <?php //get_template_part('searchform'); ?>
+    </div>-->
+
+    <nav class="c-header__navbar navbar navbar-expand-lg col-xs-10">
+
+      <!--
+        SITE NAVIGATION DESKTOP
+        Html stored in ./template-parts/header/site-navigation.php
+      -->
+      <div class="c-header__nav collapse navbar-collapse" id="navbarSupportedContent" role="navigation" aria-label="<?php esc_attr_e('Main Menu', 'snow'); ?>">
+        <?php get_template_part('template-parts/header/site', 'navigation'); ?>
       </div>
-    </div>
-
-    <div class="col-xs-8">
-      <nav class="c-header__desktop navbar navbar-expand-lg">
-
-          <!--
-            SEARCH FORM
-            Html stored in ./searchform.php
-          -->
-          <div class="c-header__search-bar">
-            <?php get_template_part('searchform'); ?>
-          </div>
-
-          <!--
-            SITE NAVIGATION DESKTOP
-            Html stored in ./template-parts/header/site-navigation.php
-          -->
-          <div class="c-header__nav collapse navbar-collapse" id="navbarSupportedContent" role="navigation" aria-label="<?php esc_attr_e('Main Menu', 'autumn'); ?>">
-            <?php get_template_part('template-parts/header/site', 'navigation'); ?>
-          </div>
-
-      </nav>
-    </div>
-
+      
+    </nav>  
   </div>
-
 </div>

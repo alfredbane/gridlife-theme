@@ -27,13 +27,11 @@
 	<body <?php body_class(); ?>>
 
 		<header class="c-site-header">
-			<div class="flex-container">
 
-				<!--
-						SITE HEADER
-						Html stored in ./template-parts/header/site-desktop-header.php
-					-->
-					<?php get_template_part('template-parts/header/site', 'header'); ?>
+			<!--
+				SITE HEADER
+				Html stored in ./template-parts/header/site-desktop-header.php
+			-->
+			<?php get_template_part('template-parts/header/site', 'header'); ?>
 
-			</div>
 		</header>
