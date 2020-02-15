@@ -1,11 +1,22 @@
 .c-article {
 
     min-height: 275px;
+    position: relative;
 
     &.has-Background-img {
 	    background-position: center;
 	    background-size: cover;
 	    background-repeat: no-repeat;
+
+	    &::before {
+		    content: '';
+		    position: absolute;
+		    height: 100%;
+		    background-color: 
+		    rgba(0,0,0,0.2);
+		    width: 100%;
+		    z-index: 1;
+		}
 	}
 
 }
@@ -14,7 +25,7 @@
 
 	.c-article {
 
-    	min-height: 183px;
+    	min-height: 183.5px;
 
 	}
 

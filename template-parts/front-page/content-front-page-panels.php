@@ -11,7 +11,7 @@
 
 <section class="section c-section">
 	<div class="row">
-		<div class="col-xs-8">
+		<div class="col-xs-8 no-padding-right">
 			<div class="c-section-item c-slider">
 				<?php
 					// args
@@ -73,7 +73,7 @@
 				?>
 			</div>	
 		</div>
-		<div class="col-xs-4">
+		<div class="col-xs-4 no-padding-left">
 			<div class="c-section-item c-slider c-section-compact">
 				<?php
 					// args

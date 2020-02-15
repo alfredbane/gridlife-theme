@@ -12,7 +12,8 @@
  */
 
 ?>
-
+		
+		<div class="copyright"> <span>COPYRIGHT | Pragati media</span> </div>
 			<?php wp_footer(); ?>
 		</div>
 	</body>
