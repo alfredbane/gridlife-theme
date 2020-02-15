@@ -8,7 +8,12 @@
  */
 
 get_header(); ?>
+<?php 
 
+print_r(get_field('the_post_top_story', get_option('page_for_posts'))); 
+
+
+?>
 <div id="primary" class="content-area">
 	<main id="main" class="site-main" role="main">
 		<?php

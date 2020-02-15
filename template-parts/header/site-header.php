@@ -14,7 +14,7 @@
 
   
 <div class="container-fluid">
-  <div class="row between-xs">
+  <div class="row between-xs top-xs">
     <div itemprop class="c-header__logo c-header__logo--has-background col-xs-2">
       <?php get_template_part( 'template-parts/header/site', 'branding' ); ?>
     </div>

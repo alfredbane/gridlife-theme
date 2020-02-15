@@ -1,5 +1,5 @@
 /**
- * Autumn theme helper Js
+ * Snow theme helper Js
  *
  * Includes functions for altering theme
  * behaviour using javascript
@@ -47,6 +47,28 @@
 
 
 $(document).ready(function(){
+
+
+  $('#site-content').pagepiling({
+      menu: null,
+      direction: 'vertical',
+      verticalCentered: false,
+      scrollingSpeed: 700,
+      easing: 'swing',
+      loopBottom: false,
+      loopTop: false,
+      css3: false,
+      normalScrollElements: null,
+      normalScrollElementTouchThreshold: 5,
+      touchSensitivity: 5,
+      keyboardScrolling: true,
+      sectionSelector: '.section',
+      animateAnchor: false,
+      //events
+      onLeave: function(index, nextIndex, direction){},
+      afterLoad: function(anchorLink, index){},
+      afterRender: function(){},
+  });
 
   // This needs only be called once and does not
   // have to be called from within a "ready" block
@@ -98,62 +120,6 @@ $(document).ready(function(){
     init();
   })();
 
-  // Mobile navigation toggle ends
-
-  // Select html ovverride by bootstrap selectpicker
-  $('select').selectpicker();
-
-  // ---------- WOOCOMMERCE -------------
-
-  // 1). WooCommerce image hover on archive pages
-  var $onPage = $('.post-type-archive-product');
-  var $imageSelector = $onPage.find('li.product img');
-
-  $.each($imageSelector, function(){
-    var $targetSrc = $(this).attr('src');
-    var $targetHoverSrc = $(this).attr('data-hover-src');
-    var fadeOutSpeed = 0;
-    var fadeInSpeed = 0;
-
-    if( $targetHoverSrc ) {
-
-      $(this).hover(function(){
-        //this code will execute when mouse enters the html element
-        $(this).fadeOut(fadeOutSpeed, function() {
-            $(this).attr('src', $targetHoverSrc).fadeIn(fadeInSpeed);
-            $(this).attr('data-hover-src', $targetSrc);
-        });
-
-      },
-      function(){
-        //this code will execute when mouse leaves the html element
-        $(this).fadeOut(fadeOutSpeed, function() {
-            $(this).attr('src', $targetSrc).fadeIn(fadeInSpeed);
-            $(this).attr('data-hover-src', $targetHoverSrc);
-        });
-      });
-
-    }
-
-  });
-
-  $('.woo-main-image-slider').slick({
-    infinite: false,
-    arrow: true,
-    fade: true,
-  });
-  $('.woo-child-image-slider').slick({
-    infinite: false,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    asNavFor: '.woo-main-image-slider',
-    focusOnSelect: true,
-    vertical: true,
-	  verticalSwiping: true,
-  });
-
-});
-
 
     // Header scroll animation
 
@@ -173,5 +139,6 @@ $(document).ready(function(){
         }
 
       });
+  });
 
 })(jQuery);

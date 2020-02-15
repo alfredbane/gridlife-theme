@@ -60,8 +60,17 @@ Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-me
 @import '4-elements/fieldset';//..........................................Group related elements in a form.
 
 // -----------------------------------------------------------------------------------------------------------
-// Componens - Unclassed HTML elements (type selectors).
+// Components - Unclassed HTML elements (type selectors).
 // -----------------------------------------------------------------------------------------------------------
 
 @import '5-components/header';//........................................Site header component.
 @import '5-components/navbar';//........................................Site header navbar component.
+@import '5-components/page';//........................................Site page component.
+@import '5-components/article';//........................................Article block component.
+
+// -----------------------------------------------------------------------------------------------------------
+// Objects - Main wrapper elements like grids, containers (type selectors).
+// -----------------------------------------------------------------------------------------------------------
+
+@import '6-object/main';//........................................Site header component.
+@import '6-object/grid';//........................................Site flex box grid override.

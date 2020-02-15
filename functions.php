@@ -302,7 +302,7 @@ function snow_scripts() {
 	wp_enqueue_style( 'snow-flexbox', 'https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css', array(), '6.3.1' );
 
 	// Theme FullPage concept css
-	wp_enqueue_style( 'snow-fullpage-css', get_template_directory_uri() . '/assets/vendor/fullPageJs/fullpage.css', array(), '3.0.8' );
+	wp_enqueue_style( 'snow-pagepiling-css', get_template_directory_uri() . '/assets/vendor/PagePilingJs/jquery.pagepiling.css', array(), '3.0.8' );
 
 	// Theme stylesheet. rand() to avoid caching issues
 	wp_enqueue_style( 'snow-style', get_stylesheet_uri(), array('snow-flexbox'), rand(100,999) );
@@ -311,14 +311,29 @@ function snow_scripts() {
 	// snow SmoothState support
 	wp_enqueue_script( 'snow-smoothstate', get_template_directory_uri() . '/assets/vendor/jquery.smoothState.min.js', array('jquery'), '1.0.0', true );
 
-	// snow FullPage Js support
-	wp_enqueue_script( 'snow-fullpage-easing', get_template_directory_uri() . '/assets/vendor/fullPageJs/vendors/easings.min.js', array('jquery'), '1.0.3', true );
-	wp_enqueue_script( 'snow-fullpage-overflow', get_template_directory_uri() . '/assets/vendor/fullPageJs/vendors/scrolloverflow.min.js', array('jquery'), '2.0.5', true );
-	wp_enqueue_script( 'snow-fullpage', get_template_directory_uri() . '/assets/vendor/fullPageJs/fullpage.js', array('jquery', 'snow-fullpage-easing', 'snow-fullpage-overflow'), '3.0.8', true );
+	// snow PagePiling Js support
+	wp_enqueue_script( 'snow-pagepiling', get_template_directory_uri() . '/assets/vendor/PagePilingJs/jquery.pagepiling.min.js', array('jquery'), '2.0.5', true );
 
+	//1. snow Helper scripts
 
-	// snow Helper scripts
+	/** 
+	 * 1.1 General helper Jquery modifications 
+	 * for theme. 
+	 *
+	 * @depends jQuery
+	 * @version 1.0.0
+	 * 
+	 */	
 	wp_enqueue_script( 'snow-helper', get_template_directory_uri() . '/assets/js/snow-helper.js', array('jquery'), '1.0.0', true );	
+
+	/** 
+	 * 1.2 SmoothState Init jQuery for snow. 
+	 *
+	 * @depends jQuery, snow-helper
+	 * @version 1.0.0
+	 * 
+	 */	
+	wp_enqueue_script( 'snow-ss-init', get_template_directory_uri() . '/assets/js/snow-smoothstate.js', array('jquery', 'snow-helper'), '1.0.0', true );	
 
 	// Load the html5 shiv.
 	wp_enqueue_script( 'snow-html5', get_template_directory_uri() . '/assets/vendor/html5.js', array(), '3.7.3' );

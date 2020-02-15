@@ -17,9 +17,11 @@
 get_header();
 ?>
 
-<main id="site-content" role="main">
+<main id="site-content" class="c-main-content" role="main">
 
-
+	<?php 
+		get_template_part('template-parts/front-page/content','front-page-panels');
+	?>
 	
 </main><!-- #site-content -->
 

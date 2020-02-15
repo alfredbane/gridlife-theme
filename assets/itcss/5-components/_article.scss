@@ -1,0 +1,21 @@
+.c-article {
+
+    min-height: 275px;
+
+    &.has-Background-img {
+	    background-position: center;
+	    background-size: cover;
+	    background-repeat: no-repeat;
+	}
+
+}
+
+.c-section-compact {
+
+	.c-article {
+
+    	min-height: 183px;
+
+	}
+
+}

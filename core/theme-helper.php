@@ -275,3 +275,39 @@ function snow_post_header_counter() {
   return sprintf("%02d", $calculate_count);
 
 }
+
+/**
+  * Add admin_ajax for top story toggle feature in post list. 
+  * Works in dependency with ACF plugin.
+  * @since snow 1.0
+  */
+
+if(class_exists('ACF')) :
+
+add_action('wp_ajax_toggle_topstory', 'snow_toggle_topstory_function');
+
+function snow_toggle_topstory_function(){
+
+    $fieldname = 'the_post_top_story';
+    
+    $post_id = $_POST['currentID'];
+
+    $value = ( $_POST['fieldValue'] === 'true' ) ? 1 : 0;
+    
+    update_field('field_5e47bac63f1af', $value, $post_id);
+
+    //Don't forget to always exit in the ajax function.
+    exit();
+
+}
+
+/**
+ * Register and enqueue a custom stylesheet in the WordPress admin.
+ */
+function snow_enqueue_custom_admin_script() {
+    // snow SmoothState support
+  wp_enqueue_script( 'snow-admin-helper', get_template_directory_uri() . '/assets/js/admin/snow-admin-helper-script.js', array(), '1.0.0', true );
+}
+add_action( 'admin_enqueue_scripts', 'snow_enqueue_custom_admin_script' );
+
+endif;
