@@ -1,0 +1,36 @@
+.c-slider {
+
+	.slick-dots {
+	    bottom: 0;
+	    width: auto;
+	    right: 0;
+	    margin: 10px;
+
+	    li {
+		    margin: 0;
+
+		    button {
+
+		    	&::before {
+		    		font-size: 32px;
+		    	}
+
+		    }
+
+		    &.slick-active {
+		    	
+		    	button {
+
+		    		&::before{
+		    			color: palette(mono, white);
+		    		}
+
+		    	}
+
+		    }
+
+		}
+
+	}
+
+}

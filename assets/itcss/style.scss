@@ -58,6 +58,7 @@ Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-me
 @import '4-elements/lists';//.............................................UL, OL element styles.
 @import '4-elements/tables';//............................................Ensure tables fill up as much space as possible.
 @import '4-elements/fieldset';//..........................................Group related elements in a form.
+@import '4-elements/icons';//...........................................Site wide icons layout and styling.
 
 // -----------------------------------------------------------------------------------------------------------
 // Components - Unclassed HTML elements (type selectors).
@@ -67,6 +68,7 @@ Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-me
 @import '5-components/navbar';//........................................Site header navbar component.
 @import '5-components/page';//........................................Site page component.
 @import '5-components/article';//........................................Article block component.
+@import '5-components/footer';//........................................Footer component.
 
 // -----------------------------------------------------------------------------------------------------------
 // Objects - Main wrapper elements like grids, containers (type selectors).
@@ -74,3 +76,4 @@ Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-me
 
 @import '6-object/main';//........................................Site header component.
 @import '6-object/grid';//........................................Site flex box grid override.
+@import '6-object/slick';//........................................Site slick slider override.

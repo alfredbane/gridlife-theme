@@ -1,0 +1,20 @@
+.c-social-media {
+	text-align: right;
+	li {
+
+		display:inline;
+
+		&:last-child {
+			a {
+				padding-right: 0;
+			}
+		}
+
+		a{
+			padding: 0 10px;
+			font-size: 15px;
+		}
+
+	}
+
+}

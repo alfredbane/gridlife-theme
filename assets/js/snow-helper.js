@@ -77,8 +77,6 @@ $(document).ready(function(){
 
   $('.c-header__search-bar-form').searchFormSubmit();
 
-
-
   /**
    * Mobile navigation toggle
    */

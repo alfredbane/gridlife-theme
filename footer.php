@@ -12,9 +12,25 @@
  */
 
 ?>
-		
-		<div class="copyright"> <span>COPYRIGHT | Pragati media</span> </div>
-			<?php wp_footer(); ?>
-		</div>
+		<footer class="c-footer c-footer-fix">
+			<div class="container-fluid">
+				<div class="row between-xs">
+					<div class="col-xs-6">
+						<div class="box">
+							<?php get_template_part('template-parts/footer/footer','bottom'); ?>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<div class="box">
+							 <div class="c-footer-social-media">
+							      <!--- Social media links -->
+							      <?php get_template_part( 'template-parts/socialmedia' ); ?>
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<?php wp_footer(); ?>
 	</body>
 </html>

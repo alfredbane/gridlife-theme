@@ -431,73 +431,74 @@
     ) );
 
     // -> START Footer settings
-    Redux::setSection( $opt_name, array(
-        'title' => __( 'Slider settings', 'snow' ),
-        'id'    => 'slider-settings',
-        'desc'  => __( 'Add all the site wide default slider settings like slider orientation, slider speed, slider navigation controls, slider image count etc. These settings can be overriden from individual pages', 'snow' ),
-        'icon'  => 'el el-laptop',
-        'fields'     => array(
-          array(
-              'id'            => 'opt-show-slides',
-              'type'          => 'slider',
-              'title'         => __( 'Show images', 'snow' ),
-              'subtitle'      => __( 'Number of images to be shown on slider init or page load. cannot be maximum than total images', 'snow' ),
-              'desc'          => __( 'Min: 1, max: 10, step: 1, default value: 2', 'snow' ),
-              'default'       => 2,
-              'min'           => 1,
-              'step'          => 1,
-              'max'           => 10,
-              'display_value' => 'label'
-          ),
-          array(
-              'id'            => 'opt-image-slides',
-              'type'          => 'slider',
-              'title'         => __( 'Slide images', 'snow' ),
-              'subtitle'      => __( 'Number of images to slide on slider interaction. Make sure to always keep the value equal to or less than total, otherwise slider will break', 'snow' ),
-              'desc'          => __( 'Min: 1, max: 4, step: 1, default value: 1', 'snow' ),
-              'default'       => 1,
-              'min'           => 1,
-              'step'          => 1,
-              'max'           => 4,
-              'display_value' => 'label'
-          ),
-          array(
-              'id'       => 'opt-display-dots',
-              'type'     => 'switch',
-              'title'    => 'Display dots',
-              'subtitle' => 'Display navigation dots below slider. This is a default setting and can be overriden within the page.',
-              'default'  => false
-          ),
-          array(
-              'id'       => 'opt-infinite-scroll',
-              'type'     => 'switch',
-              'title'    => 'Enable Infinite Scroll',
-              'subtitle' => 'Enable slider content scroll infinitely. The slider will always repeat images once all images are shown. This is a default setting and can be overriden within the page.',
-              'default'  => false
-          ),
-          array(
-              'id'       => 'opt-autoscroll',
-              'type'     => 'switch',
-              'title'    => 'Enable Autoscroll',
-              'subtitle' => 'Enable slider autoscroll. Images will change / slide automatically after a given time threshold. This is a default setting and can be overriden within the page.',
-              'default'  => false
-          ),
-          array(
-              'id'            => 'opt-scroll-speed',
-              'type'          => 'slider',
-              'title'         => __( 'Autoscroll Speed', 'snow' ),
-              'subtitle'      => __( 'Autoscrll speed for the slider. This setting will work only if autoscroll setting above is enabled.', 'snow' ),
-              'desc'          => __( 'Min: 1, max: 4, step: 1, default value: 1', 'snow' ),
-              'default'       => 1,
-              'min'           => 1,
-              'step'          => 1,
-              'max'           => 4,
-              'required' => array('opt-autoscroll','equals',true),
-              'display_value' => 'label'
-          ),
-        ),
+    // Redux::setSection( $opt_name, array(
+    //     'title' => __( 'Slider settings', 'snow' ),
+    //     'id'    => 'slider-settings',
+    //     'desc'  => __( 'Add all the site wide default slider settings like slider orientation, slider speed, slider navigation controls, slider image count etc. These settings can be overriden from individual pages', 'snow' ),
+    //     'icon'  => 'el el-laptop',
+    //     'fields'     => array(
+    //       array(
+    //           'id'            => 'opt-show-slides',
+    //           'type'          => 'slider',
+    //           'title'         => __( 'Show images', 'snow' ),
+    //           'subtitle'      => __( 'Number of images to be shown on slider init or page load. cannot be maximum than total images', 'snow' ),
+    //           'desc'          => __( 'Min: 1, max: 10, step: 1, default value: 2', 'snow' ),
+    //           'default'       => 2,
+    //           'min'           => 1,
+    //           'step'          => 1,
+    //           'max'           => 10,
+    //           'display_value' => 'label'
+    //       ),
+    //       array(
+    //           'id'            => 'opt-image-slides',
+    //           'type'          => 'slider',
+    //           'title'         => __( 'Slide images', 'snow' ),
+    //           'subtitle'      => __( 'Number of images to slide on slider interaction. Make sure to always keep the value equal to or less than total, otherwise slider will break', 'snow' ),
+    //           'desc'          => __( 'Min: 1, max: 4, step: 1, default value: 1', 'snow' ),
+    //           'default'       => 1,
+    //           'min'           => 1,
+    //           'step'          => 1,
+    //           'max'           => 4,
+    //           'display_value' => 'label'
+    //       ),
+    //       array(
+    //           'id'       => 'opt-display-dots',
+    //           'type'     => 'switch',
+    //           'title'    => 'Display dots',
+    //           'subtitle' => 'Display navigation dots below slider. This is a default setting and can be overriden within the page.',
+    //           'default'  => false
+    //       ),
+    //       array(
+    //           'id'       => 'opt-infinite-scroll',
+    //           'type'     => 'switch',
+    //           'title'    => 'Enable Infinite Scroll',
+    //           'subtitle' => 'Enable slider content scroll infinitely. The slider will always repeat images once all images are shown. This is a default setting and can be overriden within the page.',
+    //           'default'  => false
+    //       ),
+    //       array(
+    //           'id'       => 'opt-autoscroll',
+    //           'type'     => 'switch',
+    //           'title'    => 'Enable Autoscroll',
+    //           'subtitle' => 'Enable slider autoscroll. Images will change / slide automatically after a given time threshold. This is a default setting and can be overriden within the page.',
+    //           'default'  => false
+    //       ),
+    //       array(
+    //           'id'            => 'opt-scroll-speed',
+    //           'type'          => 'slider',
+    //           'title'         => __( 'Autoscroll Speed', 'snow' ),
+    //           'subtitle'      => __( 'Autoscrll speed for the slider. This setting will work only if autoscroll setting above is enabled.', 'snow' ),
+    //           'desc'          => __( 'Min: 1, max: 4, step: 1, default value: 1', 'snow' ),
+    //           'default'       => 1,
+    //           'min'           => 1,
+    //           'step'          => 1,
+    //           'max'           => 4,
+    //           'required' => array('opt-autoscroll','equals',true),
+    //           'display_value' => 'label'
+    //       ),
+    //     ),
+    //   )
 
-    ) );
+    // );
 
     Redux::setSection( $opt_name, array(
         'title'            => __( 'Google settings', 'snow' ),

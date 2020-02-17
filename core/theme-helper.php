@@ -28,6 +28,13 @@
 add_filter( 'widget_text', 'do_shortcode' );
 
 /**
+  * Schema-builder for snow.
+  */
+
+require_once( dirname( __FILE__ ) . '/schema-config/config.php' );
+require_once( dirname( __FILE__ ) . '/schema-config/theme-schema-helper.php' );
+
+/**
  * 1).Theme options global
  * Load the global autumn settings variable from redux
  * @return array

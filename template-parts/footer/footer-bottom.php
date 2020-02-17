@@ -7,7 +7,8 @@
  * @subpackage autumn
  * @since Autumn 1.0
  */
- global $autumn_settings;
+
+$theme_settings = snow_settings(); 
 
 ?>
 
@@ -15,9 +16,9 @@
 
    <span class="c-footer__copyright-content">
      <?php
-       if( $autumn_settings['opt-copyright-text'] ) :
+       if( $theme_settings['opt-copyright-text'] ) :
 
-         echo $autumn_settings['opt-copyright-text'];
+         echo $theme_settings['opt-copyright-text'];
 
        else:
 
@@ -30,9 +31,3 @@
      ?>
    </span>
 </div>
-
-<?php if ($autumn_settings['opt-footer-image']) : ?>
-  <div class="c-footer__payment-img">
-     <img alt=<?php echo __("Available payment options") ?> src=<?php echo $autumn_settings['opt-footer-image']['url'] ?> class="o-icon__user">
-  </div>
-<?php endif; ?>
