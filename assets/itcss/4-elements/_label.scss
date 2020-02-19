@@ -1,0 +1,46 @@
+.c-article {
+
+	.c-classification {
+		
+		font-family: $secondary-font;
+		font-weight: bold;
+		position: relative;
+		margin-bottom: 10px;
+		display: block;
+		
+		&::after {
+
+		    content: "";
+		    width: 50px;
+		    display: block;
+		    height: 5px;
+		    background-color: palette(green, dark);
+		    position: absolute;
+		    bottom: 0;
+
+		}
+
+		&.color-blue {
+			color: palette(blue, base);
+			&::after {
+				background-color: palette(blue, base);
+			}
+		}
+
+		&.color-red {
+			color: palette(red, base);
+			&::after {
+				background-color: palette(red, base);
+			}
+		}
+
+		&.color-yellow {
+			color: palette(yellow, base);
+			&::after {
+				background-color: palette(yellow, base);
+			}
+		}
+
+	}
+
+}

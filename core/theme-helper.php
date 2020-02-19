@@ -283,6 +283,32 @@ function snow_post_header_counter() {
 
 }
 
+/** 
+ * Get category list for post categories with ACF labels.
+ * 
+ */
+
+function snow_get_post_categories(int $post_ID, boolean $list=null) {
+
+    $getCategoryTerms = get_the_terms( $post_ID, 'category' ); //as it's returning an array
+    
+    $html = '';
+
+    foreach ( $getCategoryTerms as $category_term ) {
+
+        $html .= wp_sprintf('<label class="c-classification color-%1$s" for="article-%2$s"><a href="%3$s" alt="%4$s">%4$s</a></label>',
+          find_and_get_field(get_field('category_color_code', $category_term)),
+          $post_ID,
+          esc_url(get_category_link($category_term->term_id)),
+          esc_html__($category_term->name)
+        );
+
+    }
+
+    return $html;
+
+}
+
 /**
   * Add admin_ajax for top story toggle feature in post list. 
   * Works in dependency with ACF plugin.
@@ -318,3 +344,17 @@ function snow_enqueue_custom_admin_script() {
 add_action( 'admin_enqueue_scripts', 'snow_enqueue_custom_admin_script' );
 
 endif;
+
+/** 
+  Get field in templates after checking if exists 
+*/
+
+function find_and_get_field($field_callback) {
+
+  if(!class_exists('ACF')) :
+    return ;
+  endif;  
+
+  return $field_callback;
+  
+}

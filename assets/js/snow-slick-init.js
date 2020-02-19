@@ -33,6 +33,7 @@
       var mouseScroll = $this.attr('data-mousescroll') ? $this.attr('data-mousescroll') : false;
       var slideSpeed = $this.attr('data-slidespeed') ? parseInt ($this.attr('data-slidespeed')) : 1000;
       var sliderTransition = $this.attr('data-fade') ? true : false;
+      var easeValue = sliderTransition ? 'linear' : '';
       var autoPlay = $this.attr('data-autoplay') ? $this.attr('data-autoplay') : false;
       var touchThreshold = 1000;
       var getMobileSlides = $this.attr('data-slidestoshowinmobile') ? $this.attr('data-slidestoshowinmobile') : 1;
@@ -70,7 +71,7 @@
 
       if($this.children().length > 1) {
 
-        if($this.find('.c-banner__counter').length > 1) {
+        if($this.parent().find('.c-banner__counter').length > 1) {
 
           $this.on('init afterChange beforeChange', function(event, slick, currentSlide, nextSlide){
 
@@ -89,10 +90,38 @@
                 totalSlideCount = slick.slideCount;
               }
 
-              $this.find(currentSlideSelector).text(currentSlideCount);
-              $this.find(totalSlideSelector).text(totalSlideCount);
+              $this.parent().find(currentSlideSelector).text(currentSlideCount);
+              $this.parent().find(totalSlideSelector).text(totalSlideCount);
 
           });
+        }
+
+        if($this.children().length > 1) {
+
+          if($this.find('.c-banner__counter').length > 1) {
+
+            $this.on('init afterChange beforeChange', function(event, slick, currentSlide, nextSlide){
+
+                //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+                var i = (currentSlide ? currentSlide : 0) + 1;
+
+                if (i.toString().length === 1) {
+                  currentSlideCount = "0" + i;
+                } else {
+                  currentSlideCount = i;
+                }
+
+                if (slick.slideCount.toString().length === 1) {
+                  totalSlideCount = "0" + slick.slideCount;
+                } else {
+                  totalSlideCount = slick.slideCount;
+                }
+
+                $this.find(currentSlideSelector).text(currentSlideCount);
+                $this.find(totalSlideSelector).text(totalSlideCount);
+
+            });
+          }
         }
 
         $this.slick({
@@ -101,13 +130,14 @@
            slidesToScroll: slidesToScroll,
            fade: sliderTransition,
            autoplay: autoPlay,
-           autoplaySpeed: slideSpeed*1000,
+           autoplaySpeed: slideSpeed,
            dots: slideDotNav,
            arrows: false,
            centerMode: slideCenterMode,
            centerPadding: slideCenterPadding,
            touchThreshold: touchThreshold,
-           responsive: responsiveINIT
+           responsive: responsiveINIT,
+           cssEase: easeValue 
         });
 
         prevArrow.click(function(){

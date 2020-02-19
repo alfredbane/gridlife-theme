@@ -15,13 +15,13 @@ function get_schema() {
 
 		'excerpt' => array(
 
-			'itemtype' => "http://schema.org/Newspaper",
+			'itemtype' => "http://schema.org/NewsArticle",
 			'itemproptitle' => "name",
-			'itempropurl' => "url"
+			'itempropurl' => "url",
 			
 		),
 		'article' => array(
-			'itemtype' => "http://schema.org/Newspaper",
+			'itemtype' => "http://schema.org/NewsArticle",
 		),
 
 
