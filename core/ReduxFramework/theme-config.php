@@ -306,7 +306,38 @@
         )
     ) );
 
-    // -> START General settings
+    // -> START Home page settings
+    Redux::setSection( $opt_name, array(
+        'title'            => __( 'Home settings', 'snow' ),
+        'id'               => 'home',
+        'icon'             => 'el el-magic',
+    ) );
+
+    // -> Home page first section settings
+    Redux::setSection( $opt_name, array(
+        'title' => __( 'First Section', 'snow' ),
+        'id'    => 'home-first-settings',
+        'desc'  => __( 'Add categories for first section on home page, add category slug here instead of name.', 'snow' ),
+        'icon'  => 'el el-file',
+        'subsection' => true,
+        'fields'     => array(
+            array(
+                'id'       => 'first-section-left-bottom',
+                'type'     => 'text',
+                'title'    => __( 'Left Bottom Category', 'snow' ),
+                'subtitle' => __( 'Add name of existing category term from post type to display on left bottom of home page first section.', 'snow' ),
+            ),
+            array(
+                'id'       => 'first-section-right-column',
+                'type'     => 'text',
+                'title'    => __( 'Right Column Categories', 'snow' ),
+                'subtitle' => __( 'Add comma separated name of existing category term from post type to display on right of home page first section.', 'snow' ),
+            ),
+        )
+    ) );
+
+
+    // -> START Contact settings
     Redux::setSection( $opt_name, array(
         'title'            => __( 'Contact settings', 'snow' ),
         'id'               => 'contact',

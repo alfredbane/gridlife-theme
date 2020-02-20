@@ -21,6 +21,7 @@
 
       var $this = $(this);
 
+      var slideTarget = $this.attr('data-slide') ? $this.attr('data-slide') : '';
       var slidesToShow = $this.attr('data-slidestoshow') ? $this.attr('data-slidestoshow') : 1;
       var slideInfniteScroll = $this.attr('data-infinite') ? true : false;
       var slideDotNav = ( $this.attr('data-dotnav') === "true") ? true : false;
@@ -41,8 +42,6 @@
 
 
       var currentSlideSelector = $('.c-banner__counter-current');
-      var totalSlideSelector = $('.c-banner__counter-total');
-      var totalSlideCount = '';
       var currentSlideCount = '';
 
       var responsiveINIT = '';
@@ -70,11 +69,11 @@
 
 
       if($this.children().length > 1) {
+        
 
-        if($this.parent().find('.c-banner__counter').length > 1) {
+        if($this.find('.c-banner__counter')) {
 
           $this.on('init afterChange beforeChange', function(event, slick, currentSlide, nextSlide){
-
               //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
               var i = (currentSlide ? currentSlide : 0) + 1;
 
@@ -84,60 +83,27 @@
                 currentSlideCount = i;
               }
 
-              if (slick.slideCount.toString().length === 1) {
-                totalSlideCount = "0" + slick.slideCount;
-              } else {
-                totalSlideCount = slick.slideCount;
-              }
-
-              $this.parent().find(currentSlideSelector).text(currentSlideCount);
-              $this.parent().find(totalSlideSelector).text(totalSlideCount);
+              $this.find(currentSlideSelector).text(currentSlideCount);
 
           });
         }
 
-        if($this.children().length > 1) {
-
-          if($this.find('.c-banner__counter').length > 1) {
-
-            $this.on('init afterChange beforeChange', function(event, slick, currentSlide, nextSlide){
-
-                //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
-                var i = (currentSlide ? currentSlide : 0) + 1;
-
-                if (i.toString().length === 1) {
-                  currentSlideCount = "0" + i;
-                } else {
-                  currentSlideCount = i;
-                }
-
-                if (slick.slideCount.toString().length === 1) {
-                  totalSlideCount = "0" + slick.slideCount;
-                } else {
-                  totalSlideCount = slick.slideCount;
-                }
-
-                $this.find(currentSlideSelector).text(currentSlideCount);
-                $this.find(totalSlideSelector).text(totalSlideCount);
-
-            });
-          }
-        }
 
         $this.slick({
-           infinite:slideInfniteScroll,
-           slidesToShow: slidesToShow,
-           slidesToScroll: slidesToScroll,
-           fade: sliderTransition,
-           autoplay: autoPlay,
-           autoplaySpeed: slideSpeed,
-           dots: slideDotNav,
-           arrows: false,
-           centerMode: slideCenterMode,
-           centerPadding: slideCenterPadding,
-           touchThreshold: touchThreshold,
-           responsive: responsiveINIT,
-           cssEase: easeValue 
+          slide: slideTarget,
+          infinite:slideInfniteScroll,
+          slidesToShow: slidesToShow,
+          slidesToScroll: slidesToScroll,
+          fade: sliderTransition,
+          autoplay: autoPlay,
+          autoplaySpeed: slideSpeed,
+          dots: slideDotNav,
+          arrows: false,
+          centerMode: slideCenterMode,
+          centerPadding: slideCenterPadding,
+          touchThreshold: touchThreshold,
+          responsive: responsiveINIT,
+          cssEase: easeValue 
         });
 
         prevArrow.click(function(){
@@ -148,21 +114,16 @@
           $(this).parent().parent().find('.slick-slider').slick('slickNext');
         });
 
-      } else {
+    }
 
-        // prevArrow.remove();
-        // nextArrow.remove();
-        $this.find('.c-banner__counter').remove();
+  });
 
-      }
-
-    });
   };
 
   $(document).ready(function(){
 
     $('.c-slider').initSlider();
 
-  })
+  });
 
 })(jQuery);

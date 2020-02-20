@@ -21,12 +21,12 @@ $theme_settings = snow_settings();
 
 		$tax_Query = array();
 
-		if($theme_settings['first-section-left-bottom']) {
+		if($theme_settings['first-section-right-column']) {
 
 			$tax_Query = array(
 		        'taxonomy' => 'category', //double check your taxonomy name in you dd 
 		        'field'    => 'slug',
-		        'terms'    => $theme_settings['first-section-left-bottom'],
+		        'terms'    => explode(",", $theme_settings['first-section-right-column']),
 		    );
 		}
 

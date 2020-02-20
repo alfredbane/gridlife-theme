@@ -9,6 +9,21 @@
      &.slick-slider{
      	margin-bottom: 0px;
      }
+
+
+	.c-slider-meta {
+		position: absolute;
+		padding: 15px 20px;
+	    right: 0;
+	    z-index: 1;
+	    color: palette(mono, white);
+	    text-transform: uppercase;
+
+	    svg {
+	    	margin-right: 10px;
+	    	font-size: 25px;
+	    }
+	}
      
 	.slick-dots {
 	    bottom: 0;

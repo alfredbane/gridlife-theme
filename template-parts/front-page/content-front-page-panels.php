@@ -11,12 +11,20 @@
 
 <section class="section c-section">
 	<div class="row">
+
 		<div class="col-xs-8 no-padding-right">
+
 			<?php get_template_part( 'template-parts/front-page/panels/page', 'topleft' ); ?>
+
 			<?php get_template_part( 'template-parts/front-page/panels/page', 'bottomleft' ); ?>
+
 		</div>
-		<div class="col-xs-4 no-padding-left">
+
+		<div class="col-xs-4 no-padding-left compact">
+
+			<?php get_template_part( 'template-parts/front-page/panels/page', 'right' ); ?>
 			
 		</div>
+
 	</div>
 </section>
