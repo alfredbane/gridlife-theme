@@ -51,11 +51,11 @@
 
 				while($the_query->have_posts()) : $the_query->the_post();
 
-					get_template_part( 'template-parts/front-page/content', 'panel' );
+					echo snow_article_layout();
 
 				endwhile;
 
-				wp_reset_query();
+				wp_reset_postdata();
 				
 			endif;
 

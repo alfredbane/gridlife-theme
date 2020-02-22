@@ -1,6 +1,6 @@
 <?php
 /**
- * Template sub-part for displaying bottom left on front page
+ * Template sub-part for displaying category based post on front page
  *
  * @package WordPress
  * @subpackage Snow
@@ -21,17 +21,8 @@ $theme_settings = snow_settings();
 
 		$tax_Query = array();
 
-		if($theme_settings['first-section-left-bottom']) {
-
-			$tax_Query = array(
-		        'taxonomy' => 'category', //double check your taxonomy name in you dd 
-		        'field'    => 'slug',
-		        'terms'    => $theme_settings['first-section-left-bottom'],
-		    );
-		}
-
 		$args = array(
-			'numberposts'	=> 1,
+			'numberposts'	=> 4,
 			'post_type'		=> 'post',
 			'tax_query' => array($tax_Query),
 		);
@@ -42,7 +33,11 @@ $theme_settings = snow_settings();
 
 			while($the_query->have_posts()) : $the_query->the_post();
 
-				get_template_part( 'template-parts/front-page/content', 'panel' );
+				$postindex = $the_query->current_post+1;
+
+				$break_count = 3;
+
+				do_action( 'snow_display_post', $postindex, $break_count );
 
 			endwhile;
 

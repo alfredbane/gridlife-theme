@@ -33,6 +33,7 @@ Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-me
 @import '2-tools/animation';//............................................All animation style css go here.
 @import '2-tools/paths';//................................................Simple Asset Helper Functions.
 @import '2-tools/modifier';//.............................................To changes quickly use modifier.
+@import '2-tools/background';//.............................................To create background colors classes from palette.
 
 
 // -----------------------------------------------------------------------------------------------------------
@@ -70,6 +71,7 @@ Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-me
 @import '5-components/navbar';//........................................Site header navbar component.
 @import '5-components/page';//........................................Site page component.
 @import '5-components/article';//........................................Article block component.
+@import '5-components/aside';//........................................Section aside(sidebar) component.
 @import '5-components/footer';//........................................Footer component.
 
 // -----------------------------------------------------------------------------------------------------------
@@ -79,3 +81,4 @@ Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-me
 @import '6-object/main';//........................................Site header component.
 @import '6-object/grid';//........................................Site flex box grid override.
 @import '6-object/slick';//........................................Site slick slider override.
+@import '6-object/pp-nav';//........................................Site pagepiling dot navigations override.

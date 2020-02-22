@@ -14,7 +14,7 @@ $palettes: (
         base:   #909090,
         dark:   #575757,
         x-dark: #3a3a3a,
-        black:  #272727,
+        black:  #000000,
     ),
     green: (
         base:   #10B0BE,
@@ -22,9 +22,12 @@ $palettes: (
     ),
     blue: (
         light:  #2A4E85,
-        base:   #1D3A6A,
+        base:   #084C61,
     ),
     cyan-blue: (
+        base:   #1486B7,
+    ),
+    cyan: (
         base:   #1486B7,
     ),
     red: (
@@ -32,5 +35,8 @@ $palettes: (
     ),
     yellow: (
         base:   #F58A07
+    ),
+    black: (
+        base: #000000,
     )
 );

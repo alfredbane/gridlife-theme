@@ -35,6 +35,11 @@ require_once( dirname( __FILE__ ) . '/schema-config/config.php' );
 require_once( dirname( __FILE__ ) . '/schema-config/theme-schema-helper.php' );
 
 /**
+  * Few layouts for theme like sections sidebar etc.
+  */
+require_once( dirname( __FILE__ ) . '/theme-layout-helper.php' );
+
+/**
  * 1).Theme options global
  * Load the global autumn settings variable from redux
  * @return array
@@ -257,57 +262,6 @@ function snow_the_post_navigation($previous='', $next='') {
 }
 
 
-/**
- * 5). Add number to post card header
- *
- * @method snow_post_header_counter
- * @since snow v1.0.0
- * @return HTML5
- *
- */
-
-function snow_post_header_counter() {
-
-  global $wp_query;
-
-  // Get post per page set in admin settings
-  $post_per_page = get_option( 'posts_per_page' );
-
-  // Get current page from pagination
-  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
-  // Calculate count for specific tile
-  $calculate_count = ( $paged == 1 ) ? $wp_query->current_post + 1 : $wp_query->current_post+ ($paged + 1);
-
-  return sprintf("%02d", $calculate_count);
-
-}
-
-/** 
- * Get category list for post categories with ACF labels.
- * 
- */
-
-function snow_get_post_categories(int $post_ID, boolean $list=null) {
-
-    $getCategoryTerms = get_the_terms( $post_ID, 'category' ); //as it's returning an array
-    
-    $html = '';
-
-    foreach ( $getCategoryTerms as $category_term ) {
-
-        $html .= wp_sprintf('<label class="c-classification color-%1$s" for="article-%2$s"><a href="%3$s" alt="%4$s">%4$s</a></label>',
-          find_and_get_field(get_field('category_color_code', $category_term)),
-          $post_ID,
-          esc_url(get_category_link($category_term->term_id)),
-          esc_html__($category_term->name)
-        );
-
-    }
-
-    return $html;
-
-}
 
 /**
   * Add admin_ajax for top story toggle feature in post list. 
@@ -345,16 +299,106 @@ add_action( 'admin_enqueue_scripts', 'snow_enqueue_custom_admin_script' );
 
 endif;
 
-/** 
-  Get field in templates after checking if exists 
-*/
+/**
+  * Add an extra column to post in ACF for featued post
+  * @since snow 1.0
+  */
 
-function find_and_get_field($field_callback) {
+if(class_exists('ACF')) :
 
-  if(!class_exists('ACF')) :
-    return ;
-  endif;  
+  // Add the custom columns to the book post type:
+add_filter( 'manage_post_posts_columns', 'snow_custom_edit_post_columns' );
+function snow_custom_edit_post_columns($columns) {
+    // unset( $columns['author'] );
+    unset($columns['date']);
 
-  return $field_callback;
+    $columns['top_stories'] = __( 'Top Story', 'snow' );
+    $columns['date'] = __( 'Date', 'snow' );
+
+
+    return $columns;
+}
   
+// Add the data to the custom columns for the book post type:
+add_action( 'manage_post_posts_custom_column' , 'snow_custom_top_story_column', 10, 2 );
+function snow_custom_top_story_column( $column, $post_id ) {
+    switch ( $column ) {
+
+        case 'top_stories' :
+            $is_enabled = ( get_field('the_post_top_story', $post_id) ) ? "checked" : '';
+            echo '<input type="checkbox" '.$is_enabled.' name="top_stories" id="top_stories">';
+
+    }
+}
+
+endif;
+
+/** 
+ * Add advertisement banner on home page on desired position
+ * 
+ * @param $break_count  index of post on which the content must be changed.
+ * @param $index  current index of the post inside loop. 
+ * @since Snow v1.0.0
+ */ 
+
+add_action('snow_display_post',  'introduce_ad_banner_within_loop', 10, 2);
+
+function introduce_ad_banner_within_loop($postindex, $break_count) {
+
+    if( $postindex === $break_count ) {
+
+      echo '<img class="ad-banner" src='.get_template_directory_uri().'/assets/image/dummy-ad.jpg alt="ad-image">';
+    
+    } else {
+
+      echo snow_article_layout();
+
+    }
+
+}
+
+/** 
+ * Pass variable to template for sections logic on front page
+ * 
+ * @param $category_var  term slug to be passed. 
+ * @since Snow v1.0.0
+ *
+ */ 
+
+add_action('snow_category_var',  'set_category_var_global', 12, 1);
+
+function set_category_var_global($category_var) {
+
+    return set_query_var( 'section_category', $category_var );
+
+}
+
+function snow_split_string($string) {
+
+  if( strpos(trim($string), ' ') == false ) {
+    return '<span>'.$string.'</span>';
+  }
+  
+  $split_string = explode(" ", $string);
+
+  $end_element = end($split_string);
+
+  $html = '';
+
+  foreach( $split_string as $word ):
+
+    if( $word !== $end_element) {
+      
+      $html .= '<div class="label-inline"><span>'.$word.'</span>';
+
+    } else {
+
+      $html .= '</div><span class="c-side-regular">'.$word.'</span>';
+
+    }
+
+  endforeach;
+
+  return $html;
+
 }

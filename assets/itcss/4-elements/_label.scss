@@ -7,7 +7,7 @@
 		position: relative;
 		margin-bottom: 10px;
 		display: block;
-		
+
 		&::after {
 
 		    content: "";
@@ -19,28 +19,67 @@
 		    bottom: 0;
 
 		}
+		
+		&.color {
 
-		&.color-blue {
-			color: palette(blue, base);
-			&::after {
-				background-color: palette(blue, base);
+			&-blue {
+				color: palette(blue, base);
+				&::after {
+					background-color: palette(blue, base);
+				}
 			}
-		}
 
-		&.color-red {
-			color: palette(red, base);
-			&::after {
-				background-color: palette(red, base);
+			&-red {
+				color: palette(red, base);
+				&::after {
+					background-color: palette(red, base);
+				}
 			}
-		}
 
-		&.color-yellow {
-			color: palette(yellow, base);
-			&::after {
-				background-color: palette(yellow, base);
+			&-yellow {
+				color: palette(yellow, base);
+				&::after {
+					background-color: palette(yellow, base);
+				}
 			}
+
+			&-black {
+				color: palette(mono, black);
+				&::after {
+					background-color: palette(mono, black);
+				}
+			}
+			&-cyan {
+				color: palette(cyan-blue, base);
+				&::after {
+					background-color: palette(cyan-blue, base);
+				}
+			}
+
 		}
 
 	}
+
+}
+
+.c-section-aside {
+	
+	.c-section-label {
+		padding: 90px 30px 10px 30px;
+		color: #fff;
+		
+		h1 {
+			color: palette(mono, white);
+		}
+
+		.c-aside-caption {
+		    font-size: 14px;
+		    font-family: $secondary-font;
+		    font-weight: bold;
+		    line-height: 20px;
+		    text-align: justify;
+		}
+
+	}	
 
 }

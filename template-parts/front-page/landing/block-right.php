@@ -42,11 +42,15 @@ $theme_settings = snow_settings();
 
 			while($the_query->have_posts()) : $the_query->the_post();
 
-				get_template_part( 'template-parts/front-page/content', 'panel' );
+				$postindex = $the_query->current_post+1;
+
+				$break_count = 3;
+
+				do_action( 'snow_display_post', $postindex, $break_count );
 
 			endwhile;
 
-			wp_reset_query();
+			wp_reset_postdata();
 			
 		endif;
 

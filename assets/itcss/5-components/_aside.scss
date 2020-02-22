@@ -1,0 +1,12 @@
+.c-section-aside {
+
+    display: flex;
+    flex-direction: column;
+
+	.has-background-blue-base {
+		.c-side-regular {
+			color: palette(yellow, base);
+		}
+	}
+
+}

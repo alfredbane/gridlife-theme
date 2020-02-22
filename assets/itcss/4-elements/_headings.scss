@@ -132,8 +132,29 @@ h6{
 .compact {
   
   .c-article {
+
     h6 {
       width: 270px;
     }
+    
   }
+}
+
+.c-section-aside {
+  
+  h1 {
+
+    line-height: 36px;
+
+    span {
+      display: block;
+      font-size: 25px;
+    }
+
+    .c-side-regular {
+      font-size: inherit;
+    }
+
+  }
+
 }

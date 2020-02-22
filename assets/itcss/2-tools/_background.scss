@@ -1,0 +1,18 @@
+// ----------------------------------------------
+// BACKGROUND COLOR
+// ----------------------------------------------
+// Generating background colors based on color palette.
+
+// Class formatting :  .has-background-{COLOR(mono, green)}-{TONE(base, dark)}
+
+@each $color,$colorvalue in $palettes {
+
+	@each $tone,$tonevalue in $colorvalue {
+
+		.has-background-#{$color}-#{$tone} {
+			background-color: #{$tonevalue};
+		}
+
+	}
+
+}

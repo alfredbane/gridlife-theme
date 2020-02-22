@@ -20,7 +20,7 @@ get_header();
 <main id="site-content" class="c-main-content" role="main">
 
 	<?php 
-		get_template_part('template-parts/front-page/content','front-page-panels');
+		get_template_part('template-parts/content','front-page');
 	?>
 	
 </main><!-- #site-content -->

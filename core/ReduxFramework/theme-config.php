@@ -336,6 +336,56 @@
         )
     ) );
 
+    // -> Home page first section settings
+    Redux::setSection( $opt_name, array(
+        'title' => __( 'Recent Post Section', 'snow' ),
+        'id'    => 'home-recent-settings',
+        'desc'  => __( 'Add recent post section settings for the section to be displayed on home page.', 'snow' ),
+        'icon'  => 'el el-globe',
+        'subsection' => true,
+        'fields'     => array(
+
+            array(
+                'id'       => 'section-heading',
+                'type'     => 'text',
+                'title'    => __( 'Section Heading', 'snow' ),
+                'subtitle' => __( 'Add a heading for the section to be displayed on home page.', 'snow' )
+            ),
+            array(
+                'id'       => 'section-description',
+                'type'     => 'textarea',
+                'title'    => __( 'Section Description', 'snow' ),
+                'subtitle' => __( 'Add a section description to be displayed below heading.', 'snow' )
+            ),
+            array(
+                'id'       => 'post-settings-padding',
+                'type'     => 'text',
+                'title'    => __( 'Add Days', 'snow' ),
+                'subtitle' => __( 'Add number of days upto which recent posts must be shown. example: if value is 10 then recent posts will be shown from today upto 10 days before.', 'snow' )
+            ),
+
+        )
+    ) );
+
+    // -> Home page first section settings
+    Redux::setSection( $opt_name, array(
+        'title' => __( 'Category Sections', 'snow' ),
+        'id'    => 'home-category-section',
+        'desc'  => __( 'Add categories for the section to be displayed on home page.', 'snow' ),
+        'icon'  => 'el el-globe',
+        'subsection' => true,
+        'fields'     => array(
+
+            array(
+                'id'       => 'section-categories',
+                'type'     => 'text',
+                'title'    => __( 'Section Categories', 'snow' ),
+                'subtitle' => __( 'Add comma separated name of existing category term from post type to display on home page category section. I want to change display order than right the categories in that order', 'snow' ),
+            ),
+
+        )
+    ) );
+
 
     // -> START Contact settings
     Redux::setSection( $opt_name, array(
