@@ -59,13 +59,17 @@
 		}
 
 	}
+	
+	.c-meta-date {
+    	font-size: 10px;
+	}
 
 }
 
 .c-section-aside {
 	
 	.c-section-label {
-		padding: 90px 30px 10px 30px;
+		padding: 90px 30px 18px 30px;
 		color: #fff;
 		
 		h1 {
@@ -78,6 +82,7 @@
 		    font-weight: bold;
 		    line-height: 20px;
 		    text-align: justify;
+		    margin-bottom: 0px;
 		}
 
 	}	

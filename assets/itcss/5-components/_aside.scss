@@ -9,4 +9,16 @@
 		}
 	}
 
+	.has-background-red-base {
+		.c-side-regular {
+			color: palette(blue, light);
+		}
+	}
+
+	.has-background-yellow-base {
+		.c-side-regular {
+			color: palette(green, dark);
+		}
+	}
+
 }

@@ -19,39 +19,36 @@ $theme_settings = snow_settings();
 	<?php
 		// args
 
-		$tax_Query = array();
+		if($theme_settings['first-section-right-column']) :
 
-		if($theme_settings['first-section-right-column']) {
+			foreach ( $theme_settings['first-section-right-column'] as $term ) :
 
-			$tax_Query = array(
-		        'taxonomy' => 'category', //double check your taxonomy name in you dd 
-		        'field'    => 'slug',
-		        'terms'    => explode(",", $theme_settings['first-section-right-column']),
-		    );
-		}
+				$args = array(
+					'post_type'		=> 'post',
+					'post_status'	=> 'publish',
+					'cat' => $term,
+					'posts_per_page'	=> 1,
+					'order'		=> 'ASC',	
+				);
 
-		$args = array(
-			'numberposts'	=> 1,
-			'post_type'		=> 'post',
-			'tax_query' => array($tax_Query),
-		);
+				$the_query = new WP_Query($args);
 
-		$the_query = new WP_Query($args);
+				if($the_query->have_posts()):
 
-		if($the_query->have_posts()):
+					while($the_query->have_posts()) : $the_query->the_post();
 
-			while($the_query->have_posts()) : $the_query->the_post();
+						$postindex = $the_query->current_post+1;
 
-				$postindex = $the_query->current_post+1;
+						$break_count = 3;
 
-				$break_count = 3;
+						do_action( 'snow_display_post', $postindex );
 
-				do_action( 'snow_display_post', $postindex, $break_count );
+					endwhile;
 
-			endwhile;
-
-			wp_reset_postdata();
-			
+					wp_reset_postdata();
+					
+				endif;
+			endforeach;
 		endif;
 
 	?>

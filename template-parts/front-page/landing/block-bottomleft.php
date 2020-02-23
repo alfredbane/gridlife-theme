@@ -25,13 +25,13 @@ $theme_settings = snow_settings();
 
 			$tax_Query = array(
 		        'taxonomy' => 'category', //double check your taxonomy name in you dd 
-		        'field'    => 'slug',
+		        'field'    => 'id',
 		        'terms'    => $theme_settings['first-section-left-bottom'],
 		    );
 		}
 
 		$args = array(
-			'numberposts'	=> 1,
+			'posts_per_page'	=> 1,
 			'post_type'		=> 'post',
 			'tax_query' => array($tax_Query),
 		);

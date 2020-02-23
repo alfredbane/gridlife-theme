@@ -323,15 +323,26 @@
         'fields'     => array(
             array(
                 'id'       => 'first-section-left-bottom',
-                'type'     => 'text',
+                'type'     => 'select',
+                'data'     => 'terms',
+                'args'  => array(
+                    'taxonomies' => array( 'category' ),
+                    'hide_empty' => true,
+                ),
                 'title'    => __( 'Left Bottom Category', 'snow' ),
                 'subtitle' => __( 'Add name of existing category term from post type to display on left bottom of home page first section.', 'snow' ),
             ),
             array(
                 'id'       => 'first-section-right-column',
-                'type'     => 'text',
+                'type'     => 'select',
+                'multi'    => true,
+                'data'     => 'terms',
+                'args'  => array(
+                    'taxonomies' => array( 'category' ),
+                    'hide_empty' => true,
+                ),
                 'title'    => __( 'Right Column Categories', 'snow' ),
-                'subtitle' => __( 'Add comma separated name of existing category term from post type to display on right of home page first section.', 'snow' ),
+                'subtitle' => __( 'Select name of existing category term from post type to display on right of home page first section. If term is not visible make sure term is selected in atleast one post.', 'snow' ),
             ),
         )
     ) );
@@ -358,7 +369,7 @@
                 'subtitle' => __( 'Add a section description to be displayed below heading.', 'snow' )
             ),
             array(
-                'id'       => 'post-settings-padding',
+                'id'       => 'post-days-padding',
                 'type'     => 'text',
                 'title'    => __( 'Add Days', 'snow' ),
                 'subtitle' => __( 'Add number of days upto which recent posts must be shown. example: if value is 10 then recent posts will be shown from today upto 10 days before.', 'snow' )
@@ -378,8 +389,14 @@
 
             array(
                 'id'       => 'section-categories',
-                'type'     => 'text',
+                'type'     => 'select',
+                'multi'    => true,
                 'title'    => __( 'Section Categories', 'snow' ),
+                'data'     => 'terms',
+                'args'  => array(
+                    'taxonomies' => array( 'category' ),
+                    'hide_empty' => true,
+                ),
                 'subtitle' => __( 'Add comma separated name of existing category term from post type to display on home page category section. I want to change display order than right the categories in that order', 'snow' ),
             ),
 

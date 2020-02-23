@@ -3,3 +3,9 @@
 // ----------------------------------------------
 
 // create typography in any another of porpose.
+
+.c-article {
+	label, p, span, a {
+		font-family: $secondary-font;
+	}
+}

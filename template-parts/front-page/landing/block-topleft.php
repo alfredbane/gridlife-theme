@@ -19,7 +19,9 @@
 		<?php
 			// args
 			$args = array(
-				'numberposts'	=> 5,
+				'posts_per_page'	=> 6,
+				'post_status'	=> 'publish',
+				'orderby'			=> 'date',
 				'post_type'		=> 'post',
 				'meta_key'		=> 'the_post_top_story',
 				'meta_value'	=> 1

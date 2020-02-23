@@ -32,7 +32,7 @@ if(!function_exists('snow_set_sidebar_layout')):
 
 		else:
 
-			$term = get_term_by('slug', $category, 'category');
+			$term = get_term_by('id', $category, 'category');
 			$heading = $term ? $term->name : '';
 			$description = $term ? $term->description : '';
 			$color = $term ? find_and_get_field(get_field('category_color_code', $term)) : '';
@@ -40,7 +40,7 @@ if(!function_exists('snow_set_sidebar_layout')):
 
 		endif;
 			
-			$section_heading = snow_split_string( $heading );
+			$section_heading = snow_split_string( $heading, 'समाचार' );
 
 
 
@@ -98,26 +98,45 @@ if(!function_exists('snow_article_layout')):
 	function snow_article_layout ($withExcerpt=false) { 
 
 		$post_id = get_the_ID();
+		$post_meta = snow_get_post_categories($post_id);
+		$class = 'c-article-short';
+		$custom_excerpt = '';
+
+		$content = get_the_content();
+		$filtered_text = wp_filter_nohtml_kses( $content );
+
+		if($withExcerpt) {
+
+			$class = 'c-article-withExcerpt col-md-4 col-lg-4';
+			$post_meta = wp_sprintf('<label class="c-meta-date">%s</label>', get_the_date( 'M / d / Y' ));
+			$custom_excerpt = wp_sprintf('<p>%s</p>',wp_trim_words( $filtered_text, $num_words=20, '...' ) );
+
+		}
 
 		return wp_sprintf('<article itemscope itemtype="%1$s" 
 			style="background-image:url(%2$s)" 
-			class="post-%3$s c-article c-article-short has-Background-img">
+			class="post-%3$s c-article %8$s has-Background-img">
 
-			<div class="c-excerpt">
+			<div data-link="%6$s" class="c-excerpt">
 				%4$s
 				<h6 itemprop="%5$s" class="c-article-title">
 					<a href="%6$s" alt="link to news">
 						%7$s
 					</a>
 				</h6>
+				%9$s
 			</div>
-		</article>', set_schema_type('excerpt'),
+
+		</article>', 
+			set_schema_type('excerpt'),
 			esc_url(get_the_post_thumbnail_url()),
 			$post_id,
-			snow_get_post_categories($post_id),
+			$post_meta,
 			set_schema_title_prop('excerpt'),
 			esc_url(get_the_permalink($post_id)),
-			esc_html__(get_the_title())
+			esc_html__(get_the_title()),
+			$class,
+			$custom_excerpt
 
 		);
 

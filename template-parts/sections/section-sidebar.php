@@ -16,5 +16,5 @@ $category = $section_category;
 
 
 <aside class="c-section-item c-section-aside">
-	<?php echo snow_set_sidebar_label($category) ?>
+	<?php echo snow_set_sidebar_label($category, 'खबरें') ?>
 </aside>

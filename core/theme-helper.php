@@ -341,17 +341,21 @@ endif;
  * @since Snow v1.0.0
  */ 
 
-add_action('snow_display_post',  'introduce_ad_banner_within_loop', 10, 2);
+add_action('snow_display_post',  'introduce_ad_banner_within_loop', 10, 3);
 
-function introduce_ad_banner_within_loop($postindex, $break_count) {
+function introduce_ad_banner_within_loop($postindex, $break_count=null, $withExcerpt = false) {
 
-    if( $postindex === $break_count ) {
+    if( !is_null($break_count) && $postindex === $break_count ) {
 
-      echo '<img class="ad-banner" src='.get_template_directory_uri().'/assets/image/dummy-ad.jpg alt="ad-image">';
+      if( $withExcerpt ) {
+        echo '<article class="c-article col-md-4 col-lg-4"><img class="ad-banner" src='.get_template_directory_uri().'/assets/image/dummy-ad.jpg alt="ad-image"></article>';
+      } else {
+        echo '<article class="c-article" ><img class="ad-banner" src='.get_template_directory_uri().'/assets/image/dummy-ad.jpg alt="ad-image"></article>';
+      }
     
     } else {
 
-      echo snow_article_layout();
+      echo snow_article_layout($withExcerpt);
 
     }
 
@@ -373,14 +377,14 @@ function set_category_var_global($category_var) {
 
 }
 
-function snow_split_string($string) {
+function snow_split_string($string, $fallback_text = 'news') {
 
-  if( strpos(trim($string), ' ') == false ) {
-    return '<span>'.$string.'</span>';
+  $split_string = array($string, $fallback_text);
+
+  if( strpos(trim($string), ' ') !== false ) {
+    $split_string = explode(" ", $string);
   }
   
-  $split_string = explode(" ", $string);
-
   $end_element = end($split_string);
 
   $html = '';

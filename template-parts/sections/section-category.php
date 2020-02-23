@@ -10,40 +10,53 @@
 
 $theme_settings = snow_settings();
 
+$category = $section_category;
 
 ?>
 
 
 
-<div class="c-section-item">
 	<?php
 		// args
 
-		$tax_Query = array();
+		$tax_Query = '';
+		$args = array();
+
+		if( $category !== 'recent_posts' ) :
+
+			$tax_Query = array(
+		        'taxonomy' => 'category', //double check your taxonomy name in you dd 
+		        'field'    => 'id',
+		        'terms'    => $category,
+		    );
+
+		endif;
 
 		$args = array(
-			'numberposts'	=> 4,
-			'post_type'		=> 'post',
-			'tax_query' => array($tax_Query),
-		);
+				'posts_per_page'	=> 6,
+				'post_type'		=> 'post',
+				'post_status'		=> 'publish',
+				'tax_query' => array($tax_Query),
+			);
 
 		$the_query = new WP_Query($args);
 
-		if($the_query->have_posts()):
-
-			while($the_query->have_posts()) : $the_query->the_post();
-
-				$postindex = $the_query->current_post+1;
-
-				$break_count = 3;
-
-				do_action( 'snow_display_post', $postindex, $break_count );
-
-			endwhile;
-
-			wp_reset_query();
+		echo '<div class="row no-margin-right">';
 			
-		endif;
+			if($the_query->have_posts()):
+
+				while($the_query->have_posts()) : $the_query->the_post();
+
+					$postindex = $the_query->current_post+1;
+
+					do_action( 'snow_display_post', $postindex, 3, true );
+
+				endwhile;
+
+				wp_reset_query();
+				
+			endif;
+
+		echo "</div>";
 
 	?>
-</div>	
