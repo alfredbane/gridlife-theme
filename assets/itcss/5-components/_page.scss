@@ -6,3 +6,13 @@
 	padding: 2.8rem;
 	background-color: palette(mono, white);
 }
+
+.breadcrumbs {
+	
+	width: 400px;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+}

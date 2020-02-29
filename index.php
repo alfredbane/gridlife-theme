@@ -17,7 +17,7 @@
 get_header();
 ?>
 
-<main id="site-content" class="c-main-content" role="main">
+<main id="site-content" class="c-main-content" data-pp-enable="true" role="main">
 
 	<?php 
 		get_template_part('template-parts/content','front-page');

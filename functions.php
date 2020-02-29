@@ -301,9 +301,6 @@ function snow_scripts() {
 	// Flexbox support for the theme
 	wp_enqueue_style( 'snow-flexbox', 'https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css', array(), '6.3.1' );
 
-	// Theme FullPage concept css
-	wp_enqueue_style( 'snow-pagepiling', get_template_directory_uri() . '/assets/vendor/PagePilingJs/jquery.pagepiling.css', array(), '3.0.8' );
-
 	// Slick Slider JS concept css
 	wp_enqueue_style( 'snow-slick-theme', get_template_directory_uri() . '/assets/vendor/SlickJS/slick-theme.css', array(), '1.8.1' );
 
@@ -316,8 +313,19 @@ function snow_scripts() {
 	// snow SmoothState support
 	wp_enqueue_script( 'snow-smoothstate', get_template_directory_uri() . '/assets/vendor/jquery.smoothState.min.js', array('jquery'), '1.0.0', true );
 
-	// snow PagePiling Js support
-	wp_enqueue_script( 'snow-pagepiling', get_template_directory_uri() . '/assets/vendor/PagePilingJs/jquery.pagepiling.min.js', array('jquery'), '2.0.5', true );
+	/**
+	 * PAGEPILIMG INIT FOR FEW PAGES ONLY
+	 */
+
+	if( is_front_page() ):
+
+		// snow PagePiling Js support
+		wp_enqueue_script( 'snow-pagepiling', get_template_directory_uri() . '/assets/vendor/PagePilingJs/jquery.pagepiling.min.js', array('jquery'), '2.0.5', true );
+
+		// snow PagePiling Js support
+		wp_enqueue_script( 'snow-pagepiling-init', get_template_directory_uri() . '/assets/js/snow-pagepiling-init.js', array('jquery', 'snow-pagepiling'), '1.0.0', true );
+
+	endif;
 
 	wp_enqueue_script( 'snow-slick-js', get_template_directory_uri() . '/assets/vendor/SlickJS/slick.min.js', array('jquery'), '1.7.2', true );
 
@@ -366,6 +374,16 @@ function snow_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'snow_scripts' );
+
+function snow_add_footer_styles() {
+
+    if( is_front_page() ):
+		// Theme FullPage concept css
+		wp_enqueue_style( 'snow-pagepiling', get_template_directory_uri() . '/assets/vendor/PagePilingJs/jquery.pagepiling.css', array(), '3.0.8' );
+	endif;
+
+};
+add_action( 'get_footer', 'snow_add_footer_styles' );
 
 /**
  * Registers a widget area.

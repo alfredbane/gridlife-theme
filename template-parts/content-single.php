@@ -8,26 +8,43 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('c-post-detail'); ?>>
+<div class="c-post-meta-single">
+	
+	<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
 
-	<div class="entry-content">
-		<?php
-			the_content();
+	    <?php
+	    if(function_exists('bcn_display'))
+	    {
+	            bcn_display();
+	    }?>
 
-			wp_link_pages(
-				array(
-					'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentysixteen' ) . '</span>',
-					'after'       => '</div>',
-					'link_before' => '<span>',
-					'link_after'  => '</span>',
-					'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>%',
-					'separator'   => '<span class="screen-reader-text">, </span>',
-				)
-			);
+	</div>
 
-			if ( '' !== get_the_author_meta( 'description' ) ) {
-				get_template_part( 'template-parts/biography' );
-			}
-			?>
-	</div><!-- .entry-content -->
-</article><!-- #post-<?php the_ID(); ?> -->
+	<div class="c-post-publish-date">
+
+		<time datetime="<?php echo get_the_date('c'); ?>" itemprop="datePublished">
+			<?php echo get_the_date('d.m.Y / l / h:i A'); ?>
+		</time>
+
+	</div>
+
+</div>
+
+<section class="c-post-detail">
+	<div class="row">
+		<aside class="c-sidebar col-lg-3 col-md-3">
+			<?php get_template_part( 'template-parts/content', 'sidebar' ); ?>
+		</aside>
+
+		<article id="post-<?php the_ID(); ?>" <?php post_class('col-lg-8 col-md-8'); ?>>
+
+			<div class="entry-content">
+
+				<?php
+					the_content();
+				?>
+			</div><!-- .entry-content -->
+			
+		</article><!-- #post-<?php the_ID(); ?> -->
+	</div>
+</section>

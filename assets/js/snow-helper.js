@@ -48,26 +48,6 @@
 
 $(document).ready(function(){
 
-
-  $('#site-content').pagepiling({
-      menu: null,
-      direction: 'vertical',
-      verticalCentered: false,
-      scrollingSpeed: 700,
-      easing: 'swing',
-      css3: true,
-      normalScrollElements: null,
-      normalScrollElementTouchThreshold: 5,
-      touchSensitivity: 5,
-      keyboardScrolling: true,
-      sectionSelector: '.c-section',
-      animateAnchor: false,
-      //events
-      onLeave: function(index, nextIndex, direction){},
-      afterLoad: function(anchorLink, index){},
-      afterRender: function(){},
-  });
-
   // This needs only be called once and does not
   // have to be called from within a "ready" block
   $.fn.searchFormSubmit.defaults.inputTarget = $('input.c-search-bar__form-control');

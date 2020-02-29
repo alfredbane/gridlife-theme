@@ -73,6 +73,7 @@ Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-me
 @import '5-components/article';//........................................Article block component.
 @import '5-components/aside';//........................................Section aside(sidebar) component.
 @import '5-components/footer';//........................................Footer component.
+@import '5-components/banner';//........................................Footer component.
 
 // -----------------------------------------------------------------------------------------------------------
 // Objects - Main wrapper elements like grids, containers (type selectors).
@@ -82,3 +83,4 @@ Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-me
 @import '6-object/grid';//........................................Site flex box grid override.
 @import '6-object/slick';//........................................Site slick slider override.
 @import '6-object/pp-nav';//........................................Site pagepiling dot navigations override.
+@import '6-object/post';//........................................Post on banner and normal posts elements.

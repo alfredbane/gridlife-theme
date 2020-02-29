@@ -19,7 +19,7 @@
         var $body = $('body'),
             $main = $('#main'),
             $site = $('html, body'),
-            transition = 'fade',
+            transition = 'slide',
             smoothState;
 
         smoothState = $main.smoothState({

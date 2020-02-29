@@ -142,3 +142,33 @@ if(!function_exists('snow_article_layout')):
 
 	}
 endif; 
+
+function snow_post_detail_banner() { ?>
+	
+	<div class="c-banner" style="background-image:url(<?php echo get_the_post_thumbnail_url(); ?>)">
+						
+		<div class="c-banner-content">
+
+			<div class="c-banner-caption">
+				
+				<div class="o-post-title">
+					<?php echo wp_sprintf("<h1>%s</h1>", esc_html__(get_the_title())) ?>
+				</div>
+				<div class="o-post-excerpt">
+
+					<?php 
+						$my_content = apply_filters( 'the_content', get_the_content() );
+						$my_content = wp_strip_all_tags($my_content);
+						echo wp_trim_words( $my_content, 15, null); 
+					?>
+				
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+<?php }

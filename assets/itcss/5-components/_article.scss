@@ -61,3 +61,26 @@
 	}
 
 }
+
+.c-post-meta-single {
+
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    font-size: 14px;
+
+    .c-post-publish-date {
+
+	    text-align: right;
+	    max-width: 146px;
+	    line-height: 23px;
+
+	}
+}
+
+.c-post-detail article {
+
+    margin-left: 45px;
+    font-family: $secondary-font;
+
+}

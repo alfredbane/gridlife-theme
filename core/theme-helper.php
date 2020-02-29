@@ -406,3 +406,24 @@ function snow_split_string($string, $fallback_text = 'news') {
   return $html;
 
 }
+
+function snow_get_relatedposts_query($post_id, $post_limit='', $list_break='') {
+
+    $terms = get_the_terms( $post_id, 'category' );
+
+    if ( empty( $terms ) ) $terms = array();
+  
+      $term_list = wp_list_pluck( $terms, 'slug' );
+
+    $related_args = array(
+      'post_type' => 'post',
+      'posts_per_page' => $post_limit,
+      'post_status' => 'publish',
+      'post__not_in' => array( $post_id ),
+      'orderby' => 'rand',
+      
+    );
+
+    return new WP_Query($related_args);
+
+}
