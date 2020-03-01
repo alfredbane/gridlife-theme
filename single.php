@@ -26,11 +26,7 @@ get_header(); ?>
 
 					// Include the single post content template.
 					get_template_part( 'template-parts/content', 'single' );
-
-					if ( is_singular( 'post' ) ) {
-						// Previous/next post navigation.
-						//echo autumn_the_post_navigation ('Previous', 'Next');
-					}
+					
 					// End of the loop.
 				endwhile;
 
@@ -41,8 +37,6 @@ get_header(); ?>
 		?>
 
 	</main><!-- .site-main -->
-
-	<?php get_sidebar( 'content-bottom' ); ?>
 
 </div><!-- .content-area -->
 

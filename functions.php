@@ -107,9 +107,9 @@ if ( ! function_exists( 'snow_setup' ) ) :
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
-        'primary' => __( 'Primary Menu', 'snow' ),
+				'primary' => __( 'Primary Menu', 'snow' ),
 				'help_links' => __( 'Footer Menu Primary', 'snow' ),
-        'useful_links' => __( 'Footer Menu Secondary', 'snow' ),
+				'useful_links' => __( 'Footer Menu Secondary', 'snow' ),
 				'social'  => __( 'Social Links Menu', 'snow' ),
 			)
 		);

@@ -189,35 +189,29 @@ add_action( 'init', 'snow_change_post_object' );
  *
  */
 
-function snow_post_navigation_previous_button($link, $text) {
+function snow_post_navigation_button($link, $class, $title, $text) {
 
-
-
-  return wp_sprintf ('<a href="%1$s" rel="prev" class="c-button">
-          <span class="c-arrow-button">
-            <span class="c-arrow-button__inner">
-              <span class="c-arrow-button__line c-arrow-button__line--left-arrow"></span>
-            </span>
-            <span class="c-button__text c-button__text--align-right">%2$s</span>
-          </span>
-        </a>', esc_url( $link ), __($text, 'snow' ));
+  return wp_sprintf ('<a href="%1s" rel="prev" class="%2s c-button">
+            <span class="c-button__text">%3s</span>
+            <span class="c-button__text label">%4s</span>
+        </a>', esc_url( $link ), $class, esc_html__($text, 'snow' ), esc_html__($title,'snow'));
 
 }
 
-function snow_post_navigation_next_button($link, $text) {
+// function snow_post_navigation_next_button($link, $title, $text) {
 
 
 
-  return wp_sprintf ('<a href="%1$s" rel="prev" class="c-button">
-          <span class="c-arrow-button">
-            <span class="c-button__text">%2$s</span>
-            <span class="c-arrow-button__inner">
-              <span class="c-arrow-button__line c-arrow-button__line--right-arrow"></span>
-            </span>
-          </span>
-        </a>', esc_url( $link ), __($text, 'snow' ));
+//   return wp_sprintf ('<a href="%1$s" rel="prev" class="c-button">
+//           <span class="c-arrow-button">
+//             <span class="c-button__text">%2$s</span>
+//             <span class="c-arrow-button__inner">
+//               <span class="c-arrow-button__line c-arrow-button__line--right-arrow"></span>
+//             </span>
+//           </span>
+//         </a>', esc_url( $link ), __($text, 'snow' ));
 
-}
+// }
 
 /**
  * 4.2). Create post navigation from params
@@ -236,21 +230,25 @@ function snow_the_post_navigation($previous='', $next='') {
 
     $prev_permalink = ( $prev_id !== '' ) ? get_permalink($prev_id) : '';
 
+    $prev_title = ( $prev_id !== '' ) ? get_the_title($prev_id) : '';    
+
     $next_post = get_next_post();
 
     $next_id = ( $next_post !== '' ) ? $next_post->ID : '';;
 
     $next_permalink = ( $next_id !== '' ) ? get_permalink($next_id) : '';
+    
+    $next_title = ( $next_id !== '' ) ? get_the_title($next_id) : '';
 
     ob_start();
     ?>
 
       <div class="c-post-nav">
         <?php if( $prev_post ):
-          echo snow_post_navigation_previous_button($prev_permalink, 'Previous');
+          echo snow_post_navigation_button($prev_permalink, 'btn-prev', $prev_title, 'Previous');
          endif; ?>
         <?php if( $next_post ):
-          echo snow_post_navigation_next_button($next_permalink, 'Next');
+          echo snow_post_navigation_button($next_permalink, 'btn-next', $next_title, 'Next');
         endif; ?>
       </div>
 
@@ -413,14 +411,23 @@ function snow_get_relatedposts_query($post_id, $post_limit='', $list_break='') {
 
     if ( empty( $terms ) ) $terms = array();
   
-      $term_list = wp_list_pluck( $terms, 'slug' );
+    $term_list = wp_list_pluck( $terms, 'slug' );
+
+    $tax_Query = array(
+      'taxonomy' => 'category', //double check your taxonomy name in you dd 
+      'field'    => 'slug',
+      'terms'    => $term_list,
+    );
 
     $related_args = array(
+
       'post_type' => 'post',
       'posts_per_page' => $post_limit,
       'post_status' => 'publish',
       'post__not_in' => array( $post_id ),
       'orderby' => 'rand',
+      'tax_query' => array($tax_Query),
+
       
     );
 

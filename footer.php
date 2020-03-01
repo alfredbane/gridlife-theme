@@ -10,8 +10,70 @@
  * @subpackage Twenty_Twenty
  * @since 1.0.0
  */
+$theme_settings = snow_settings();
 
-?>
+?>		
+		<section class="section c-section">
+
+			<div class="row">
+				<div class="c-footer-columns col-lg-4">
+
+					<h5 class="title">
+						<?php echo __("Subscribe", "snow"); ?>
+					</h5>
+					
+					<div class="column-content c-newsletter">
+
+						<?php echo do_shortcode($theme_settings['opt-newsletter-form']); ?>
+						<span class="text">
+							<?php echo $theme_settings['opt-newsletter-text']; ?>
+						</span>
+
+					</div>
+
+					<div class="column-content c-newsletter">
+					</div>
+
+				</div>
+
+				<div class="c-footer-columns col-lg-4">
+
+
+					<h5 class="title">
+						<?php echo __("Quick links", "snow"); ?>
+					</h5>
+
+					<?php if ( has_nav_menu( 'help_links' ) ) : ?>
+					    <?php
+					      wp_nav_menu(
+					        array(
+					          'theme_location' => 'help_links',
+					          'menu_class'  => 'nav navbar-nav',
+					          'container' => '',
+					          'depth'       => 1,
+					        )
+					      );
+					    ?>
+					<?php endif; ?>
+				</div>
+
+				<div class="c-footer-columns has-background-blue-base col-lg-4">
+
+					<h5 class="title">
+						<?php echo __("Disclaimer", "snow"); ?>
+					</h5>
+
+					<div class="c-footer-disclaimer">
+						<?php echo $theme_settings['opt-extra-text']; ?>
+					</div>
+					
+				</div>
+
+			</div>
+
+		</section>
+
+		</div>
 		<footer class="c-footer c-footer-fix">
 			<div class="container-fluid">
 				<div class="row between-xs">
@@ -31,6 +93,7 @@
 				</div>
 			</div>
 		</footer>
+
 		<?php wp_footer(); ?>
 	</body>
 </html>

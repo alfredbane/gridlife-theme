@@ -24,16 +24,18 @@
 
 	</head>
 
-	<body <?php body_class(); ?>>
+	<body>
 
 		<div id="main" class="entry-content">
 
-			<header class="c-site-header">
+			<div <?php body_class(); ?>>
 
-				<!--
-					SITE HEADER
-					Html stored in ./template-parts/header/site-desktop-header.php
-				-->
-				<?php get_template_part('template-parts/header/site', 'header'); ?>
+				<header class="c-site-header">
 
-			</header>
+					<!--
+						SITE HEADER
+						Html stored in ./template-parts/header/site-desktop-header.php
+					-->
+					<?php get_template_part('template-parts/header/site', 'header'); ?>
+
+				</header>

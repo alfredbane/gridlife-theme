@@ -22,6 +22,7 @@ if(!function_exists('snow_set_sidebar_layout')):
 		$heading = '';
 		$description = '';
 		$color = '';
+		$bg_color = 'has-background-blue-base';
 
 		if($category == 'recent_posts'):
 

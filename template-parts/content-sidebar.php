@@ -89,22 +89,21 @@
 
 		<?php
 
-			$args = array(
-			    'taxonomy'   => 'post_tag',
-			    'hide_empty' => 0
-			);
-			$tags = get_terms( $args );
+			$tags = wp_get_post_tags(get_the_ID());
 			$class_name = 'c-post-tags';
 
 			if ( ! empty( $tags ) && ! is_wp_error( $tags ) ) {
-			    shuffle( $tags );   
-			    foreach( array_slice( $tags, 0, 6 ) as $tag ) {
+
+			    shuffle( $tags ); 
+
+			    foreach( $tags as $tag ) {
 			        printf( '<a class="%1$s" href="%2$s">%3$s</a>',
 			            sanitize_html_class( $class_name ),
 			            get_tag_link( $tag->term_id ),
 			            sprintf( __( '%s') , $tag->name )
 			        );
 			    }
+
 			}
 
 		 ?>

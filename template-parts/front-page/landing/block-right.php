@@ -49,6 +49,7 @@ $theme_settings = snow_settings();
 					
 				endif;
 			endforeach;
+			
 		endif;
 
 	?>

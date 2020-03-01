@@ -72,7 +72,7 @@
     .c-post-publish-date {
 
 	    text-align: right;
-	    max-width: 146px;
+	    max-width: 136px;
 	    line-height: 23px;
 
 	}
@@ -82,5 +82,48 @@
 
     margin-left: 45px;
     font-family: $secondary-font;
+
+}
+
+.c-post-nav {
+
+    display: flex;
+    justify-content: space-between;
+
+    .c-button {
+
+	    width: 330px;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+
+	    span {
+	    	
+	    	display: block;
+			color: palette(blue, base);
+			text-transform: uppercase;
+
+	    	&.label {
+
+				overflow: hidden;
+				text-overflow: ellipsis;
+				width: 330px;
+				white-space: nowrap;
+				color: palette(red, base);
+
+	    	}
+
+
+	    }
+
+	    &.btn-prev span {
+	    	text-align: left;
+	    }
+
+    	&.btn-next span {
+    		text-align: right;
+    	}
+
+
+	}
 
 }

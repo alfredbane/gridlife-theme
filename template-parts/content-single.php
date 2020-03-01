@@ -45,6 +45,49 @@
 				?>
 			</div><!-- .entry-content -->
 			
+			<?php 
+			
+				if ( is_singular( 'post' ) ) {
+					// Previous/next post navigation.
+					echo snow_the_post_navigation ('Previous', 'Next');
+				}
+			?>
 		</article><!-- #post-<?php the_ID(); ?> -->
+	</div>
+</section>
+
+<?php 
+
+	
+	$terms = get_the_terms( get_the_ID(), 'category' );
+
+    if ( empty( $terms ) ) $terms = array();
+  
+    $term_list = wp_list_pluck( $terms, 'term_id' );
+
+	do_action('snow_category_var', $term_list[0]);
+
+
+?>
+
+<section class="section">
+	<div class="row">
+
+		<div class="col-xs-12 col-md-3 col-lg-3 no-padding-right">
+
+			<?php 
+
+				get_template_part( 'template-parts/sections/section', 'sidebar' ); 
+
+			?>
+
+		</div>
+
+		<div class="col-xs-12 col-md-9 col-lg-9 no-padding">
+
+			<?php get_template_part( 'template-parts/sections/section', 'category' ); ?>
+	
+		</div>
+
 	</div>
 </section>
