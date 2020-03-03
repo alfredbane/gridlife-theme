@@ -13,7 +13,7 @@
 $theme_settings = snow_settings();
 
 ?>		
-		<section class="section c-section">
+		<section class="section c-section c-footer-grid">
 
 			<div class="row">
 				<div class="c-footer-columns col-lg-4">
@@ -57,14 +57,18 @@ $theme_settings = snow_settings();
 					<?php endif; ?>
 				</div>
 
-				<div class="c-footer-columns has-background-blue-base col-lg-4">
+				<div class="c-footer-columns has-background-blue-base c-only-text col-lg-4">
 
 					<h5 class="title">
 						<?php echo __("Disclaimer", "snow"); ?>
 					</h5>
 
 					<div class="c-footer-disclaimer">
-						<?php echo $theme_settings['opt-extra-text']; ?>
+						
+						<p class="text">
+							<?php echo $theme_settings['opt-extra-text']; ?>
+						</p>
+
 					</div>
 					
 				</div>

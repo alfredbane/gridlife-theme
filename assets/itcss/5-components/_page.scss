@@ -7,6 +7,12 @@
 	background-color: palette(mono, white);
 }
 
+.c-post-detail {
+	
+	margin-bottom: 50px;
+
+}
+
 .breadcrumbs {
 	
 	width: 400px;
@@ -14,5 +20,60 @@
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+
+}
+
+.c-newsletter {
+
+	position: relative;
+
+	max-with: 388px;
+
+	.wpcf7 {
+    	margin-bottom: 10px;
+    }
+
+	.form-group {
+
+	    display: flex;
+
+	    .wpcf7-form-control.wpcf7-text {
+
+    		max-width: 315px;
+    		border: 0;
+			border-bottom: 1px solid palette(blue, base);
+			padding: 6px;
+			background-color: transparent;
+		}
+
+		.c-fancy-button {
+
+    		position: absolute;
+    		right: -1px;
+    		top: -5px;
+    		margin: 0 auto;
+
+    		svg {
+    			position: absolute;
+    			color: palette(mono, white);
+    			top: 11px;
+				right: 10px;
+				left: 10px;
+    		}
+
+    		.wpcf7-form-control.wpcf7-submit {
+
+				width: 40px;
+				border-radius: 90px;
+				border: 0;
+				background-color: palette(red, base);
+				height: 40px;
+				color: palette(red, base);
+
+			}
+
+		}
+
+	}
 
 }

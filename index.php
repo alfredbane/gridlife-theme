@@ -23,7 +23,7 @@ get_header();
 		get_template_part('template-parts/content','front-page');
 	?>
 	
+<?php get_footer(); ?>
 </main><!-- #site-content -->
 
 <?php
-get_footer();

@@ -37,8 +37,10 @@ get_header(); ?>
 		?>
 
 	</main><!-- .site-main -->
+	
+	<?php get_footer(); ?>
 
 </div><!-- .content-area -->
 
 <?php get_sidebar(); ?>
-<?php get_footer(); ?>
+
