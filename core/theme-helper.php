@@ -130,135 +130,19 @@ if ( ! function_exists( 'snow_theme_logo' ) ) :
 
 endif;
 
-/**
- * 3.1). Change admin menu & post type "Post" labels
- *
- * @method snow_change_post_label
- * @since snow v1.0.0
- * @return HTML5
- *
- */
-function snow_change_post_label() {
-    global $menu;
-    global $submenu;
-    $menu[5][0] = 'News';
-    $submenu['edit.php'][5][0] = 'News';
-    $submenu['edit.php'][10][0] = 'Add News';
-    $submenu['edit.php'][16][0] = 'News Tags';
+/** 
+  Get field in templates after checking if exists 
+*/
+
+function find_and_get_field($field_callback) {
+
+  if(!class_exists('ACF')) :
+    return ;
+  endif;  
+
+  return $field_callback;
+  
 }
-
-add_action( 'admin_menu', 'snow_change_post_label' );
-
-/**
- * 3.2). Change admin menu & post type "Post" object
- *
- * @method snow_change_post_object
- * @since snow v1.0.0
- * @return HTML5
- *
- */
-function snow_change_post_object() {
-    global $wp_post_types;
-    $labels = &$wp_post_types['post']->labels;
-    $labels->name = 'News';
-    $labels->singular_name = 'News';
-    $labels->add_new = 'Add News';
-    $labels->add_new_item = 'Add News';
-    $labels->edit_item = 'Edit News';
-    $labels->new_item = 'News';
-    $labels->view_item = 'View News';
-    $labels->search_items = 'Search News';
-    $labels->not_found = 'No News found';
-    $labels->not_found_in_trash = 'No News found in Trash';
-    $labels->all_items = 'All News';
-    $labels->menu_name = 'News';
-    $labels->name_admin_bar = 'News';
-}
-
-add_action( 'init', 'snow_change_post_object' );
-
-
-/**
- * 4.1). Create post navigation buttons from params
- *
- * @method snow_post_navigation_previous_button
- * @method snow_post_navigation_next_button
- * @param $link type:string , $text type:string
- * @since snow v1.0.0
- * @return HTML5
- *
- */
-
-function snow_post_navigation_button($link, $class, $title, $text) {
-
-  return wp_sprintf ('<a href="%1s" rel="prev" class="%2s c-button">
-            <span class="c-button__text">%3s</span>
-            <span class="c-button__text label">%4s</span>
-        </a>', esc_url( $link ), $class, esc_html__($text, 'snow' ), esc_html__($title,'snow'));
-
-}
-
-// function snow_post_navigation_next_button($link, $title, $text) {
-
-
-
-//   return wp_sprintf ('<a href="%1$s" rel="prev" class="c-button">
-//           <span class="c-arrow-button">
-//             <span class="c-button__text">%2$s</span>
-//             <span class="c-arrow-button__inner">
-//               <span class="c-arrow-button__line c-arrow-button__line--right-arrow"></span>
-//             </span>
-//           </span>
-//         </a>', esc_url( $link ), __($text, 'snow' ));
-
-// }
-
-/**
- * 4.2). Create post navigation from params
- *
- * @method snow_the_post_navigation
- * @param $previous type:string , $next type:string
- * @since snow v1.0.0
- * @return HTML5
- *
- */
-function snow_the_post_navigation($previous='', $next='') {
-
-    $prev_post = get_previous_post();
-
-    $prev_id = ( $prev_post !== '' ) ? $prev_post->ID : '';
-
-    $prev_permalink = ( $prev_id !== '' ) ? get_permalink($prev_id) : '';
-
-    $prev_title = ( $prev_id !== '' ) ? get_the_title($prev_id) : '';    
-
-    $next_post = get_next_post();
-
-    $next_id = ( $next_post !== '' ) ? $next_post->ID : '';;
-
-    $next_permalink = ( $next_id !== '' ) ? get_permalink($next_id) : '';
-    
-    $next_title = ( $next_id !== '' ) ? get_the_title($next_id) : '';
-
-    ob_start();
-    ?>
-
-      <div class="c-post-nav">
-        <?php if( $prev_post ):
-          echo snow_post_navigation_button($prev_permalink, 'btn-prev', $prev_title, 'Previous');
-         endif; ?>
-        <?php if( $next_post ):
-          echo snow_post_navigation_button($next_permalink, 'btn-next', $next_title, 'Next');
-        endif; ?>
-      </div>
-
-    <?php
-    $output = ob_get_contents();
-    ob_end_clean();
-
-    return $output;
-}
-
 
 
 /**
@@ -269,31 +153,31 @@ function snow_the_post_navigation($previous='', $next='') {
 
 if(class_exists('ACF')) :
 
-add_action('wp_ajax_toggle_topstory', 'snow_toggle_topstory_function');
+  add_action('wp_ajax_toggle_topstory', 'snow_toggle_topstory_function');
 
-function snow_toggle_topstory_function(){
+  function snow_toggle_topstory_function(){
 
-    $fieldname = 'the_post_top_story';
-    
-    $post_id = $_POST['currentID'];
+      $fieldname = 'the_post_top_story';
+      
+      $post_id = $_POST['currentID'];
 
-    $value = ( $_POST['fieldValue'] === 'true' ) ? 1 : 0;
-    
-    update_field('field_5e47bac63f1af', $value, $post_id);
+      $value = ( $_POST['fieldValue'] === 'true' ) ? 1 : 0;
+      
+      update_field('field_5e47bac63f1af', $value, $post_id);
 
-    //Don't forget to always exit in the ajax function.
-    exit();
+      //Don't forget to always exit in the ajax function.
+      exit();
 
-}
+  }
 
-/**
- * Register and enqueue a custom stylesheet in the WordPress admin.
- */
-function snow_enqueue_custom_admin_script() {
-    // snow SmoothState support
-  wp_enqueue_script( 'snow-admin-helper', get_template_directory_uri() . '/assets/js/admin/snow-admin-helper-script.js', array(), '1.0.0', true );
-}
-add_action( 'admin_enqueue_scripts', 'snow_enqueue_custom_admin_script' );
+  /**
+   * Register and enqueue a custom stylesheet in the WordPress admin.
+   */
+  function snow_enqueue_custom_admin_script() {
+      // snow SmoothState support
+    wp_enqueue_script( 'snow-admin-helper', get_template_directory_uri() . '/assets/js/admin/snow-admin-helper-script.js', array(), '1.0.0', true );
+  }
+  add_action( 'admin_enqueue_scripts', 'snow_enqueue_custom_admin_script' );
 
 endif;
 
@@ -330,34 +214,6 @@ function snow_custom_top_story_column( $column, $post_id ) {
 }
 
 endif;
-
-/** 
- * Add advertisement banner on home page on desired position
- * 
- * @param $break_count  index of post on which the content must be changed.
- * @param $index  current index of the post inside loop. 
- * @since Snow v1.0.0
- */ 
-
-add_action('snow_display_post',  'introduce_ad_banner_within_loop', 10, 3);
-
-function introduce_ad_banner_within_loop($postindex, $break_count=null, $withExcerpt = false) {
-
-    if( !is_null($break_count) && $postindex === $break_count ) {
-
-      if( $withExcerpt ) {
-        echo '<article class="c-article col-md-4 col-lg-4"><img class="ad-banner" src='.get_template_directory_uri().'/assets/image/dummy-ad.jpg alt="ad-image"></article>';
-      } else {
-        echo '<article class="c-article" ><img class="ad-banner" src='.get_template_directory_uri().'/assets/image/dummy-ad.jpg alt="ad-image"></article>';
-      }
-    
-    } else {
-
-      echo snow_article_layout($withExcerpt);
-
-    }
-
-}
 
 /** 
  * Pass variable to template for sections logic on front page
@@ -405,7 +261,7 @@ function snow_split_string($string, $fallback_text = 'news') {
 
 }
 
-function snow_get_relatedposts_query($post_id, $post_limit='', $list_break='') {
+function snow_get_relatedposts_query($post_id, $post_limit='') {
 
     $terms = get_the_terms( $post_id, 'category' );
 
@@ -432,5 +288,42 @@ function snow_get_relatedposts_query($post_id, $post_limit='', $list_break='') {
     );
 
     return new WP_Query($related_args);
+
+}
+
+function snow_set_category_content($category) {
+  // args
+
+    $tax_Query = '';
+    $single_post_id = '';
+
+    $args = array();
+
+    if( $category !== 'recent_posts' ) :
+
+      $tax_Query = array(
+            'taxonomy' => 'category', //double check your taxonomy name in you dd 
+            'field'    => 'id',
+            'terms'    => $category,
+        );
+
+    endif;
+
+    if ( is_single() ) {
+
+      global $post;
+      $single_post_id = get_the_ID();
+
+    }
+
+    $args = array(
+        'posts_per_page'  => 6,
+        'post_type'   => 'post',
+        'post_status'   => 'publish',
+        'post__not_in'  => array($single_post_id),
+        'tax_query' => array($tax_Query),
+      );
+
+    return new WP_Query($args);
 
 }

@@ -173,3 +173,98 @@ function snow_post_detail_banner() { ?>
 
 
 <?php }
+
+/**
+ * 4.1). Create post navigation buttons from params
+ *
+ * @method snow_post_navigation_previous_button
+ * @method snow_post_navigation_next_button
+ * @param $link type:string , $text type:string
+ * @since snow v1.0.0
+ * @return HTML5
+ *
+ */
+
+function snow_post_navigation_button($link, $class, $title, $text) {
+
+  return wp_sprintf ('<a href="%1s" rel="prev" class="%2s c-button">
+            <span class="c-button__text">%3s</span>
+            <span class="c-button__text label">%4s</span>
+        </a>', esc_url( $link ), $class, esc_html__($text, 'snow' ), esc_html__($title,'snow'));
+
+}
+
+/**
+ * 4.2). Create post navigation from params
+ *
+ * @method snow_the_post_navigation
+ * @param $previous type:string , $next type:string
+ * @since snow v1.0.0
+ * @return HTML5
+ *
+ */
+function snow_the_post_navigation($previous='', $next='') {
+
+    $prev_post = get_previous_post();
+
+    $prev_id = ( $prev_post !== '' ) ? $prev_post->ID : '';
+
+    $prev_permalink = ( $prev_id !== '' ) ? get_permalink($prev_id) : '';
+
+    $prev_title = ( $prev_id !== '' ) ? get_the_title($prev_id) : '';    
+
+    $next_post = get_next_post();
+
+    $next_id = ( $next_post !== '' ) ? $next_post->ID : '';;
+
+    $next_permalink = ( $next_id !== '' ) ? get_permalink($next_id) : '';
+    
+    $next_title = ( $next_id !== '' ) ? get_the_title($next_id) : '';
+
+    ob_start();
+    ?>
+
+      <div class="c-post-nav">
+        <?php if( $prev_post ):
+          echo snow_post_navigation_button($prev_permalink, 'btn-prev', $prev_title, 'Previous');
+         endif; ?>
+        <?php if( $next_post ):
+          echo snow_post_navigation_button($next_permalink, 'btn-next', $next_title, 'Next');
+        endif; ?>
+      </div>
+
+    <?php
+    $output = ob_get_contents();
+    ob_end_clean();
+
+    return $output;
+}
+
+
+/** 
+ * Add advertisement banner on home page on desired position
+ * 
+ * @param $break_count  index of post on which the content must be changed.
+ * @param $index  current index of the post inside loop. 
+ * @since Snow v1.0.0
+ */ 
+
+add_action('snow_display_post',  'introduce_ad_banner_within_loop', 10, 3);
+
+function introduce_ad_banner_within_loop($postindex, $break_count=null, $withExcerpt = false) {
+
+    if( !is_null($break_count) && $postindex === $break_count ) {
+
+      if( $withExcerpt ) {
+        echo '<article class="c-article col-md-4 col-lg-4"><img class="ad-banner" src='.get_template_directory_uri().'/assets/image/dummy-ad.jpg alt="ad-image"></article>';
+      } else {
+        echo '<article class="c-article" ><img class="ad-banner" src='.get_template_directory_uri().'/assets/image/dummy-ad.jpg alt="ad-image"></article>';
+      }
+    
+    } else {
+
+      echo snow_article_layout($withExcerpt);
+
+    }
+
+}

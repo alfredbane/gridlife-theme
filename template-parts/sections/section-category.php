@@ -14,32 +14,9 @@ $category = $section_category;
 
 ?>
 
-
-
 	<?php
-		// args
-
-		$tax_Query = '';
-		$args = array();
-
-		if( $category !== 'recent_posts' ) :
-
-			$tax_Query = array(
-		        'taxonomy' => 'category', //double check your taxonomy name in you dd 
-		        'field'    => 'id',
-		        'terms'    => $category,
-		    );
-
-		endif;
-
-		$args = array(
-				'posts_per_page'	=> 6,
-				'post_type'		=> 'post',
-				'post_status'		=> 'publish',
-				'tax_query' => array($tax_Query),
-			);
-
-		$the_query = new WP_Query($args);
+		
+		$the_query = snow_set_category_content($category);
 
 		echo '<div class="row no-margin-right">';
 			

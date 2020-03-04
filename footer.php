@@ -16,6 +16,7 @@ $theme_settings = snow_settings();
 		<section class="section c-section c-footer-grid">
 
 			<div class="row">
+
 				<div class="c-footer-columns col-lg-4">
 
 					<h5 class="title">
@@ -25,13 +26,11 @@ $theme_settings = snow_settings();
 					<div class="column-content c-newsletter">
 
 						<?php echo do_shortcode($theme_settings['opt-newsletter-form']); ?>
+
 						<span class="text">
 							<?php echo $theme_settings['opt-newsletter-text']; ?>
 						</span>
 
-					</div>
-
-					<div class="column-content c-newsletter">
 					</div>
 
 				</div>
@@ -55,6 +54,7 @@ $theme_settings = snow_settings();
 					      );
 					    ?>
 					<?php endif; ?>
+					
 				</div>
 
 				<div class="c-footer-columns has-background-blue-base c-only-text col-lg-4">
