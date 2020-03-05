@@ -291,7 +291,7 @@ function snow_get_relatedposts_query($post_id, $post_limit='') {
 
 }
 
-function snow_set_category_content($category) {
+function snow_set_category_content($category, $limit=6) {
   // args
 
     $tax_Query = '';
@@ -316,9 +316,13 @@ function snow_set_category_content($category) {
 
     }
 
+    $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
     $args = array(
-        'posts_per_page'  => 6,
+        'posts_per_page'  => $limit,
+        'posts_per_archive_page' => '2',
         'post_type'   => 'post',
+        'paged' => $paged,
         'post_status'   => 'publish',
         'post__not_in'  => array($single_post_id),
         'tax_query' => array($tax_Query),

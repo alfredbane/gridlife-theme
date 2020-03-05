@@ -48,8 +48,14 @@
 			<?php 
 			
 				if ( is_singular( 'post' ) ) {
+
+					if ( class_exists("Wpfc_Public") ):
+						echo do_shortcode("[gs-fb-comments]");
+					endif;
+
 					// Previous/next post navigation.
 					echo snow_the_post_navigation ('Previous', 'Next');
+					
 				}
 			?>
 		</article><!-- #post-<?php the_ID(); ?> -->

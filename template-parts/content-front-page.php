@@ -60,6 +60,7 @@ $categories_settings = $theme_settings['section-categories'] ? $theme_settings['
 		foreach ($categories_settings as $item) { ?>
 
 			<?php do_action('snow_category_var', $item); ?>
+			
 			<section class="section c-section">
 				<div class="row">
 

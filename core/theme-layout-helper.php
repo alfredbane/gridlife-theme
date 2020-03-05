@@ -114,26 +114,24 @@ if(!function_exists('snow_article_layout')):
 
 		}
 
-		return wp_sprintf('<article itemscope itemtype="%1$s" 
-			style="background-image:url(%2$s)" 
-			class="post-%3$s c-article %8$s has-Background-img">
+		return wp_sprintf('<article 
+			style="background-image:url(%1$s)" 
+			class="post-%2$s c-article %6$s has-Background-img">
 
-			<div data-link="%6$s" class="c-excerpt">
-				%4$s
-				<h6 itemprop="%5$s" class="c-article-title">
-					<a href="%6$s" alt="link to news">
-						%7$s
+			<div data-link="%4$s" class="c-excerpt">
+				%3$s
+				<h6 class="c-article-title">
+					<a href="%4$s" alt="link to news">
+						%5$s
 					</a>
 				</h6>
-				%9$s
+				%7$s
 			</div>
 
 		</article>', 
-			set_schema_type('excerpt'),
 			esc_url(get_the_post_thumbnail_url()),
 			$post_id,
 			$post_meta,
-			set_schema_title_prop('excerpt'),
 			esc_url(get_the_permalink($post_id)),
 			esc_html__(get_the_title()),
 			$class,

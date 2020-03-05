@@ -12,11 +12,13 @@ $theme_settings = snow_settings();
 
 $category = $section_category;
 
+$limit = 6;
+
 ?>
 
 	<?php
 		
-		$the_query = snow_set_category_content($category);
+		$the_query = snow_set_category_content($category, 6);
 
 		echo '<div class="row no-margin-right">';
 			
