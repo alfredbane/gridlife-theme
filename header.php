@@ -24,21 +24,18 @@
 
 	</head>
 
-	<body>
+	<body <?php body_class(); ?>>
 
 		<div id="fb-root"></div>
 		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v6.0"></script>
 
 		<div id="main" class="entry-content">
-
-			<div <?php body_class(); ?>>
-
 				<header class="c-site-header">
 
-					<!--
-						SITE HEADER
-						Html stored in ./template-parts/header/site-desktop-header.php
-					-->
-					<?php get_template_part('template-parts/header/site', 'header'); ?>
+						<!--
+							SITE HEADER
+							Html stored in ./template-parts/header/site-desktop-header.php
+						-->
+						<?php get_template_part('template-parts/header/site', 'header'); ?>
 
-				</header>
+					</header>

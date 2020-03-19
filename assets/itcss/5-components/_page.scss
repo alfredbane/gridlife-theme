@@ -1,20 +1,23 @@
 .c-main-content {
 	height: 100vh;
+	padding: 2.8rem;
 }
 
 .c-section {
-	padding: 2.8rem;
 	background-color: palette(mono, white);
+	padding: 0 2.8rem;
+	left: 0;
+	right: 0;
 }
 
 .c-post-detail {
-	
+
 	margin-bottom: 50px;
 
 }
 
 .breadcrumbs {
-	
+
 	width: 400px;
 	display: inline-block;
 	white-space: nowrap;

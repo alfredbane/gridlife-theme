@@ -9,38 +9,38 @@
 
 get_header(); ?>
 
-<div id="primary" class="content-area c-section">
+<main id="site-content" class="c-main-content" data-pp-enable="true" role="main">
 
-	<main id="main" class="site-main" role="main">
+	<div id="primary" class="content-area">
 
-		<?php
-		
-			if( have_posts() ) :
-				// Start the loop.
-				while ( have_posts() ) :
-					the_post(); ?>
+			<?php
 
-					<?php snow_post_detail_banner(); ?>
+				if( have_posts() ) :
+					// Start the loop.
+					while ( have_posts() ) :
+						the_post(); ?>
 
-					<?php 
+						<?php snow_post_detail_banner(); ?>
 
-					// Include the single post content template.
-					get_template_part( 'template-parts/content', 'single' );
-					
-					// End of the loop.
-				endwhile;
+						<?php
 
-			endif;
+						// Include the single post content template.
+						get_template_part( 'template-parts/content', 'single' );
 
-			wp_reset_postdata();
+						// End of the loop.
+					endwhile;
 
-		?>
+				endif;
 
-	</main><!-- .site-main -->
-	
-	<?php get_footer(); ?>
+				wp_reset_postdata();
 
-</div><!-- .content-area -->
+			?>
+
+
+		<?php get_footer(); ?>
+
+	</div><!-- .content-area -->
+
+</main><!-- .site-main -->
 
 <?php get_sidebar(); ?>
-

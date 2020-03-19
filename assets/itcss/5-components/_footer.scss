@@ -8,20 +8,30 @@
 		position: fixed;
 		width: 100%;
 		bottom: 0;
+		left: 0;
+		right: 0;
 	}
 
 }
+.home {
+	.c-footer-grid {
+    padding: 40px;
+    margin: 0 2.9rem;
+    height: 100%;
+    width: auto;
+	}
+}
 
 .c-footer-grid {
-	
+
 	margin-top: 50px;
 	background-color:#eee;
 	padding: 20px;
 
-	.c-footer-columns { 
+	.c-footer-columns {
 
 		&.c-only-text {
-			
+
 			color: palette(mono, white);
 			padding: 22px;
 

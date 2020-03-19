@@ -12,7 +12,7 @@
  */
 $theme_settings = snow_settings();
 
-?>		
+?>
 		<section class="section c-section c-footer-grid">
 
 			<div class="row">
@@ -22,7 +22,7 @@ $theme_settings = snow_settings();
 					<h5 class="title">
 						<?php echo __("Subscribe", "snow"); ?>
 					</h5>
-					
+
 					<div class="column-content c-newsletter">
 
 						<?php echo do_shortcode($theme_settings['opt-newsletter-form']); ?>
@@ -54,7 +54,7 @@ $theme_settings = snow_settings();
 					      );
 					    ?>
 					<?php endif; ?>
-					
+
 				</div>
 
 				<div class="c-footer-columns has-background-blue-base c-only-text col-lg-4">
@@ -64,20 +64,19 @@ $theme_settings = snow_settings();
 					</h5>
 
 					<div class="c-footer-disclaimer">
-						
+
 						<p class="text">
 							<?php echo $theme_settings['opt-extra-text']; ?>
 						</p>
 
 					</div>
-					
+
 				</div>
 
 			</div>
 
 		</section>
 
-		</div>
 		<footer class="c-footer c-footer-fix">
 			<div class="container-fluid">
 				<div class="row between-xs">

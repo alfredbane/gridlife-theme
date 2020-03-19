@@ -3,6 +3,14 @@
     min-height: 275px;
     position: relative;
 
+    @include desktop {
+        min-height: 443px;
+    }
+
+    @include laptop-large {
+        min-height: 402px;
+    }
+
     &.has-Background-img {
 	    background-position: center;
 	    background-size: cover;
@@ -37,7 +45,7 @@
 		    background-color: palette(mono, white);
 		    width: 200px;
 		    right: 0;
-		    
+
 		    p{
 
 			    margin-bottom: 0;
@@ -57,6 +65,14 @@
 	.c-article {
 
     	min-height: 183.5px;
+
+      @include desktop {
+          min-height: 295.5px;
+      }
+
+      @include laptop-large {
+          min-height: 268px;
+      }
 
 	}
 
@@ -98,7 +114,7 @@
 	    text-overflow: ellipsis;
 
 	    span {
-	    	
+
 	    	display: block;
 			color: palette(blue, base);
 			text-transform: uppercase;

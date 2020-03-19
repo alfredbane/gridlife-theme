@@ -19,11 +19,11 @@ get_header();
 
 <main id="site-content" class="c-main-content" data-pp-enable="true" role="main">
 
-	<?php 
+	<?php
 		get_template_part('template-parts/content','front-page');
 	?>
-	
-<?php get_footer(); ?>
+
+	<?php get_footer(); ?>
 </main><!-- #site-content -->
 
 <?php

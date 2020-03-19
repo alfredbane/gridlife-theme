@@ -1,7 +1,7 @@
 .c-article {
 
 	.c-classification {
-		
+
 		font-family: $secondary-font;
 		font-weight: bold;
 		position: relative;
@@ -19,7 +19,7 @@
 		    bottom: 0;
 
 		}
-		
+
 		&.color {
 
 			&-blue {
@@ -59,7 +59,7 @@
 		}
 
 	}
-	
+
 	.c-meta-date {
     	font-size: 10px;
 	}
@@ -67,11 +67,15 @@
 }
 
 .c-section-aside {
-	
+
 	.c-section-label {
 		padding: 90px 30px 18px 30px;
 		color: #fff;
-		
+		display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50%;
+
 		h1 {
 			color: palette(mono, white);
 		}
@@ -85,6 +89,6 @@
 		    margin-bottom: 0px;
 		}
 
-	}	
+	}
 
 }

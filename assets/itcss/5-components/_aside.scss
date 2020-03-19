@@ -2,6 +2,7 @@
 
     display: flex;
     flex-direction: column;
+    height: 100%;
 
 	.has-background-blue-base {
 		.c-side-regular {
@@ -23,15 +24,15 @@
 
 }
 
-.c-sidebar-section { 
-	
+.c-sidebar-section {
+
 	display: inline-block;
 	background-color:#eaeaeaf2;
 	padding: 15px;
 	box-shadow: 1px 4px 7px -2px rgba(0,0,0,0.5);
 	margin-bottom: 30px;
 	width: 290px;
-	
+
 	ul {
 
 		display: inline-block;
