@@ -4,7 +4,15 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 480px;
-    position: relative;
+  position: relative;
+
+	@include mobile {
+		height: 240px;
+	}
+
+	@include tablet {
+		height: 240px;
+	}
 
     &::after {
 	    content: "";
@@ -14,26 +22,44 @@
 	    width: 100%;
 	    top: 0;
 	}
-	
+
 	.c-banner-content {
-    	
+
     	display: flex;
-    	align-items: center;
+			align-items: center;
     	height: 100%;
     	position: relative;
+
+			@include mobile {
+				align-items: flex-end;
+			}
 
     	.c-banner-caption {
     		z-index: 2;
     		width: 800px;
-    		padding: 40px;	
+    		padding: 40px;
     		color: palette(mono, white);
 
-    		h1 {
-    			margin-bottom: 0px;
-    			color: palette(mono, white);
-    		}
+				@include mobile {
+					width: auto;
+					padding: 20px;
+				}
+				.o-post-title {
+
+	    		h1 {
+						margin-bottom: 0px;
+	    			color: palette(mono, white);
+
+						@include mobile {
+							margin-bottom: 10px;
+							font-size: 19px;
+							line-height: 24px;
+						}
+
+	    		}
+				}
     	}
 
 	}
-	
+
 }

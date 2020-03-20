@@ -12,14 +12,25 @@
 		right: 0;
 	}
 
+	@include mobile {
+		.c-footer__copyright-content {
+	    font-size: 10px;
+	    line-height: 18px;
+	    display: block;
+		}
+	}
+
 }
 .home {
+
 	.c-footer-grid {
     padding: 40px;
     margin: 0 2.9rem;
     height: 100%;
     width: auto;
+
 	}
+
 }
 
 .c-footer-grid {
@@ -27,6 +38,14 @@
 	margin-top: 50px;
 	background-color:#eee;
 	padding: 20px;
+
+	@include mobile {
+		display: none;
+	}
+
+	@include tablet {
+		display: none;
+	}
 
 	.c-footer-columns {
 

@@ -1,14 +1,30 @@
 .container-fluid {
 	padding-right: 2.8rem;
 	padding-left: 2.8rem;
+
+	@include mobile {
+		padding-right: 1.3rem;
+		padding-left: 1.3rem;
+	}
+
 }
 
 .no-padding-left {
-	padding-left: 0
+	padding-left: 0;
+
+	@include mobile {
+		padding: 0;
+	}
+
 }
 
 .no-padding-right {
-	padding-right: 0
+	padding-right: 0;
+
+	@include mobile {
+		padding: 0;
+	}
+
 }
 
 .no-padding {
@@ -16,5 +32,10 @@
 }
 
 .no-margin-right {
-	margin-right: 0
+	margin-right: 0;
+
+	@include mobile {
+		margin: 0;
+	}
+
 }

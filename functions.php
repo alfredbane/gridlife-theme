@@ -40,8 +40,8 @@ function add_file_types_to_uploads($file_types){
      $new_filetypes['svg'] = 'image/svg';
      $file_types = array_merge($file_types, $new_filetypes );
 
-     return $file_types; 
-} 
+     return $file_types;
+}
 add_action('upload_mimes', 'add_file_types_to_uploads');
 
 
@@ -309,21 +309,21 @@ function snow_scripts() {
 	// Theme stylesheet. rand() to avoid caching issues
 	wp_enqueue_style( 'snow-style', get_stylesheet_uri(), array('snow-flexbox'), rand(100,999) );
 
-
-	// snow SmoothState support
-	wp_enqueue_script( 'snow-smoothstate', get_template_directory_uri() . '/assets/vendor/jquery.smoothState.min.js', array('jquery'), '1.0.0', true );
-
 	/**
 	 * PAGEPILIMG INIT FOR FEW PAGES ONLY
 	 */
 
-	if( is_front_page() ):
+	if( wp_is_mobile() ):
 
-		// snow PagePiling Js support
-		wp_enqueue_script( 'snow-pagepiling', get_template_directory_uri() . '/assets/vendor/PagePilingJs/jquery.pagepiling.min.js', array('jquery'), '2.0.5', true );
+	else:
 
-		// snow PagePiling Js support
-		wp_enqueue_script( 'snow-pagepiling-init', get_template_directory_uri() . '/assets/js/snow-pagepiling-init.js', array('jquery', 'snow-pagepiling'), '1.0.0', true );
+		if( is_front_page() ):
+			// snow PagePiling Js support
+			wp_enqueue_script( 'snow-pagepiling', get_template_directory_uri() . '/assets/vendor/PagePilingJs/jquery.pagepiling.min.js', array('jquery'), '2.0.5', true );
+
+			// snow PagePiling Js support
+			wp_enqueue_script( 'snow-pagepiling-init', get_template_directory_uri() . '/assets/js/snow-pagepiling-init.js', array('jquery', 'snow-pagepiling'), '1.0.0', true );
+		endif;
 
 	endif;
 
@@ -331,32 +331,32 @@ function snow_scripts() {
 
 	//1. snow Helper scripts
 
-	/** 
-	 * 1.3 Glider Init jQuery for snow. 
+	/**
+	 * 1.3 Glider Init jQuery for snow.
 	 *
 	 * @depends jQuery
 	 * @version 1.0.0
-	 * 
-	 */	
+	 *
+	 */
 	wp_enqueue_script( 'snow-slick-init-js', get_template_directory_uri() . '/assets/js/snow-slick-init.js', array('jquery', 'snow-helper'), '1.0.0', true );
 
-	/** 
-	 * 1.1 General helper Jquery modifications 
-	 * for theme. 
+	/**
+	 * 1.1 General helper Jquery modifications
+	 * for theme.
 	 *
 	 * @depends jQuery
 	 * @version 1.0.0
-	 * 
-	 */	
-	wp_enqueue_script( 'snow-helper', get_template_directory_uri() . '/assets/js/snow-helper.js', array('jquery'), '1.0.0', true );	
+	 *
+	 */
+	wp_enqueue_script( 'snow-helper', get_template_directory_uri() . '/assets/js/snow-helper.js', array('jquery'), '1.0.0', true );
 
-	/** 
-	 * 1.2 SmoothState Init jQuery for snow. 
+	/**
+	 * 1.2 SmoothState Init jQuery for snow.
 	 *
 	 * @depends jQuery, snow-helper
 	 * @version 1.0.0
-	 * 
-	 */	
+	 *
+	 */
 	wp_enqueue_script( 'snow-ss-init', get_template_directory_uri() . '/assets/js/snow-smoothstate.js', array('jquery', 'snow-helper'), '1.0.0', true );
 
 
@@ -369,7 +369,7 @@ function snow_scripts() {
 
 	// FontAwesmoe Brands JS
 	wp_enqueue_script( 'fontawesomebrandstyle', 'https://use.fontawesome.com/releases/v5.0.13/js/brands.js', array(), null );
-	
+
 	wp_enqueue_script( 'fontawesome5', 'https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js', array('fontawesomesolidstyle'), null );
 
 }
@@ -377,11 +377,16 @@ add_action( 'wp_enqueue_scripts', 'snow_scripts' );
 
 function snow_add_footer_styles() {
 
-    if( is_front_page() ):
-		// Theme FullPage concept css
-		wp_enqueue_style( 'snow-pagepiling', get_template_directory_uri() . '/assets/vendor/PagePilingJs/jquery.pagepiling.css', array(), '3.0.8' );
-	endif;
+	if( wp_is_mobile() ):
 
+	else:
+
+    if( is_front_page() ):
+			// Theme FullPage concept css
+			wp_enqueue_style( 'snow-pagepiling', get_template_directory_uri() . '/assets/vendor/PagePilingJs/jquery.pagepiling.css', array(), '3.0.8' );
+		endif;
+		
+	endif;
 };
 add_action( 'get_footer', 'snow_add_footer_styles' );
 

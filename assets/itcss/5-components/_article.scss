@@ -11,6 +11,11 @@
         min-height: 402px;
     }
 
+    @include mobile {
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
     &.has-Background-img {
 	    background-position: center;
 	    background-size: cover;
@@ -74,6 +79,10 @@
           min-height: 268px;
       }
 
+      @include mobile {
+          min-height: 275px;
+      }
+
 	}
 
 }
@@ -91,14 +100,21 @@
 	    max-width: 136px;
 	    line-height: 23px;
 
+      @include mobile {
+        line-height: 15px;
+        font-size: 11px;
+      }
+
 	}
 }
 
 .c-post-detail article {
-
-    margin-left: 45px;
-    font-family: $secondary-font;
 	text-align: justify;
+  font-family: $secondary-font;
+
+  @include mobile {
+    margin-bottom: 30px;
+  }
 
 }
 
@@ -106,12 +122,17 @@
 
     display: flex;
     justify-content: space-between;
-
+    margin-top: 20px;
+    
     .c-button {
 
 	    width: 330px;
 	    overflow: hidden;
 	    text-overflow: ellipsis;
+
+      @include mobile {
+        font-size: 15px;
+      }
 
 	    span {
 
@@ -123,9 +144,13 @@
 
 				overflow: hidden;
 				text-overflow: ellipsis;
-				width: 330px;
+        width: 330px;
 				white-space: nowrap;
 				color: palette(red, base);
+
+          @include mobile {
+            width: 150px;
+          }
 
 	    	}
 

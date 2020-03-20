@@ -9,7 +9,7 @@
 ?>
 
 <div class="c-post-meta-single">
-	
+
 	<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
 
 	    <?php
@@ -32,11 +32,8 @@
 
 <section class="c-post-detail">
 	<div class="row">
-		<aside class="c-sidebar col-lg-3 col-md-3">
-			<?php get_template_part( 'template-parts/content', 'sidebar' ); ?>
-		</aside>
 
-		<article id="post-<?php the_ID(); ?>" <?php post_class('col-lg-8 col-md-8'); ?>>
+		<article id="post-<?php the_ID(); ?>" <?php post_class('col-lg-9 col-md-9 col-sm-12 col-xs-12'); ?>>
 
 			<div class="entry-content">
 
@@ -44,9 +41,9 @@
 					the_content();
 				?>
 			</div><!-- .entry-content -->
-			
-			<?php 
-			
+
+			<?php
+
 				if ( is_singular( 'post' ) ) {
 
 					if ( class_exists("Wpfc_Public") ):
@@ -55,20 +52,25 @@
 
 					// Previous/next post navigation.
 					echo snow_the_post_navigation ('Previous', 'Next');
-					
+
 				}
 			?>
 		</article><!-- #post-<?php the_ID(); ?> -->
+
+		<aside class="c-sidebar col-lg-3 col-md-3 col-sm-12 col-xs-12">
+			<?php get_template_part( 'template-parts/content', 'sidebar' ); ?>
+		</aside>
+
 	</div>
 </section>
 
-<?php 
+<?php
 
-	
+
 	$terms = get_the_terms( get_the_ID(), 'category' );
 
     if ( empty( $terms ) ) $terms = array();
-  
+
     $term_list = wp_list_pluck( $terms, 'term_id' );
 
 	do_action('snow_category_var', $term_list[0]);
@@ -81,9 +83,9 @@
 
 		<div class="col-xs-12 col-md-3 col-lg-3 no-padding-right">
 
-			<?php 
+			<?php
 
-				get_template_part( 'template-parts/sections/section', 'sidebar' ); 
+				get_template_part( 'template-parts/sections/section', 'sidebar' );
 
 			?>
 
@@ -92,7 +94,7 @@
 		<div class="col-xs-12 col-md-9 col-lg-9 no-padding">
 
 			<?php get_template_part( 'template-parts/sections/section', 'category' ); ?>
-	
+
 		</div>
 
 	</div>

@@ -12,22 +12,14 @@
 
 ?>
 
-  
+
 <div class="container-fluid">
   <div class="row between-xs top-xs">
-    <div itemprop class="c-header__logo c-header__logo--has-background col-xs-2">
+    <div itemprop class="c-header__logo c-header__logo--has-background col-md-2 col-sm-3 col-xs-3">
       <?php get_template_part( 'template-parts/header/site', 'branding' ); ?>
     </div>
 
-    <!--
-      SEARCH FORM
-      Html stored in ./searchform.php
-    
-    <div class="c-header__search-bar">
-      <?php //get_template_part('searchform'); ?>
-    </div>-->
-
-    <nav class="c-header__navbar navbar navbar-expand-lg col-xs-10">
+    <nav class="c-header__navbar navbar navbar-expand-lg col-lg-10 col-md-10 col-sm-12">
 
       <!--
         SITE NAVIGATION DESKTOP
@@ -36,7 +28,7 @@
       <div class="c-header__nav collapse navbar-collapse" id="navbarSupportedContent" role="navigation" aria-label="<?php esc_attr_e('Main Menu', 'snow'); ?>">
         <?php get_template_part('template-parts/header/site', 'navigation'); ?>
       </div>
-      
-    </nav>  
+
+    </nav>
   </div>
 </div>

@@ -3,7 +3,7 @@
     display: flex;
     justify-content: flex-end;
 
-    .menu-item { 
+    .menu-item {
 
     	margin-bottom: 0;
 
@@ -17,6 +17,12 @@
 
 	}
 
+}
+
+ul#menu-primary {
+  @include mobile {
+    display: none;
+  }
 }
 
 .c-header__nav {

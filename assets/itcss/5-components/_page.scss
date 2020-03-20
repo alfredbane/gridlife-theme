@@ -1,6 +1,24 @@
+.single {
+	.c-main-content {
+		height: auto;
+	}
+}
+
 .c-main-content {
 	height: 100vh;
 	padding: 2.8rem;
+
+	@include mobile {
+		padding: 1.8rem;
+		margin-top: 20px;
+	}
+
+	@include tablet {
+		padding: 1.8rem;
+		margin-top: 20px;
+	}
+
+
 }
 
 .c-section {
@@ -8,6 +26,11 @@
 	padding: 0 2.8rem;
 	left: 0;
 	right: 0;
+
+	@include mobile {
+		padding: 0;
+	}
+
 }
 
 .c-post-detail {
@@ -23,6 +46,10 @@
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+
+	@include mobile {
+		width: 220px;
+	}
 
 }
 
