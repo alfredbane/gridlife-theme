@@ -108,6 +108,8 @@ if ( ! function_exists( 'snow_setup' ) ) :
 		register_nav_menus(
 			array(
 				'primary' => __( 'Primary Menu', 'snow' ),
+				'mobile_nav' => __( 'Mobile Menu', 'snow' ),
+				'mobile_categories' => __( 'Mobile Categories', 'snow' ),
 				'help_links' => __( 'Footer Menu Primary', 'snow' ),
 				'useful_links' => __( 'Footer Menu Secondary', 'snow' ),
 				'social'  => __( 'Social Links Menu', 'snow' ),
@@ -385,7 +387,7 @@ function snow_add_footer_styles() {
 			// Theme FullPage concept css
 			wp_enqueue_style( 'snow-pagepiling', get_template_directory_uri() . '/assets/vendor/PagePilingJs/jquery.pagepiling.css', array(), '3.0.8' );
 		endif;
-		
+
 	endif;
 };
 add_action( 'get_footer', 'snow_add_footer_styles' );

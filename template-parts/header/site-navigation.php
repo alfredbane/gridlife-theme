@@ -40,5 +40,5 @@
 
 
   <?php if( wp_is_mobile() ) : ?>
-    <button id="button-addon1" type="submit" class="c-mobile_nav-button"> <span> <?php echo __("Menu", "snow"); ?> </span> <i class="fas fa-bars"></i> </button>
+    <?php get_template_part( 'template-parts/header/site', 'mobile-navigation' ); ?>
   <?php endif; ?>

@@ -115,6 +115,32 @@ $(document).ready(function(){
         }
 
       });
+
+      // NAV MENU MOBILE TAB ACTION
+
+      $('.c-label-nav').on('click', function() {
+
+        var targetNav = $(this).attr('data-open');
+        var previousNav = $(this).siblings().attr('data-open');
+
+        if(!$(this).hasClass('active')) {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active')
+        }
+
+        $(targetNav).removeClass("hide");
+        $(previousNav).addClass("hide");
+
+      });
+
+      $(".c-mobile_nav-button").on("click",function(){
+        if($(this).hasClass('close')) {
+          $(".mobilenav").animate({right:"100%"},500);
+        } else {
+          $(".mobilenav").animate({right:"0px"},500);
+        }
+      });
+
   });
 
 })(jQuery);
