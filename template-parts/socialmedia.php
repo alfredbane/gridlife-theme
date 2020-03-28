@@ -4,69 +4,45 @@
  * main sidebar footer
  *
  * @package WordPress
- * @subpackage Autumn
+ * @subpackage Snow
  * @since 1.0.0
  */
 
 /**
  * Redux Theme Settings
  */
-$theme_settings = snow_settings();
+$snow_settings = snow_settings();
 
-$facebook_url = !empty( $theme_settings['opt-facebook'] ) ? $theme_settings['opt-facebook'] : '';
-$instagram_url= !empty( $theme_settings['opt-instagram'] ) ? $theme_settings['opt-instagram'] : '';
-$twitter_url = !empty( $theme_settings['opt-twitter'] ) ? $theme_settings['opt-twitter'] : '';
-$youtube_url = !empty( $theme_settings['opt-youtube'] ) ? $theme_settings['opt-youtube'] : '';
-$linkedin_url = !empty( $theme_settings['opt-linkedin'] ) ? $theme_settings['opt-linkedin'] : '';
+$facebook_url = !empty( $snow_settings['opt-facebook'] ) ? $snow_settings['opt-facebook'] : '';
+$instagram_url= !empty( $snow_settings['opt-instagram'] ) ? $snow_settings['opt-instagram'] : '';
+$twitter_url = !empty( $snow_settings['opt-twitter'] ) ? $snow_settings['opt-twitter'] : '';
+$youtube_url = !empty( $snow_settings['opt-youtube'] ) ? $snow_settings['opt-youtube'] : '';
+$linkedin_url = !empty( $snow_settings['opt-linkedin'] ) ? $snow_settings['opt-linkedin'] : '';
+$pinterest_url = !empty( $snow_settings['opt-pinterest'] ) ? $snow_settings['opt-pinterest'] : '';
+
+$social_media_links = array(
+  ["title"=>"Facebook link", "icon" => "facebook", "link" => $facebook_url],
+  ["title"=>"Instagram link", "icon" => "instagram", "link" => $instagram_url],
+  ["title"=>"Twitter link", "icon" => "twitter", "link" => $twitter_url],
+  ["title"=>"Youtube link", "icon" => "youtube", "link" => $youtube_url],
+  ["title"=>"Linkedin link", "icon" => "linkedin", "link" => $linkedin_url],
+  ["title"=>"Pinterest link", "icon" => "pinterest", "link" => $pinterest_url],
+)
 
 ?>
 
-<?php if ( isset($theme_settings) ): ?>
+<?php if ( isset($snow_settings) ): ?>
 
-
-
-    <ul class="c-social-media">
-
-      <?php if( $facebook_url ) : ?>
+  <ul class="c-social-media">
+    <?php foreach($social_media_links as $social_link): ?>
+      <?php if( $social_link['link'] ) : ?>
         <li class="c-social-media__item">
-          <a target="_blank" aria-label="Facebook" rel="noreferrer" title="Facebook" href="<?php echo $facebook_url ?>" class="c-social-media__link">
-            <i class="fab fa-facebook"></i>
+          <a target="_blank" aria-label="<?php echo $social_link["title"]; ?>" rel="noreferrer" title="<?php echo $social_link["title"]; ?>" href="<?php echo $social_link["link"]; ?>" class="c-social-media__link">
+            <i class="fab fa-<?php echo $social_link["icon"]; ?>"></i>
           </a>
         </li>
       <?php endif; ?>
-
-      <?php if( $instagram_url ) : ?>
-      <li class="c-social-media__item">
-        <a target="_blank" aria-label="Instagram" rel="noreferrer" title="Instagram" href="<?php echo $instagram_url ?>" class="c-social-media__link">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </li>
-      <?php endif; ?>
-
-      <?php if( $youtube_url ) : ?>
-      <li class="c-social-media__item">
-        <a target="_blank" aria-label="Youtube" rel="noreferrer" title="Youtube" href="<?php echo $youtube_url ?>" class="c-social-media__link">
-          <i class="fab fa-youtube"></i>
-        </a>
-      </li>
-      <?php endif; ?>
-      
-      <?php if( $twitter_url ) : ?>
-      <li class="c-social-media__item">
-        <a target="_blank" aria-label="Twitter" rel="noreferrer" title="Twitter" href="<?php echo $instagram_url ?>" class="c-social-media__link">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-      <?php endif; ?>
-
-      <?php if( $linkedin_url ) : ?>
-      <li class="c-social-media__item">
-        <a target="_blank" aria-label="Linkedin" rel="noreferrer" title="Linkedin" href="<?php echo $linkedin_url ?>" class="c-social-media__link">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </li>
-      <?php endif; ?>
-
-    </ul>
+    <?php endforeach; ?>
+  </ul>
 
 <?php endif; ?>

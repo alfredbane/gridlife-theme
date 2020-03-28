@@ -1,23 +1,22 @@
 .c-article {
 
-    min-height: 275px;
+    height: calc(46vh - 6px);
     position: relative;
 
-    @include desktop {
-        min-height: 443px;
-    }
-
-    @include laptop-large {
-        min-height: 402px;
-    }
-
     @include mobile {
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       width: 100%;
+      height: 300px;
+    }
+
+    @include tablet {
+      margin-bottom: 20px;
+      width: 100%;
+      height: 300px;
     }
 
     &.has-Background-img {
-	    background-position: center;
+	    background-position: top;
 	    background-size: cover;
 	    background-repeat: no-repeat;
 
@@ -36,9 +35,11 @@
 
 	.c-excerpt {
 	    padding: 20px;
-	    max-width: 570px;
+	    width: auto;
 	    position: absolute;
 	    bottom: 0;
+      left:0;
+      right: 0;
 	    z-index: 1;
 
 	}
@@ -49,7 +50,7 @@
 		    padding: 11px;
 		    background-color: palette(mono, white);
 		    width: 200px;
-		    right: 0;
+		    left: auto;
 
 		    p{
 
@@ -69,18 +70,10 @@
 
 	.c-article {
 
-    	min-height: 183.5px;
-
-      @include desktop {
-          min-height: 295.5px;
-      }
-
-      @include laptop-large {
-          min-height: 268px;
-      }
+    	height: calc(33vh - 25px);
 
       @include mobile {
-          min-height: 275px;
+          height: 300px;
       }
 
 	}
@@ -97,12 +90,20 @@
     .c-post-publish-date {
 
 	    text-align: right;
-	    max-width: 136px;
+	    width: 136px;
 	    line-height: 23px;
 
       @include mobile {
         line-height: 15px;
         font-size: 11px;
+      }
+
+      @include laptop {
+        width: 140px;
+      }
+
+      @include laptop-large {
+        width: 143px;
       }
 
 	}
@@ -123,7 +124,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-    
+
     .c-button {
 
 	    width: 330px;

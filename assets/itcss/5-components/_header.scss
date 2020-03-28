@@ -12,6 +12,10 @@
 		margin-left: 10px;
     text-transform: uppercase;
 
+		@include tablet {
+				display: none;
+		}
+
 		span {
 				font-size: 12px;
 				margin: 0px 8px;
@@ -34,6 +38,10 @@
 		@include mobile {
 			padding-top: 10px;
 			padding-bottom: 10px;
+		}
+
+		@include tablet {
+			padding: 12px;
 		}
 
 		&.c-header__logo--has-background {

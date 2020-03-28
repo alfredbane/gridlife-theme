@@ -43,6 +43,14 @@
     float: none;
   }
 
+  @include laptop {
+    width: 100%;
+  }
+
+  @include laptop-large {
+    width: 100%;
+  }
+
 	ul {
 
 		display: inline-block;

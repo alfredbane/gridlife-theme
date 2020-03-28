@@ -13,7 +13,7 @@
 
   <!-- Modal content -->
   <div class="c-modal-content">
-    <span class="close">&times;</span>
+    <span class="close" id="popup-close">&times;</span>
         <!--
           SEARCH FORM
           Html stored in ./searchform.php

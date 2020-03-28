@@ -10,22 +10,30 @@
 	.c-slider-meta {
 		position: absolute;
 		padding: 15px 20px;
-	    right: 0;
-	    z-index: 1;
-	    color: palette(mono, white);
-	    text-transform: uppercase;
+    right: 0;
+    z-index: 1;
+    color: palette(mono, white);
+    text-transform: uppercase;
 
-	    svg {
-	    	margin-right: 10px;
-	    	font-size: 25px;
-	    }
+    svg {
+    	margin-right: 10px;
+    	font-size: 25px;
+    }
 	}
-     
+
 	.slick-dots {
-	    bottom: 0;
+      bottom: 0;
 	    width: auto;
 	    right: 0;
 	    margin: 10px;
+
+      @include mobile {
+        bottom: 18px;
+      }
+
+      @include tablet {
+        bottom: 19px;
+      }
 
 	    li {
 		    margin: 0;
@@ -39,7 +47,7 @@
 		    }
 
 		    &.slick-active {
-		    	
+
 		    	button {
 
 		    		&::before{

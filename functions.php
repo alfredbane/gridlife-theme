@@ -325,6 +325,7 @@ function snow_scripts() {
 
 			// snow PagePiling Js support
 			wp_enqueue_script( 'snow-pagepiling-init', get_template_directory_uri() . '/assets/js/snow-pagepiling-init.js', array('jquery', 'snow-pagepiling'), '1.0.0', true );
+
 		endif;
 
 	endif;
@@ -386,6 +387,7 @@ function snow_add_footer_styles() {
     if( is_front_page() ):
 			// Theme FullPage concept css
 			wp_enqueue_style( 'snow-pagepiling', get_template_directory_uri() . '/assets/vendor/PagePilingJs/jquery.pagepiling.css', array(), '3.0.8' );
+
 		endif;
 
 	endif;

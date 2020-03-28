@@ -42,6 +42,10 @@
 		padding: 0;
 	}
 
+	@include tablet {
+		padding: 0 1.3rem;
+	}
+
 }
 
 .c-post-detail {

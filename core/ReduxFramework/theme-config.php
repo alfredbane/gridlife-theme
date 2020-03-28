@@ -259,12 +259,12 @@
                 )
             ),
             array(
-                'id'       => 'opt-instagram',
+                'id'       => 'opt-pinterest',
                 'type'     => 'text',
-                'title'    => __( 'Instagram', 'snow' ),
-                'subtitle' => __( 'Add your instagram page link or a page that tells about your business. It should not be any page name or search term or any personal acccount URL.', 'snow' ),
+                'title'    => __( 'Pinterest', 'snow' ),
+                'subtitle' => __( 'Add your pinterest page link or a page that tells about your business. It should not be any page name or search term or any personal acccount URL.', 'snow' ),
                 'hint'     => array(
-                    'content' => 'Add only instagram page link type here, no pagenames etc..',
+                    'content' => 'Add only pinterest page link type here, no pagenames etc..',
                 )
             ),
             array(
@@ -419,7 +419,7 @@
         'icon'  => 'el el-envelope',
         'subsection' => true,
         'fields'     => array(
-            
+
             array(
                 'id'       => 'opt-toggle',
                 'type'     => 'switch',

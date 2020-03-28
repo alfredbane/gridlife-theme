@@ -16,12 +16,20 @@
 		padding: 0;
 	}
 
+	@include tablet {
+		padding: 0;
+	}
+
 }
 
 .no-padding-right {
 	padding-right: 0;
 
 	@include mobile {
+		padding: 0;
+	}
+
+	@include tablet {
 		padding: 0;
 	}
 
@@ -35,6 +43,10 @@
 	margin-right: 0;
 
 	@include mobile {
+		margin: 0;
+	}
+
+	@include tablet {
 		margin: 0;
 	}
 

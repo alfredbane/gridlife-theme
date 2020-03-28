@@ -152,19 +152,18 @@ var modal = document.getElementById("modal-7493");
 var btn = document.getElementById("modal-7493-01");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementById("popup-close");
 
 // When the user clicks the button, open the modal
 btn.onclick = function(event) {
   event.preventDefault();
-
   modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+span.addEventListener('click', function () {
   modal.style.display = "none";
-}
+});
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {

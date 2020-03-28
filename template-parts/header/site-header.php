@@ -15,11 +15,11 @@
 
 <div class="container-fluid">
   <div class="row between-xs top-xs">
-    <div itemprop class="c-header__logo c-header__logo--has-background col-md-2 col-sm-3 col-xs-3">
+    <div itemprop class="c-header__logo c-header__logo--has-background col-md-2 col-sm-2 col-xs-3">
       <?php get_template_part( 'template-parts/header/site', 'branding' ); ?>
     </div>
 
-    <nav class="c-header__navbar navbar navbar-expand-lg col-lg-10 col-md-10 col-sm-12">
+    <nav class="c-header__navbar navbar navbar-expand-lg col-lg-10 col-md-10 col-sm-9">
 
       <!--
         SITE NAVIGATION DESKTOP
