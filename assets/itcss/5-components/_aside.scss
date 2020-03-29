@@ -10,6 +10,12 @@
 		}
 	}
 
+  .has-background-blue-dark {
+		.c-side-regular {
+			color: palette(yellow, base);
+		}
+	}
+
 	.has-background-red-base {
 		.c-side-regular {
 			color: palette(blue, light);
@@ -129,5 +135,24 @@
 	    }
 
 	}
+
+}
+
+.c-weather-forecasts {
+
+  .c-section-aside {
+    height: 45.3vh;
+    width: 20%;
+
+    .c-section-label {
+        height: 100%;
+
+        .svg-inline--fa {
+          font-size: 35px;
+        }
+
+    }
+
+  }
 
 }

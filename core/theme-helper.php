@@ -130,23 +130,23 @@ if ( ! function_exists( 'snow_theme_logo' ) ) :
 
 endif;
 
-/** 
-  Get field in templates after checking if exists 
+/**
+ *  Get field in templates after checking if exists
 */
 
 function find_and_get_field($field_callback) {
 
   if(!class_exists('ACF')) :
     return ;
-  endif;  
+  endif;
 
   return $field_callback;
-  
+
 }
 
 
 /**
-  * Add admin_ajax for top story toggle feature in post list. 
+  * Add admin_ajax for top story toggle feature in post list.
   * Works in dependency with ACF plugin.
   * @since snow 1.0
   */
@@ -158,11 +158,11 @@ if(class_exists('ACF')) :
   function snow_toggle_topstory_function(){
 
       $fieldname = 'the_post_top_story';
-      
+
       $post_id = $_POST['currentID'];
 
       $value = ( $_POST['fieldValue'] === 'true' ) ? 1 : 0;
-      
+
       update_field('field_5e47bac63f1af', $value, $post_id);
 
       //Don't forget to always exit in the ajax function.
@@ -200,7 +200,7 @@ function snow_custom_edit_post_columns($columns) {
 
     return $columns;
 }
-  
+
 // Add the data to the custom columns for the book post type:
 add_action( 'manage_post_posts_custom_column' , 'snow_custom_top_story_column', 10, 2 );
 function snow_custom_top_story_column( $column, $post_id ) {
@@ -215,13 +215,13 @@ function snow_custom_top_story_column( $column, $post_id ) {
 
 endif;
 
-/** 
+/**
  * Pass variable to template for sections logic on front page
- * 
- * @param $category_var  term slug to be passed. 
+ *
+ * @param $category_var  term slug to be passed.
  * @since Snow v1.0.0
  *
- */ 
+ */
 
 add_action('snow_category_var',  'set_category_var_global', 12, 1);
 
@@ -238,7 +238,7 @@ function snow_split_string($string, $fallback_text = 'news') {
   if( strpos(trim($string), ' ') !== false ) {
     $split_string = explode(" ", $string);
   }
-  
+
   $end_element = end($split_string);
 
   $html = '';
@@ -246,7 +246,7 @@ function snow_split_string($string, $fallback_text = 'news') {
   foreach( $split_string as $word ):
 
     if( $word !== $end_element) {
-      
+
       $html .= '<div class="label-inline"><span>'.$word.'</span>';
 
     } else {
@@ -266,11 +266,11 @@ function snow_get_relatedposts_query($post_id, $post_limit='') {
     $terms = get_the_terms( $post_id, 'category' );
 
     if ( empty( $terms ) ) $terms = array();
-  
+
     $term_list = wp_list_pluck( $terms, 'slug' );
 
     $tax_Query = array(
-      'taxonomy' => 'category', //double check your taxonomy name in you dd 
+      'taxonomy' => 'category', //double check your taxonomy name in you dd
       'field'    => 'slug',
       'terms'    => $term_list,
     );
@@ -284,7 +284,7 @@ function snow_get_relatedposts_query($post_id, $post_limit='') {
       'orderby' => 'rand',
       'tax_query' => array($tax_Query),
 
-      
+
     );
 
     return new WP_Query($related_args);
@@ -302,7 +302,7 @@ function snow_set_category_content($category, $limit=6) {
     if( $category !== 'recent_posts' ) :
 
       $tax_Query = array(
-            'taxonomy' => 'category', //double check your taxonomy name in you dd 
+            'taxonomy' => 'category', //double check your taxonomy name in you dd
             'field'    => 'id',
             'terms'    => $category,
         );
@@ -329,5 +329,35 @@ function snow_set_category_content($category, $limit=6) {
       );
 
     return new WP_Query($args);
+
+}
+
+function get_weather_icon( $weather_type_id ) {
+
+    if( !$weather_type_id ) {
+      return;
+    }
+
+    $icon = '';
+
+    switch( $weather_type ) {
+
+      case ($weather_type_id == 800):
+        $icon='<i class="fas fa-sun"></i>';
+        break;
+
+      case ($weather_type_id >= 500 || $weather_type_id <= 531):
+        $icon='<i class="fas fa-cloud-rain"></i>';
+        break;
+
+      case ($weather_type_id > 800 || $weather_type_id <= 804):
+        $icon='<i class="fas fa-cloud-sun"></i>';
+        break;
+
+      default:
+        $icon='<i class="fas fa-sun"></i>';
+    }
+
+    return $icon;
 
 }

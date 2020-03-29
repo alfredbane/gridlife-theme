@@ -368,12 +368,12 @@ function snow_scripts() {
 	wp_script_add_data( 'snow-html5', 'conditional', 'lt IE 9' );
 
 	// FontAwesmoe JS
-	wp_enqueue_script( 'fontawesomesolidstyle', 'https://use.fontawesome.com/releases/v5.0.13/js/solid.js', array(), null );
+	wp_enqueue_script( 'fontawesomesolidstyle', 'https://use.fontawesome.com/releases/v5.13.0/js/solid.js', array(), null );
 
 	// FontAwesmoe Brands JS
-	wp_enqueue_script( 'fontawesomebrandstyle', 'https://use.fontawesome.com/releases/v5.0.13/js/brands.js', array(), null );
+	wp_enqueue_script( 'fontawesomebrandstyle', 'https://use.fontawesome.com/releases/v5.13.0/js/brands.js', array(), null );
 
-	wp_enqueue_script( 'fontawesome5', 'https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js', array('fontawesomesolidstyle'), null );
+	wp_enqueue_script( 'fontawesome5', 'https://use.fontawesome.com/releases/v5.13.0/js/fontawesome.js', array('fontawesomesolidstyle'), null );
 
 }
 add_action( 'wp_enqueue_scripts', 'snow_scripts' );

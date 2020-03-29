@@ -14,28 +14,26 @@ $category = $section_category;
 
 $limit = 6;
 
-?>
+$the_query = snow_set_category_content($category, 6); ?>
 
-	<?php
-		
-		$the_query = snow_set_category_content($category, 6);
+		<div class="row no-margin-right">
 
-		echo '<div class="row no-margin-right">';
-			
-			if($the_query->have_posts()):
+				<?php
 
-				while($the_query->have_posts()) : $the_query->the_post();
+					if($the_query->have_posts()):
 
-					$postindex = $the_query->current_post+1;
+							while($the_query->have_posts()) : $the_query->the_post();
 
-					do_action( 'snow_display_post', $postindex, 3, true );
+								$postindex = $the_query->current_post+1;
 
-				endwhile;
+								do_action( 'snow_display_post', $postindex, 3, true );
 
-				wp_reset_query();
-				
-			endif;
+							endwhile;
 
-		echo "</div>";
+							wp_reset_query();
 
-	?>
+					endif;
+
+				?>
+
+		</div>

@@ -22,30 +22,6 @@ require_once get_template_directory() . '/core/TGM_script/snowtgm_init.php';
      require_once( dirname( __FILE__ ) . '/ReduxFramework/theme-config.php' );
  }
 
- /**
-  * Include the snow Theme custom nav walker
-  * @since snow 1.0
-  */
-// require_once ( dirname( __FILE__ ) . '/snow_menu_walkers/snow_Main_Menu_Walker.php');
-// require_once ( dirname( __FILE__ ) . '/snow_menu_walkers/snow_Footer_Menu_Walker.php');
-
- /**
-  * Include CDN attributes to fontAwesome script enqueue
-  * @since snow 1.0
-  */
- function add_font_awesome_5_cdn_attributes( $tag, $handle, $src ) {
-    if ( 'fontawesome5' === $handle ) {
-      $tag = '<script defer type="text/javascript" src="' . esc_url( $src ) . '" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous" ></script>';
-    }
-
-    if ( 'fontawesomesolidstyle' === $handle) {
-      $tag = '<script defer type="text/javascript" src="' . esc_url( $src ) . '" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous" ></script>';
-    }
-
-  return $tag;
-}
-add_filter( 'script_loader_tag', 'add_font_awesome_5_cdn_attributes', 10, 3 );
-
 
 /**
  * 3.1). Change admin menu & post type "Post" labels
@@ -93,3 +69,44 @@ function snow_change_post_object() {
 }
 
 add_action( 'init', 'snow_change_post_object' );
+
+/**
+ * 4). Remove emoticon support from theme
+ *
+ * @method WP hooks, print_emoji_detection_script
+ * @since snow v1.0.0
+ *
+ */
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
+function callAPI($method, $url, $data){
+
+   $curl = curl_init();
+   switch ($method){
+      case "POST":
+         curl_setopt($curl, CURLOPT_POST, 1);
+         if ($data)
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+         break;
+      case "PUT":
+         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
+         if ($data)
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+         break;
+      default:
+            $url = $url;
+   }
+   // OPTIONS:
+   curl_setopt($curl, CURLOPT_URL, $url);
+   curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+      'Content-Type: application/json',
+   ));
+   curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+   curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+   // EXECUTE:
+   $result = curl_exec($curl);
+   if(!$result){die("Connection Failure");}
+   curl_close($curl);
+   return $result;
+}

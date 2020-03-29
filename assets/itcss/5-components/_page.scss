@@ -203,3 +203,56 @@
 
 
 }
+
+
+
+.c-weather-forecasts{
+
+		.weather-forecast-display {
+				display: flex;
+				flex-wrap: wrap;
+
+				.c-temp-display {
+					&:nth-child(odd) {
+						background-color: palette(blue, dark);
+					}
+				}
+		}
+
+		.c-temp-display  {
+			display: flex;
+			height: 45.3vh;
+			flex-direction: column;
+			width: 20%;
+			padding: 20px;
+			justify-content: center;
+			align-items: center;
+			color: #fff;
+
+			svg{
+    		font-size: 30px;
+			}
+
+			.c-time {
+
+					font-size: 14px;
+					line-height: 20px;
+					margin: 15px 0;
+
+					time {
+						display: block;
+						text-align: center;
+					}
+
+			}
+
+			.c-temp{
+				font-size: 60px;
+				display: block;
+				line-height: 55px;
+				font-weight: 800;
+			}
+
+		}
+
+}

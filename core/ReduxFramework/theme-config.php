@@ -349,6 +349,53 @@
 
     // -> Home page first section settings
     Redux::setSection( $opt_name, array(
+        'title' => __( 'Open Weather API', 'snow' ),
+        'id'    => 'owapi-settings',
+        'desc'  => __( 'Open weather map API settings for the theme.', 'snow' ),
+        'icon'  => 'el el-file',
+        'subsection' => true,
+        'fields'     => array(
+
+            array(
+                'id'       => 'opt-weatherapiurl',
+                'type'     => 'text',
+                'title'    => __( 'WeatherAPI Url', 'snow' ),
+                'subtitle' => __( 'Add Weather API url without arguments from which data will be fetched', 'snow' ),
+            ),
+
+            array(
+                'id'       => 'opt-weatherapikey',
+                'type'     => 'text',
+                'title'    => __( 'WeatherAPI Key', 'snow' ),
+                'subtitle' => __( 'Add Weather API key, go to openmap api site to get one', 'snow' ),
+            ),
+
+            array(
+                'id'       => 'opt-weatherapicount',
+                'type'     => 'text',
+                'title'    => __( 'WeatherAPI Result count', 'snow' ),
+                'subtitle' => __( 'Number of results to be fetched from weather API.', 'snow' ),
+            ),
+
+            array(
+                'id'       => 'opt-longitude',
+                'type'     => 'text',
+                'title'    => __( 'Default location longitude', 'snow' ),
+                'subtitle' => __( 'Add a defualt location longitude.', 'snow' ),
+            ),
+
+            array(
+                'id'       => 'opt-latitude',
+                'type'     => 'text',
+                'title'    => __( 'Default location latitude', 'snow' ),
+                'subtitle' => __( 'Add a defualt location latitude.', 'snow' ),
+            ),
+
+        )
+    ) );
+
+    // -> Home page first section settings
+    Redux::setSection( $opt_name, array(
         'title' => __( 'Recent Post Section', 'snow' ),
         'id'    => 'home-recent-settings',
         'desc'  => __( 'Add recent post section settings for the section to be displayed on home page.', 'snow' ),
