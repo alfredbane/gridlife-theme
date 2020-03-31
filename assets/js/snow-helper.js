@@ -48,6 +48,7 @@
 
 $(document).ready(function(){
 
+  $('body').weatherForecast();
   // This needs only be called once and does not
   // have to be called from within a "ready" block
   $.fn.searchFormSubmit.defaults.inputTarget = $('input.c-search-bar__form-control');

@@ -144,6 +144,11 @@
     height: 45.3vh;
     width: 20%;
 
+    @include mobile {
+        height: auto;
+        width: 100%;
+    }
+
     .c-section-label {
         height: 100%;
 

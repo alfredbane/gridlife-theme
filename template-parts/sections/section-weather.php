@@ -8,25 +8,10 @@
  * @version 1.0
  */
 
-$theme_settings = snow_settings();
-$apiUrl = $theme_settings['opt-weatherapiurl'];
-$apiKey = $theme_settings['opt-weatherapikey'];
-$resultcount = $theme_settings['opt-weatherapicount'];
-$defaultLong = $theme_settings['opt-longitude'];
-$defaultLat = $theme_settings['opt-latitude'];
-$defaultParams = '/?lat='.$defaultLat.'&lon='.$defaultLong.'&cnt=8&appid='.$apiKey;
 
-$get_data = callAPI('GET', $apiUrl.$defaultParams, false);
+$get_weather_data = snow_get_the_weather();
 
-$response = json_decode($get_data, true);
-$errors = $response['response']['errors'];
-
-
-// echo"<pre>"; print_r($response['city']); echo "</pre>" ;
 ?>
-
-<?php foreach ( $response as $item ):
-endforeach; ?>
 
 <div class="weather-forecast-display">
 
@@ -34,29 +19,27 @@ endforeach; ?>
       <?php
           $icon = '<i class="fas fa-cloud"></i>';
           $label = esc_html__("अधिकतम तापमान", "snow");
-        	echo snow_set_sidebar_label($label, "", $custom=true, $icon, $response['city']['name']);
+        	echo snow_set_sidebar_label($label, "", $custom=true, $icon, $get_weather_data['city']);
       ?>
     </aside>
 
-    <?php foreach($response['list'] as $forecast): ?>
+    <?php foreach($get_weather_data['main'] as $key=>$value): ?>
       <section class="c-temp-display c-display-item has-background-blue-base">
-            <?php echo get_weather_icon($forecast['weather'][0]['id']); ?>
+          <span><?php echo $value['icon'] ?></span>
             <div class="c-time">
               <time class="c-time-date">
                 <?php
-                  setlocale(LC_ALL, 'hi_IN');
-                  echo date('l, d F Y', $forecast['dt']) ;
+                  echo $value['date'] ;
                  ?>
               </time>
               <time class="c-time-hours">
                 <?php
-                  setlocale(LC_ALL, 'hi_IN');
-                  echo date('h:i A', $forecast['dt']) ;
+                  echo $value['time'] ;
                  ?>
               </time>
             </div>
             <span class="c-temp">
-               <?php echo floor($forecast['main']['temp']-273.15).'&#8451;'; ?>
+               <?php echo $value['temperature'] ?>
             </span>
       </section>
     <?php endforeach;?>

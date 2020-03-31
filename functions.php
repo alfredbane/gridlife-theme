@@ -28,6 +28,19 @@ if ( version_compare( $GLOBALS['wp_version'], '4.4-alpha', '<' ) ) {
 	require get_template_directory() . '/core/back-compat.php';
 }
 
+/**
+ * Include the snow Theme specific settings
+ * TGM script, Redux Framework for theme settings
+ * @since snow 1.0
+ */
+require_once get_template_directory() . '/core/theme-settings.php';
+
+/**
+ * Include the snow Theme helper methods
+ * @since snow 1.0
+ */
+require_once get_template_directory() . '/core/theme-helper.php';
+
  /**
   * Include SVG upload support to wordpress media upload.
   * @since snow 1.0
@@ -332,6 +345,7 @@ function snow_scripts() {
 
 	wp_enqueue_script( 'snow-slick-js', get_template_directory_uri() . '/assets/vendor/SlickJS/slick.min.js', array('jquery'), '1.7.2', true );
 
+
 	//1. snow Helper scripts
 
 	/**
@@ -342,6 +356,19 @@ function snow_scripts() {
 	 *
 	 */
 	wp_enqueue_script( 'snow-slick-init-js', get_template_directory_uri() . '/assets/js/snow-slick-init.js', array('jquery', 'snow-helper'), '1.0.0', true );
+
+	if( is_home() || is_front_page() ) {
+
+		wp_enqueue_script( 'snow-weatherapi', get_template_directory_uri() . '/assets/js/weatherapi.js', array('jquery'), '1.0.0', true );
+
+		$theme_settings = snow_settings();
+		$apicredentials = array(
+			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+	    
+		);
+		wp_localize_script( 'snow-weatherapi', 'weatherapi', $apicredentials );
+
+	}
 
 	/**
 	 * 1.1 General helper Jquery modifications
@@ -360,7 +387,7 @@ function snow_scripts() {
 	 * @version 1.0.0
 	 *
 	 */
-	wp_enqueue_script( 'snow-ss-init', get_template_directory_uri() . '/assets/js/snow-smoothstate.js', array('jquery', 'snow-helper'), '1.0.0', true );
+	//wp_enqueue_script( 'snow-ss-init', get_template_directory_uri() . '/assets/js/snow-smoothstate.js', array('jquery', 'snow-helper'), '1.0.0', true );
 
 
 	// Load the html5 shiv.
@@ -416,19 +443,6 @@ function snow_widgets_init() {
 	);
 }
 add_action( 'widgets_init', 'snow_widgets_init' );
-
-/**
- * Include the snow Theme specific settings
- * TGM script, Redux Framework for theme settings
- * @since snow 1.0
- */
-require_once get_template_directory() . '/core/theme-settings.php';
-
-/**
- * Include the snow Theme helper methods
- * @since snow 1.0
- */
-require_once get_template_directory() . '/core/theme-helper.php';
 
 
 

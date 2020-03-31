@@ -15,6 +15,10 @@
       height: 300px;
     }
 
+    @include laptop-large {
+      height: calc(46vh - 13px);
+    }
+
     &.has-Background-img {
 	    background-position: top;
 	    background-size: cover;

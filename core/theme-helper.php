@@ -340,17 +340,17 @@ function get_weather_icon( $weather_type_id ) {
 
     $icon = '';
 
-    switch( $weather_type ) {
+    switch( $weather_type_id ) {
 
       case ($weather_type_id == 800):
         $icon='<i class="fas fa-sun"></i>';
         break;
 
-      case ($weather_type_id >= 500 || $weather_type_id <= 531):
+      case ($weather_type_id >= 500 && $weather_type_id <= 531):
         $icon='<i class="fas fa-cloud-rain"></i>';
         break;
 
-      case ($weather_type_id > 800 || $weather_type_id <= 804):
+      case ($weather_type_id > 800 && $weather_type_id <= 804):
         $icon='<i class="fas fa-cloud-sun"></i>';
         break;
 
@@ -361,3 +361,65 @@ function get_weather_icon( $weather_type_id ) {
     return $icon;
 
 }
+
+function snow_get_the_weather() {
+
+  if(!function_exists('callAPI')):
+    return;
+  endif;
+
+
+  $theme_settings = snow_settings();
+  $apiUrl = $theme_settings['opt-weatherapiurl'];
+  $apiKey = $theme_settings['opt-weatherapikey'];
+  $defaultLong = '';
+  $defaultLat = '';
+
+
+  if ( wp_doing_ajax() ) {
+    $defaultLong = $_GET['lon'];
+    $defaultLat = $_GET['lat'];
+  } else {
+    $defaultLong = $theme_settings['opt-longitude'];
+    $defaultLat = $theme_settings['opt-latitude'];
+  }
+
+  $defaultParams = '/?lat='.$defaultLat.'&lon='.$defaultLong.'&cnt=8&appid='.$apiKey;
+
+  $get_data = callAPI('GET', $apiUrl.$defaultParams, false);
+
+  $response = json_decode($get_data, true);
+  $errors = $response['response']['errors'];
+
+  $city = array("city"=>$response['city']['name']);
+  $temperature_array = array();
+
+  foreach($response['list'] as $forecast):
+
+    $get_icon = get_weather_icon($forecast['weather'][0]['id']);
+    setlocale(LC_ALL, 'hi_IN');
+    $get_date = date('l, d F Y', $forecast['dt']);
+    $get_time = date('h:i A', $forecast['dt']);
+    $get_temp = floor($forecast['main']['temp']-273.15).'&#8451;';
+
+    $temp = array("icon"=>$get_icon, "date"=>$get_date, "time"=>$get_time, "temperature"=>$get_temp);
+
+    array_push($temperature_array, $temp);
+
+  endforeach;
+
+  if ( wp_doing_ajax() ) :
+
+    echo json_encode(array_merge($city, array("main"=>$temperature_array)), JSON_PRETTY_PRINT);
+    die();
+
+  else :
+
+  return array_merge($city, array("main"=>$temperature_array));
+
+  endif;
+
+}
+
+add_action("wp_ajax_snow_get_the_weather", "snow_get_the_weather");
+add_action("wp_ajax_nopriv_snow_get_the_weather", "snow_get_the_weather");

@@ -1,12 +1,12 @@
 (function($) {
 
     "use strict";
-    
+
     $.fn.weatherForecast = function(options) {
 
         var defaults = {
-            apiKey: "9e176dfbe24feda8d7112ed23e4f533a",
-            apiUrl : "http://api.openweathermap.org/data/2.5/forecast"
+            apiKey: '',
+            apiUrl : ''
         };
 
         var settings = $.extend({}, defaults, options);
@@ -27,47 +27,38 @@
 
         }
 
-        this.generateHTML = function (listItem) {
-
-          var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', hour12: true };
-          var locale = "hi-IN";
-          var date = new Date(listItem.dt*1000).toLocaleDateString(locale, options);
-
-          $.map( listItem.weather, function( item, val ) {
-
-              var element = '<li class="item"><span class="date">'+date+'</span><br/><span class="temp">'+Math.floor(key.main.temp - 273.15)+' &#8451;</span></li>';
-              $("#demo").append(element);
-
-          });
-
-        }
-
         this.getWeatherForcast = function(position) {
 
             if ("geolocation" in navigator){
 
-
               var data = {
+                action: "snow_get_the_weather",
                 lat: position.coords.latitude,
                 lon: position.coords.longitude,
-                appid: settings.apiKey,
-                cnt: 10
+                cnt: 10,
               };
 
               $.ajax({
-                url: settings.apiUrl,
-                data: data,
+                type : "get",
+                url : weatherapi.ajaxurl,
+                data : data,
                 success: function(result){
 
-                  console.log(result);
+                  var data = $.parseJSON(result);
 
-                    $("#header").text(result.city.name);
+                  var location = data.city+", India";
 
-                      // Now it can be used reliably with $.map()
-                      $.map( result.list, function( key, val ) {
+                    $(".weather-forecast-display .c-aside-caption span").text(location);
+                    $(".weather-forecast-display section").remove();
 
-                          this.generateHTML(key);
+                      $.map( data.main, function( key, val ) {
 
+                          var generateDiv = '<section class="c-temp-display c-display-item has-background-blue-base">'+
+                          '<span>'+key.icon+'</span>'+'<div class="c-time"><time class="c-time-date">'+key.date+'</time>'+
+                          '<time class="c-time-hours">'+key.time+'</time></div>'+
+                          '<span class="c-temp">'+key.temperature+'</span><section>';
+
+                          $(".weather-forecast-display").append(generateDiv);
 
                       });
 

@@ -369,14 +369,7 @@
                 'title'    => __( 'WeatherAPI Key', 'snow' ),
                 'subtitle' => __( 'Add Weather API key, go to openmap api site to get one', 'snow' ),
             ),
-
-            array(
-                'id'       => 'opt-weatherapicount',
-                'type'     => 'text',
-                'title'    => __( 'WeatherAPI Result count', 'snow' ),
-                'subtitle' => __( 'Number of results to be fetched from weather API.', 'snow' ),
-            ),
-
+            
             array(
                 'id'       => 'opt-longitude',
                 'type'     => 'text',

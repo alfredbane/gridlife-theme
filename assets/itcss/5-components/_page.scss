@@ -229,6 +229,13 @@
 			align-items: center;
 			color: #fff;
 
+			@include mobile {
+				height: auto;
+				width: 100%;
+				padding: 30px;
+				margin-bottom: 20px;
+			}
+
 			svg{
     		font-size: 30px;
 			}
@@ -238,6 +245,11 @@
 					font-size: 14px;
 					line-height: 20px;
 					margin: 15px 0;
+
+					@include mobile {
+						font-size: 14px;
+						margin: 5px 0;
+					}
 
 					time {
 						display: block;
@@ -251,6 +263,11 @@
 				display: block;
 				line-height: 55px;
 				font-weight: 800;
+
+				@include mobile {
+					font-size: 40px;
+				}
+
 			}
 
 		}
