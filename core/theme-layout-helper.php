@@ -136,7 +136,9 @@ if(!function_exists('snow_article_layout')):
 			class="post-%2$s c-article %6$s has-Background-img">
 
 			<div data-link="%4$s" class="c-excerpt">
-				%3$s
+				<div class="meta">
+					%3$s
+				</div>
 				<h6 class="c-article-title">
 					<a href="%4$s" alt="link to news">
 						%5$s
@@ -259,26 +261,38 @@ function snow_the_post_navigation($previous='', $next='') {
 /**
  * Add advertisement banner on home page on desired position
  *
- * @param $break_count  index of post on which the content must be changed.
- * @param $index  current index of the post inside loop.
+ * @param $args[meta_position]  index of post on which the content must be changed with meta logic.
+ * @param $args[postindex]  current index of the post inside loop.
+ * @param $args[meta_content]  content to be added instead of post.
+ * @param $args[excerpt]  argument for showing or disabling excerpt.
  * @since Snow v1.0.0
  */
 
-add_action('snow_display_post',  'introduce_ad_banner_within_loop', 10, 3);
+add_action('snow_display_post',  'introduce_ad_banner_within_loop', 10, 1);
 
-function introduce_ad_banner_within_loop($postindex, $break_count=null, $withExcerpt = false) {
+function introduce_ad_banner_within_loop( $args ) {
 
-    if( !is_null($break_count) && $postindex === $break_count ) {
+		if(empty($args)):
 
-      if( $withExcerpt ) {
-        echo '<article class="c-article col-md-4 col-lg-4"><img class="ad-banner" src='.get_template_directory_uri().'/assets/image/dummy-ad.jpg alt="ad-image"></article>';
-      } else {
-        echo '<article class="c-article" ><img class="ad-banner" src='.get_template_directory_uri().'/assets/image/dummy-ad.jpg alt="ad-image"></article>';
-      }
+			$args = array(
+				"postindex"=>null,
+				"meta_position"=>null,
+				"meta_content"=> null,
+				"excerpt"=>false
+			);
+
+		endif;
+
+		$col_class = ($args["excerpt"]) ? "c-article-withExcerpt col-md-4 col-lg-4" : "";
+		$ad_code = do_shortcode($args['meta_content']);
+
+    if( $args['postindex'] == $args["meta_position"] ) {
+
+        echo wp_sprintf('<article class="c-article %1$s">%2$s</article>', $col_class, $ad_code);
 
     } else {
 
-      echo snow_article_layout($withExcerpt);
+      echo snow_article_layout($args["excerpt"]);
 
     }
 

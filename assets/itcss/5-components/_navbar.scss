@@ -122,3 +122,27 @@ ul#menu-primary {
   }
 
 }
+
+.navigation {
+
+    &.pagination {
+      display: flex;
+      height: 50%;
+      justify-content: flex-end;
+      align-items: flex-end;
+
+      .nav-links {
+        margin: 10px 30px;
+        font-size: 28px;
+      }
+
+      .page-numbers.current {
+        background-color: #ea3630;
+        padding: 9px 15px;
+        color: #fff;
+        font-size: 28px;
+      }
+
+    }
+
+}

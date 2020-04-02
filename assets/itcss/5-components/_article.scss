@@ -46,10 +46,21 @@
       right: 0;
 	    z-index: 1;
 
+      .meta {
+        display: flex;
+        width: auto;
+        .c-classification {
+          position: relative;
+          margin: 10px 10px;
+          display: block;
+          width: auto;
+        }
+      }
+
 	}
 
 	&.c-article-withExcerpt {
-
+    padding: 0;
 		.c-excerpt {
 		    padding: 11px;
 		    background-color: palette(mono, white);

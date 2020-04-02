@@ -17,16 +17,16 @@
 
 .c-main-content {
 	height: 100vh;
-	padding: 2.8rem;
+	margin: 2.8rem;
 
 	@include mobile {
-		padding: 1.8rem;
-		margin-top: 20px;
+		margin: 1.8rem;
+		margin-top: 54px;
 	}
 
 	@include tablet {
-		padding: 1.8rem;
-		margin-top: 20px;
+		margin: 1.8rem;
+		margin-top: 54px;
 	}
 
 

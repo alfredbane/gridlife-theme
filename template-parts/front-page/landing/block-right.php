@@ -9,7 +9,8 @@
  */
 
 $theme_settings = snow_settings();
-
+$ad_code = $theme_settings['opt-home-first-section-ad-key'];
+$ad_space_position = $theme_settings['opt-ad-placement-key'];
 
 ?>
 
@@ -21,14 +22,16 @@ $theme_settings = snow_settings();
 
 		if($theme_settings['first-section-right-column']) :
 
-			foreach ( $theme_settings['first-section-right-column'] as $term ) :
+			foreach ( $theme_settings['first-section-right-column'] as $key=>$item ) :
+
+				$postindex = $key;
 
 				$args = array(
 					'post_type'		=> 'post',
 					'post_status'	=> 'publish',
-					'cat' => $term,
+					'cat' => $item,
 					'posts_per_page'	=> 1,
-					'order'		=> 'ASC',	
+					'order'		=> 'ASC',
 				);
 
 				$the_query = new WP_Query($args);
@@ -37,20 +40,23 @@ $theme_settings = snow_settings();
 
 					while($the_query->have_posts()) : $the_query->the_post();
 
-						$postindex = $the_query->current_post+1;
+						$args = array(
+							"postindex"=>$key,
+							"meta_position"=>$ad_space_position,
+							"meta_content"=> $ad_code,
+							"excerpt"=>false
+						);
 
-						$break_count = 3;
-
-						do_action( 'snow_display_post', $postindex );
+						do_action( 'snow_display_post', $args);
 
 					endwhile;
 
 					wp_reset_postdata();
-					
+
 				endif;
 			endforeach;
-			
+
 		endif;
 
 	?>
-</div>	
+</div>

@@ -369,7 +369,7 @@
                 'title'    => __( 'WeatherAPI Key', 'snow' ),
                 'subtitle' => __( 'Add Weather API key, go to openmap api site to get one', 'snow' ),
             ),
-            
+
             array(
                 'id'       => 'opt-longitude',
                 'type'     => 'text',
@@ -676,6 +676,42 @@
               'type'     => 'text',
               'title'    => __( 'Google maps key', 'snow' ),
               'subtitle' => __( 'Add google maps key to be used in order to display maps. Add only key here script will be genrated and added to header.', 'snow' ),
+          ),
+        )
+    ) );
+
+    Redux::setSection( $opt_name, array(
+        'title' => __( 'Google Adsense', 'snow' ),
+        'id'    => 'opt-init-ad',
+        'desc'  => __( 'Add shortcode ', 'snow' ),
+        'icon'  => 'el el-key',
+        'subsection' => true,
+        'fields'     => array(
+          array(
+              'id'       => 'opt-home-first-section-ad-key',
+              'type'     => 'text',
+              'title'    => __( 'First Section ad code', 'snow' ),
+              'subtitle' => __( 'Add shortcode generated from the adsense plugin. Advanced ads plugin is recommended.', 'snow' ),
+          ),
+
+          array(
+              'id'       => 'opt-ad-placement-key',
+              'type'     => 'text',
+              'title'    => __( 'First Section ad placement', 'snow' ),
+              'subtitle' => __( 'Advertisement will be placed only in right block, first secnd and third position.', 'snow' ),
+          ),
+
+          array(
+              'id'       => 'opt-category-ad-key',
+              'type'     => 'text',
+              'title'    => __( 'Category section ad code', 'snow' ),
+              'subtitle' => __( 'Add shortcode generated from the adsense plugin. Advanced ads plugin is recommended.', 'snow' ),
+          ),
+          array(
+              'id'       => 'opt-category-ad-placement-key',
+              'type'     => 'text',
+              'title'    => __( 'Category sections ad placement', 'snow' ),
+              'subtitle' => __( 'Keep the count equal to or below post total post count. It can vary based on number of posts shown on page.', 'snow' ),
           ),
         )
     ) );

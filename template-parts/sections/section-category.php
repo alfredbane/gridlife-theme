@@ -9,10 +9,17 @@
  */
 
 $theme_settings = snow_settings();
+$ad_code = $theme_settings['opt-category-ad-key'];
+$ad_space_position = $theme_settings['opt-category-ad-placement-key'];
 
-$category = $section_category;
+if(is_archive()):
+	
+	$term = get_queried_object();
+	$category = $term->term_id;
 
-$limit = 6;
+else :
+	$category = $section_category;
+endif;
 
 $the_query = snow_set_category_content($category, 6); ?>
 
@@ -26,11 +33,18 @@ $the_query = snow_set_category_content($category, 6); ?>
 
 								$postindex = $the_query->current_post+1;
 
-								do_action( 'snow_display_post', $postindex, 3, true );
+								$args = array(
+									"postindex"=>$postindex,
+									"meta_position"=>$ad_space_position,
+									"meta_content"=> $ad_code,
+									"excerpt"=>true
+								);
+
+								do_action( 'snow_display_post', $args);
 
 							endwhile;
 
-							wp_reset_query();
+							wp_reset_postdata();
 
 					endif;
 

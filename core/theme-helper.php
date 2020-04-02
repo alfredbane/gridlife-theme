@@ -319,9 +319,8 @@ function snow_set_category_content($category, $limit=6) {
     $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
     $args = array(
-        'posts_per_page'  => $limit,
-        'posts_per_archive_page' => '2',
         'post_type'   => 'post',
+        'posts_per_page'  => 6,
         'paged' => $paged,
         'post_status'   => 'publish',
         'post__not_in'  => array($single_post_id),

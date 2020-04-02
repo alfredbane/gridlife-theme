@@ -18,62 +18,30 @@
 
 get_header(); ?>
 
-	<main id="site-content" class="c-main-content" role="main">
+	<main id="site-content" class="c-main-content" data-pp-enable="true" role="main">
 
 		<section id="primary" class="content-area c-section">
 
-			<?php if ( have_posts() ) : ?>
-
-				<?php
-
-					$term = get_queried_object();
-
-				?>
-
-				<?php do_action('snow_category_var', $term->term_id); ?>
-
-				<section class="section">
 					<div class="row">
+							<div class="col-xs-12 col-md-3 col-lg-3 no-padding-right">
 
-						<div class="col-xs-12 col-md-3 col-lg-3 no-padding-right">
+								<?php
 
-							<?php
+									get_template_part( 'template-parts/sections/section', 'sidebar' );
 
-								get_template_part( 'template-parts/sections/section', 'sidebar' );
+								?>
 
-							?>
+							</div>
 
-						</div>
+							<div class="col-xs-12 col-md-9 col-lg-9 no-padding-left">
 
-						<div class="col-xs-12 col-md-9 col-lg-9 no-padding">
+								<?php get_template_part( 'template-parts/sections/section', 'category' ); ?>
 
-							<?php get_template_part( 'template-parts/sections/section', 'category' ); ?>
-
-						</div>
+							</div>
 
 					</div>
-				</section>
-
-			<?php
-
-				// Previous/next page navigation.
-				the_posts_pagination(
-					array(
-						'screen_reader_text' => ' ',
-						'prev_text'          => __( '<<', 'snow' ),
-						'next_text'          => __( '>>', 'snow' ),
-						'before_page_number' => '',
-					)
-				);
-
-			else :
-
-				get_template_part( 'template-parts/content', 'none' );
-
-			endif;
-			?>
-
-			<?php get_footer(); ?>
 
 		</section><!-- .content-area -->
+
+			<?php get_footer(); ?>
 	</main>

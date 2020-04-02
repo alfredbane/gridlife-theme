@@ -13,11 +13,11 @@
 	padding-left: 0;
 
 	@include mobile {
-		padding: 0;
+		padding-left: 0.5rem;
 	}
 
 	@include tablet {
-		padding: 0;
+		padding-left: 0.5rem;
 	}
 
 }
@@ -26,11 +26,11 @@
 	padding-right: 0;
 
 	@include mobile {
-		padding: 0;
+		padding-right: 0.5rem;
 	}
 
 	@include tablet {
-		padding: 0;
+		padding-right: 0.5rem;
 	}
 
 }

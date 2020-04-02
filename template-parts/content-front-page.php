@@ -62,6 +62,7 @@ $categories_settings = $theme_settings['section-categories'] ? $theme_settings['
 			<?php do_action('snow_category_var', $item); ?>
 
 			<section class="section c-section">
+				
 				<div class="row">
 
 					<div class="col-xs-12 col-md-3 col-lg-3 no-padding-right">

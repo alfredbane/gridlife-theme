@@ -332,7 +332,7 @@ function snow_scripts() {
 
 	else:
 
-		if( is_front_page() ):
+		if( is_front_page() || is_archive() ):
 			// snow PagePiling Js support
 			wp_enqueue_script( 'snow-pagepiling', get_template_directory_uri() . '/assets/vendor/PagePilingJs/jquery.pagepiling.min.js', array('jquery'), '2.0.5', true );
 
@@ -364,7 +364,7 @@ function snow_scripts() {
 		$theme_settings = snow_settings();
 		$apicredentials = array(
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
-	    
+
 		);
 		wp_localize_script( 'snow-weatherapi', 'weatherapi', $apicredentials );
 
@@ -411,7 +411,7 @@ function snow_add_footer_styles() {
 
 	else:
 
-    if( is_front_page() ):
+    if( is_front_page() || is_archive() ):
 			// Theme FullPage concept css
 			wp_enqueue_style( 'snow-pagepiling', get_template_directory_uri() . '/assets/vendor/PagePilingJs/jquery.pagepiling.css', array(), '3.0.8' );
 
