@@ -31,7 +31,8 @@ $ad_space_position = $theme_settings['opt-ad-placement-key'];
 					'post_status'	=> 'publish',
 					'cat' => $item,
 					'posts_per_page'	=> 1,
-					'order'		=> 'ASC',
+					'order'		=> 'DESC',
+					'orderby'	=> 'date'
 				);
 
 				$the_query = new WP_Query($args);
