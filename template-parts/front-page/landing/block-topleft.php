@@ -14,7 +14,7 @@
 
 
 <div class="c-section-item">
-	
+
 	<div class="c-slider" data-slide=".c-article" data-autoplay="true" data-slidespeed="4000" data-fade="true" data-dotnav="true" >
 		<?php
 			// args
@@ -22,6 +22,7 @@
 				'posts_per_page'	=> 6,
 				'post_status'	=> 'publish',
 				'orderby'			=> 'date',
+				'order'				=> 'DESC',
 				'post_type'		=> 'post',
 				'meta_key'		=> 'the_post_top_story',
 				'meta_value'	=> 1
@@ -31,7 +32,7 @@
 
 			if($the_query->have_posts()):
 
-				
+
 				/**
 				 * Post meta div for article post slider
 				 */
@@ -41,7 +42,7 @@
 				echo '<div class="c-slider-meta">';
 
 					echo wp_sprintf('<label class="meta-heading"><i class="fas fa-newspaper"></i>%s</label>', esc_html__('Top stories', 'snow'));
-					echo wp_sprintf( '<div class="c-banner__counter"> 
+					echo wp_sprintf( '<div class="c-banner__counter">
 						<div class="c-banner__counter-current"></div>
 						<span class="divider"> / </span>
 						<div class="c-banner__counter-total">%s</div>
@@ -58,9 +59,9 @@
 				endwhile;
 
 				wp_reset_postdata();
-				
+
 			endif;
 
 		?>
 	</div>
-</div>	
+</div>
