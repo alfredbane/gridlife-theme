@@ -148,7 +148,7 @@ if(!function_exists('snow_article_layout')):
 			</div>
 
 		</article>',
-			esc_url(get_the_post_thumbnail_url()),
+			esc_url(snow_get_the_post_thumbnail_url(get_the_ID())),
 			$post_id,
 			$post_meta,
 			esc_url(get_the_permalink($post_id)),
@@ -163,7 +163,7 @@ endif;
 
 function snow_post_detail_banner() { ?>
 
-	<div class="c-banner" style="background-image:url(<?php echo get_the_post_thumbnail_url(); ?>)">
+	<div class="c-banner" style="background-image:url(<?php echo snow_get_the_post_thumbnail_url(get_the_ID()); ?>)">
 
 		<div class="c-banner-content">
 

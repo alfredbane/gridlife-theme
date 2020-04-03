@@ -110,3 +110,66 @@ function callAPI($method, $url, $data){
    curl_close($curl);
    return $result;
 }
+
+//function to call first uploaded image in functions file
+function get_fallback_image($post_id) {
+
+  $first_img = '';
+  $post_content = get_the_content($post_id);
+  ob_start();
+  ob_end_clean();
+  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post_content, $matches);
+  $first_img = $matches [1] [0];
+  return $first_img;
+
+}
+
+function snow_get_the_post_thumbnail($post_id) {
+
+  $post_thumbnail = '';
+  $post_title = get_the_title($post_id);
+  $image_from_content = get_fallback_image($post_id);
+  $default_image = get_template_directory().'/assets/images/default-post-image.jpg';
+
+  if (  (function_exists('has_post_thumbnail')) && (has_post_thumbnail())  ) {
+
+    $post_thumbnail = get_the_post_thumbnail($post_id);
+
+  } elseif($main) {
+
+    $post_thumbnail = "<img src='".$image_from_content."' alt='$post_title' class='frame' />";
+
+  } else {
+
+    $post_thumbnail = "<img src='".$default_image."' alt='$post_title' class='frame' />";
+
+  }
+
+  return $post_thumbnail;
+
+}
+
+function snow_get_the_post_thumbnail_url($post_id) {
+
+  $post_thumbnail_url = '';
+  $post_title = get_the_title($post_id);
+  $image_from_content = get_fallback_image($post_id);
+  $default_image = get_template_directory_uri().'/assets/image/default-post-image.jpg';
+
+  if (  (function_exists('has_post_thumbnail')) && (has_post_thumbnail())  ) {
+
+    $post_thumbnail_url = get_the_post_thumbnail_url($post_id);
+
+  } elseif($main) {
+
+    $post_thumbnail_url = $image_from_content;
+
+  } else {
+
+    $post_thumbnail_url = $image_from_content;
+
+  }
+
+  return $post_thumbnail_url;
+
+}
