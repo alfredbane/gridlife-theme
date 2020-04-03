@@ -18,51 +18,30 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<main id="site-content" class="c-main-content" data-pp-enable="true" role="main">
 
-		<?php if ( have_posts() ) : ?>
+		<section id="primary" class="content-area c-section">
 
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="taxonomy-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+					<div class="row">
+							<div class="col-xs-12 col-md-3 col-lg-3 no-padding-right">
 
-			<?php
-			// Start the Loop.
-			while ( have_posts() ) :
-				the_post();
+								<?php
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+									get_template_part( 'template-parts/sections/section', 'sidebar' );
 
-				// End the loop.
-			endwhile;
+								?>
 
-			// Previous/next page navigation.
-			the_posts_pagination(
-				array(
-					'prev_text'          => __( 'Previous page', 'twentysixteen' ),
-					'next_text'          => __( 'Next page', 'twentysixteen' ),
-					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>',
-				)
-			);
+							</div>
 
-			// If no content, include the "No posts found" template.
-		else :
-			get_template_part( 'template-parts/content', 'none' );
+							<div class="col-xs-12 col-md-9 col-lg-9 no-padding-left">
 
-		endif;
-		?>
+								<?php get_template_part( 'template-parts/sections/section', 'category' ); ?>
 
-		</main><!-- .site-main -->
-	</div><!-- .content-area -->
+							</div>
 
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+					</div>
+
+		</section><!-- .content-area -->
+
+			<?php get_footer(); ?>
+	</main>

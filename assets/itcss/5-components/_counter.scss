@@ -1,0 +1,22 @@
+.c-banner__counter {
+    
+    display: flex;
+    justify-content: flex-end;
+	top: 10px;
+	margin-top: 10px;
+	font-weight: bold;
+
+	.c-banner__counter-current {
+    	font-size: 33px;
+    	color: palette(red, base);
+	}
+
+	.divider {
+    	margin: 5px;
+	}
+
+	.c-banner__counter-total {
+    	margin-top: 5px;
+	}
+
+}

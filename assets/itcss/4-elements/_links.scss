@@ -6,10 +6,46 @@ a {
   font-family: $primary-font;
   color: inherit;
   text-decoration: none;
+  transition: all 0.5s ease 0s;
 
     &:hover {
       text-decoration: none;
-      color: palette(blue, base);
+      color: palette(red, base);
+      transition: all 0.5s ease 0s;
     }
+
+}
+
+.c-article {
+
+
+	a {
+
+    text-shadow: 1px 2px 1px rgba(0,0,0,0.5);
+		font-family: $secondary-font;
+
+	}
+
+  h6 {
+
+    a{
+
+      &:hover {
+
+        color: palette(yellow, base);
+
+      }
+
+    }
+
+  }
+
+  &.c-article-withExcerpt {
+
+    a{
+      text-shadow: none;
+    }
+    
+  }
 
 }

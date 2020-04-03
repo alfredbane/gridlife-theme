@@ -9,29 +9,38 @@
 
 get_header(); ?>
 
-<div id="primary" class="content-area">
-	<main id="main" class="site-main" role="main">
-		<?php
-		// Start the loop.
-		while ( have_posts() ) :
-			the_post();
+<main id="site-content" class="c-main-content" data-pp-enable="true" role="main">
 
-			// Include the single post content template.
-			get_template_part( 'template-parts/content', 'single' );
+	<div id="primary" class="content-area">
 
-			if ( is_singular( 'post' ) ) {
-				// Previous/next post navigation.
-				echo autumn_the_post_navigation ('Previous', 'Next');
-			}
-			// End of the loop.
-		endwhile;
-		?>
+			<?php
 
-	</main><!-- .site-main -->
+				if( have_posts() ) :
+					// Start the loop.
+					while ( have_posts() ) :
+						the_post(); ?>
 
-	<?php get_sidebar( 'content-bottom' ); ?>
+						<?php snow_post_detail_banner(); ?>
 
-</div><!-- .content-area -->
+						<?php
+
+						// Include the single post content template.
+						get_template_part( 'template-parts/content', 'single' );
+
+						// End of the loop.
+					endwhile;
+
+				endif;
+
+				wp_reset_postdata();
+
+			?>
+
+
+		<?php get_footer(); ?>
+
+	</div><!-- .content-area -->
+
+</main><!-- .site-main -->
 
 <?php get_sidebar(); ?>
-<?php get_footer(); ?>

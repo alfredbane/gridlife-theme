@@ -1,0 +1,82 @@
+.c-footer {
+	z-index: 9;
+	padding: 7px 0;
+	font-size: 12px;
+
+	&.c-footer-fix{
+		background-color: #fff;
+		position: fixed;
+		width: 100%;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+
+	@include mobile {
+		.c-footer__copyright-content {
+	    font-size: 10px;
+	    line-height: 18px;
+	    display: block;
+
+			@include mobile {
+					font-size: 9px;
+					line-height: 15px;
+			}
+
+		}
+	}
+
+}
+.pp-section {
+
+	&.c-footer-grid {
+    padding: 40px;
+    margin: 0 2.9rem;
+    height: 100%;
+    width: auto;
+
+	}
+
+}
+
+.c-footer-grid {
+
+	margin-top: 50px;
+	background-color:#eee;
+	padding: 20px;
+
+	@include mobile {
+		display: none;
+	}
+
+	@include tablet {
+		display: none;
+	}
+
+	.c-footer-columns {
+
+		&.c-only-text {
+
+			color: palette(mono, white);
+			padding: 22px;
+
+			h5{
+
+				color: palette(mono, white);
+
+			}
+
+		}
+
+		.text {
+
+		    font-family: "Hind";
+		    font-size: 15px;
+		    line-height: normal;
+		    display: block;
+		    margin: 0;
+
+		}
+
+	}
+}

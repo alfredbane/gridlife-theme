@@ -1,0 +1,187 @@
+.c-article {
+
+    height: calc(46vh - 6px);
+    position: relative;
+
+    @include mobile {
+      margin-bottom: 20px;
+      width: 100%;
+      height: 300px;
+    }
+
+    @include tablet {
+      margin-bottom: 20px;
+      width: 100%;
+      height: 300px;
+    }
+
+    @include laptop-large {
+      height: calc(46vh - 13px);
+    }
+
+    &.has-Background-img {
+	    background-position: top;
+	    background-size: cover;
+	    background-repeat: no-repeat;
+
+	    &::before {
+		    content: '';
+		    position: absolute;
+		    height: 100%;
+		    background-color: rgba(0,0,0,0.6);
+		    width: 100%;
+		    z-index: 1;
+		    left:0;
+		    right:0;
+		}
+	}
+
+
+	.c-excerpt {
+	    padding: 20px;
+	    width: auto;
+	    position: absolute;
+	    bottom: 0;
+      left:0;
+      right: 0;
+	    z-index: 1;
+
+      .meta {
+        display: flex;
+        width: auto;
+        .c-classification {
+          position: relative;
+          margin: 10px 10px;
+          display: block;
+          width: auto;
+        }
+      }
+
+	}
+
+	&.c-article-withExcerpt {
+    padding: 0;
+		.c-excerpt {
+		    padding: 11px;
+		    background-color: palette(mono, white);
+		    width: 200px;
+		    left: auto;
+
+		    p{
+
+			    margin-bottom: 0;
+			    font-size: 12px;
+			    line-height: 17px;
+			    font-family: "Hind";
+		    }
+
+		}
+
+	}
+
+}
+
+.compact {
+
+	.c-article {
+
+    	height: calc(33vh - 25px);
+
+      @include mobile {
+          height: 300px;
+      }
+
+	}
+
+}
+
+.c-post-meta-single {
+
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    font-size: 14px;
+
+    .c-post-publish-date {
+
+	    text-align: right;
+	    width: 136px;
+	    line-height: 23px;
+
+      @include mobile {
+        line-height: 15px;
+        font-size: 11px;
+      }
+
+      @include laptop {
+        width: 140px;
+      }
+
+      @include laptop-large {
+        width: 143px;
+      }
+
+	}
+}
+
+.c-post-detail article {
+	text-align: justify;
+  font-family: $secondary-font;
+
+  @include mobile {
+    margin-bottom: 30px;
+  }
+
+}
+
+.c-post-nav {
+
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    .c-button {
+
+	    width: 330px;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+
+      @include mobile {
+        font-size: 15px;
+      }
+
+	    span {
+
+	    	display: block;
+			color: palette(blue, base);
+			text-transform: uppercase;
+
+	    	&.label {
+
+				overflow: hidden;
+				text-overflow: ellipsis;
+        width: 330px;
+				white-space: nowrap;
+				color: palette(red, base);
+
+          @include mobile {
+            width: 150px;
+          }
+
+	    	}
+
+
+	    }
+
+	    &.btn-prev span {
+	    	text-align: left;
+	    }
+
+    	&.btn-next span {
+    		text-align: right;
+    	}
+
+
+	}
+
+}

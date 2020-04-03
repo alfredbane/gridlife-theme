@@ -1,0 +1,275 @@
+.single {
+	.c-main-content {
+		height: auto;
+	}
+}
+
+.search {
+	.c-main-content {
+		height: auto;
+
+		@include mobile {
+			word-break: break-all;
+		}
+
+	}
+}
+
+.c-main-content {
+	height: 100vh;
+	margin: 2.8rem;
+
+	@include mobile {
+		margin: 1.8rem;
+		margin-top: 54px;
+	}
+
+	@include tablet {
+		margin: 1.8rem;
+		margin-top: 54px;
+	}
+
+
+}
+
+.c-section {
+	background-color: palette(mono, white);
+	padding: 0 2.8rem;
+	left: 0;
+	right: 0;
+
+	@include mobile {
+		padding: 0;
+	}
+
+	@include tablet {
+		padding: 0 1.3rem;
+	}
+
+}
+
+.c-post-detail {
+
+	margin-bottom: 50px;
+
+}
+
+.breadcrumbs {
+
+	width: 400px;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	@include mobile {
+		width: 220px;
+	}
+
+}
+
+.c-newsletter {
+
+	position: relative;
+
+	max-with: 388px;
+
+	.wpcf7 {
+    	margin-bottom: 10px;
+    }
+
+	.form-group {
+
+	    display: flex;
+
+	    .wpcf7-form-control.wpcf7-text {
+
+    		max-width: 315px;
+    		border: 0;
+			border-bottom: 1px solid palette(blue, base);
+			padding: 6px;
+			background-color: transparent;
+		}
+
+		.c-fancy-button {
+
+    		position: absolute;
+    		right: -1px;
+    		top: -5px;
+    		margin: 0 auto;
+
+    		svg {
+    			position: absolute;
+    			color: palette(mono, white);
+    			top: 11px;
+				right: 10px;
+				left: 10px;
+    		}
+
+    		.wpcf7-form-control.wpcf7-submit {
+
+				width: 40px;
+				border-radius: 90px;
+				border: 0;
+				background-color: palette(red, base);
+				height: 40px;
+				color: palette(red, base);
+
+			}
+
+		}
+
+	}
+
+}
+
+.c-search-content {
+
+	margin-top: 120px;
+
+	@include mobile {
+		margin-top: 30px;
+	}
+
+	@include tablet {
+		margin-top: 30px;
+	}
+
+	p.excerpt {
+			margin-bottom: 0px;
+	}
+
+	.categories {
+		margin-right: 10px;
+	}
+
+	article.post {
+			margin-top: 20px;
+			margin-bottom: 30px;
+			border-bottom: 1px solid #efefef;
+
+			@include mobile {
+				margin-top: 10px;
+				margin-bottom: 30px;
+			}
+
+			.c-article-searchable-meta {
+    		display: flex;
+    		font-size: 15px;
+
+				@include mobile {
+						flex-direction: column;
+				}
+
+				a{
+					color: palette(blue, light);
+					display: inline;
+				}
+			}
+
+	}
+
+	.page-header {
+    padding: 20px 0;
+    color: #909090;
+    border-bottom: 1px solid #dedede;
+    display: block;
+
+		span {
+			color: palette(blue, light);
+		}
+
+	}
+
+	.entry-header {
+		.c-page-path {
+			font-size: 12px;
+			margin-bottom: 10px;
+			display: block;
+		}
+
+		.entry-title {
+			font-size: 24px;
+			line-height: 16px;
+			margin-bottom: 10px;
+			@include mobile {
+				font-size: 20px;
+	    	line-height: 28px;
+			}
+		}
+
+	}
+
+
+
+}
+
+
+
+.c-weather-forecasts{
+
+		.weather-forecast-display {
+				display: flex;
+				flex-wrap: wrap;
+
+				.c-temp-display {
+					&:nth-child(odd) {
+						background-color: palette(blue, dark);
+					}
+				}
+		}
+
+		.c-temp-display  {
+			display: flex;
+			height: 45.3vh;
+			flex-direction: column;
+			width: 20%;
+			padding: 20px;
+			justify-content: center;
+			align-items: center;
+			color: #fff;
+
+			@include mobile {
+				height: auto;
+				width: 100%;
+				padding: 30px;
+				margin-bottom: 20px;
+			}
+
+			svg{
+    		font-size: 30px;
+			}
+
+			.c-time {
+
+					font-size: 14px;
+					line-height: 20px;
+					margin: 15px 0;
+
+					@include mobile {
+						font-size: 14px;
+						margin: 5px 0;
+					}
+
+					time {
+						display: block;
+						text-align: center;
+					}
+
+			}
+
+			.c-temp{
+				font-size: 60px;
+				display: block;
+				line-height: 55px;
+				font-weight: 800;
+
+				@include mobile {
+					font-size: 40px;
+				}
+
+			}
+
+		}
+
+}

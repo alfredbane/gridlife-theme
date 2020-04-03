@@ -1,0 +1,116 @@
+.c-article {
+
+	.c-classification {
+
+		font-family: $secondary-font;
+		font-weight: bold;
+		position: relative;
+		margin-bottom: 10px;
+		display: block;
+
+		&::after {
+
+		    content: "";
+		    width: 50px;
+		    display: block;
+		    height: 5px;
+		    background-color: palette(green, dark);
+		    position: absolute;
+		    bottom: 0;
+
+		}
+
+		&.color {
+
+			&-blue {
+				color: palette(blue, base);
+				&::after {
+					background-color: palette(blue, base);
+				}
+			}
+
+			&-red {
+				color: palette(red, base);
+				&::after {
+					background-color: palette(red, base);
+				}
+			}
+
+			&-yellow {
+				color: palette(yellow, base);
+				&::after {
+					background-color: palette(yellow, base);
+				}
+			}
+
+			&-black {
+				color: palette(mono, black);
+				&::after {
+					background-color: palette(mono, black);
+				}
+			}
+			&-cyan {
+				color: palette(cyan-blue, base);
+				&::after {
+					background-color: palette(cyan-blue, base);
+				}
+			}
+
+		}
+
+	}
+
+	.c-meta-date {
+    	font-size: 10px;
+	}
+
+}
+
+.c-section-aside {
+
+	.c-section-label {
+		padding: 90px 30px 18px 30px;
+		color: #fff;
+		display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50%;
+
+		@include mobile {
+			padding: 20px;
+    	height: auto;
+    	margin-bottom: 20px;
+		}
+
+		@include tablet {
+			padding: 20px;
+    	height: auto;
+    	margin-bottom: 20px;
+		}
+
+		h1 {
+			color: palette(mono, white);
+		}
+
+		.c-aside-caption {
+		    font-size: 14px;
+		    font-family: $secondary-font;
+		    font-weight: bold;
+		    line-height: 20px;
+		    text-align: justify;
+		    margin-bottom: 0px;
+		}
+
+	}
+
+}
+
+.c-label-nav {
+	font-size: 14px;
+	font-weight: 600;
+	text-transform: uppercase;
+
+	span {
+		margin-left: 10px
+	}
+}

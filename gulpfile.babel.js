@@ -31,7 +31,7 @@ export const styles = () => {
   return src(SRCPATH+SRCFILE)
     .pipe(gulpif(!PRODUCTION, sourcemaps.init()))
     .pipe(sass().on('error', sass.logError))
-    .pipe(postcss([ autoprefixer ]))
+    .pipe(postcss([ autoprefixer() ]))
     .pipe(gulpif(PRODUCTION, cleanCss({ compatibility:'ie8',
                                         level:{1:{specialComments: 'all'}},
                                         format:'keep-breaks',

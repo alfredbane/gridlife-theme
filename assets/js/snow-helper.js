@@ -1,5 +1,5 @@
 /**
- * Autumn theme helper Js
+ * Snow theme helper Js
  *
  * Includes functions for altering theme
  * behaviour using javascript
@@ -48,14 +48,13 @@
 
 $(document).ready(function(){
 
+  $('body').weatherForecast();
   // This needs only be called once and does not
   // have to be called from within a "ready" block
   $.fn.searchFormSubmit.defaults.inputTarget = $('input.c-search-bar__form-control');
   $.fn.searchFormSubmit.defaults.validationText = "Add some text !";
 
   $('.c-header__search-bar-form').searchFormSubmit();
-
-
 
   /**
    * Mobile navigation toggle
@@ -98,62 +97,6 @@ $(document).ready(function(){
     init();
   })();
 
-  // Mobile navigation toggle ends
-
-  // Select html ovverride by bootstrap selectpicker
-  $('select').selectpicker();
-
-  // ---------- WOOCOMMERCE -------------
-
-  // 1). WooCommerce image hover on archive pages
-  var $onPage = $('.post-type-archive-product');
-  var $imageSelector = $onPage.find('li.product img');
-
-  $.each($imageSelector, function(){
-    var $targetSrc = $(this).attr('src');
-    var $targetHoverSrc = $(this).attr('data-hover-src');
-    var fadeOutSpeed = 0;
-    var fadeInSpeed = 0;
-
-    if( $targetHoverSrc ) {
-
-      $(this).hover(function(){
-        //this code will execute when mouse enters the html element
-        $(this).fadeOut(fadeOutSpeed, function() {
-            $(this).attr('src', $targetHoverSrc).fadeIn(fadeInSpeed);
-            $(this).attr('data-hover-src', $targetSrc);
-        });
-
-      },
-      function(){
-        //this code will execute when mouse leaves the html element
-        $(this).fadeOut(fadeOutSpeed, function() {
-            $(this).attr('src', $targetSrc).fadeIn(fadeInSpeed);
-            $(this).attr('data-hover-src', $targetHoverSrc);
-        });
-      });
-
-    }
-
-  });
-
-  $('.woo-main-image-slider').slick({
-    infinite: false,
-    arrow: true,
-    fade: true,
-  });
-  $('.woo-child-image-slider').slick({
-    infinite: false,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    asNavFor: '.woo-main-image-slider',
-    focusOnSelect: true,
-    vertical: true,
-	  verticalSwiping: true,
-  });
-
-});
-
 
     // Header scroll animation
 
@@ -174,4 +117,58 @@ $(document).ready(function(){
 
       });
 
+      // NAV MENU MOBILE TAB ACTION
+
+      $('.c-label-nav').on('click', function() {
+
+        var targetNav = $(this).attr('data-open');
+        var previousNav = $(this).siblings().attr('data-open');
+
+        if(!$(this).hasClass('active')) {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active')
+        }
+
+        $(targetNav).removeClass("hide");
+        $(previousNav).addClass("hide");
+
+      });
+
+      $(".c-mobile_nav-button").on("click",function(){
+        if($(this).hasClass('close')) {
+          $(".mobilenav").animate({right:"100%"},500);
+        } else {
+          $(".mobilenav").animate({right:"0px"},500);
+        }
+      });
+
+  });
+
 })(jQuery);
+
+// Get the modal
+var modal = document.getElementById("modal-7493");
+
+// Get the button that opens the modal
+var btn = document.getElementById("modal-7493-01");
+
+// Get the <span> element that closes the modal
+var span = document.getElementById("popup-close");
+
+// When the user clicks the button, open the modal
+btn.onclick = function(event) {
+  event.preventDefault();
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.addEventListener('click', function () {
+  modal.style.display = "none";
+});
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}

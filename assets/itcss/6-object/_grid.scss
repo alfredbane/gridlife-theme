@@ -1,0 +1,53 @@
+.container-fluid {
+	padding-right: 2.8rem;
+	padding-left: 2.8rem;
+
+	@include mobile {
+		padding-right: 1.3rem;
+		padding-left: 1.3rem;
+	}
+
+}
+
+.no-padding-left {
+	padding-left: 0;
+
+	@include mobile {
+		padding-left: 0.5rem;
+	}
+
+	@include tablet {
+		padding-left: 0.5rem;
+	}
+
+}
+
+.no-padding-right {
+	padding-right: 0;
+
+	@include mobile {
+		padding-right: 0.5rem;
+	}
+
+	@include tablet {
+		padding-right: 0.5rem;
+	}
+
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.no-margin-right {
+	margin-right: 0;
+
+	@include mobile {
+		margin: 0;
+	}
+
+	@include tablet {
+		margin: 0;
+	}
+
+}

@@ -116,3 +116,65 @@ h6{
   font-size: 20px;
   line-height: 18px;
 }
+
+.c-article {
+
+    h6{
+
+      font-family: $secondary-font;
+      line-height: 25px;
+      color: palette(mono, white);
+
+    }
+
+    &.c-article-withExcerpt {
+
+      h6 {
+        line-height: 19px;
+        color: palette(black, base);
+        font-size: 15px;
+        margin-bottom: 8px;
+      }
+
+    }
+
+}
+
+.compact {
+
+  .c-article {
+
+    h6 {
+      width: 270px;
+
+      @include mobile {
+        width: 100%;
+      }
+
+      @include tablet {
+        width: 100%;
+      }
+
+    }
+
+  }
+}
+
+.c-section-aside {
+
+  h1 {
+
+    line-height: 36px;
+
+    span {
+      display: block;
+      font-size: 25px;
+    }
+
+    .c-side-regular {
+      font-size: inherit;
+    }
+
+  }
+
+}

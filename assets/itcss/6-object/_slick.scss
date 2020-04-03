@@ -1,0 +1,65 @@
+.c-slider {
+
+     opacity: 1;
+
+     &.slick-slider{
+     	margin-bottom: 0px;
+     }
+
+
+	.c-slider-meta {
+		position: absolute;
+		padding: 15px 20px;
+    right: 0;
+    z-index: 1;
+    color: palette(mono, white);
+    text-transform: uppercase;
+
+    svg {
+    	margin-right: 10px;
+    	font-size: 25px;
+    }
+	}
+
+	.slick-dots {
+      bottom: 0;
+	    width: auto;
+	    right: 0;
+	    margin: 10px;
+
+      @include mobile {
+        bottom: 18px;
+      }
+
+      @include tablet {
+        bottom: 19px;
+      }
+
+	    li {
+		    margin: 0;
+
+		    button {
+
+		    	&::before {
+		    		font-size: 32px;
+		    	}
+
+		    }
+
+		    &.slick-active {
+
+		    	button {
+
+		    		&::before{
+		    			color: palette(mono, white);
+		    		}
+
+		    	}
+
+		    }
+
+		}
+
+	}
+
+}

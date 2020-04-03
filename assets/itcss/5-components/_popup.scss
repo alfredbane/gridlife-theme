@@ -1,0 +1,111 @@
+/* The Modal (background) */
+.c-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 99; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    /* Modal Content */
+    .c-modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      position: relative;
+    }
+
+    /* The Close Button */
+    .close {
+      color: #fff;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      position: absolute;
+      right: -1px;
+      top: -1px;
+      background-color: #2a4e85;
+      padding: 10px;
+      width: 54px;
+      text-align: center;
+      border: none;
+      border-bottom-right-radius: 30px;
+      border-bottom-left-radius: 30px;
+      box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.5);
+
+      @include mobile {
+        font-size: 23px;
+        padding: 5px;
+        width: 39px;
+      }
+
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+}
+
+/* SEARCH FORM */
+.c-header__search-bar {
+  padding: 60px;
+
+  @include mobile {
+    padding: 10px;
+  }
+
+  .search-label {
+    font-size: 30px;
+    margin-bottom: 30px;
+    display: block;
+    color: #8da6cc;
+
+    @include mobile {
+      font-size: 22px;
+    }
+
+  }
+
+  .c-search-bar__form-control.form-control {
+      width: 90%;
+      border: none;
+      border-bottom: 1px solid palette(mono, dark);
+      padding: 10px;
+
+      @include mobile {
+        width: 81%;
+        font-size: 14px;
+        padding: 6px;
+      }
+  }
+
+  .c-search-bar__icon {
+      padding: 10px;
+      background-color: palette(blue, light);
+      border: 1px solid palette(blue, light);
+      color: palette(mono, white);
+      width: 50px;
+      border-radius: 50px;
+      height: 50px;
+
+      @include mobile {
+        width: auto;
+        height: auto;
+        font-size: 11px;
+        line-height: normal;
+        padding: 8px 9px;
+      }
+
+  }
+
+}

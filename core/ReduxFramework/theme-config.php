@@ -259,12 +259,12 @@
                 )
             ),
             array(
-                'id'       => 'opt-instagram',
+                'id'       => 'opt-pinterest',
                 'type'     => 'text',
-                'title'    => __( 'Instagram', 'snow' ),
-                'subtitle' => __( 'Add your instagram page link or a page that tells about your business. It should not be any page name or search term or any personal acccount URL.', 'snow' ),
+                'title'    => __( 'Pinterest', 'snow' ),
+                'subtitle' => __( 'Add your pinterest page link or a page that tells about your business. It should not be any page name or search term or any personal acccount URL.', 'snow' ),
                 'hint'     => array(
-                    'content' => 'Add only instagram page link type here, no pagenames etc..',
+                    'content' => 'Add only pinterest page link type here, no pagenames etc..',
                 )
             ),
             array(
@@ -306,7 +306,145 @@
         )
     ) );
 
-    // -> START General settings
+    // -> START Home page settings
+    Redux::setSection( $opt_name, array(
+        'title'            => __( 'Home settings', 'snow' ),
+        'id'               => 'home',
+        'icon'             => 'el el-magic',
+    ) );
+
+    // -> Home page first section settings
+    Redux::setSection( $opt_name, array(
+        'title' => __( 'First Section', 'snow' ),
+        'id'    => 'home-first-settings',
+        'desc'  => __( 'Add categories for first section on home page, add category slug here instead of name.', 'snow' ),
+        'icon'  => 'el el-file',
+        'subsection' => true,
+        'fields'     => array(
+            array(
+                'id'       => 'first-section-left-bottom',
+                'type'     => 'select',
+                'data'     => 'terms',
+                'args'  => array(
+                    'taxonomies' => array( 'category' ),
+                    'hide_empty' => true,
+                ),
+                'title'    => __( 'Left Bottom Category', 'snow' ),
+                'subtitle' => __( 'Add name of existing category term from post type to display on left bottom of home page first section.', 'snow' ),
+            ),
+            array(
+                'id'       => 'first-section-right-column',
+                'type'     => 'select',
+                'multi'    => true,
+                'data'     => 'terms',
+                'args'  => array(
+                    'taxonomies' => array( 'category' ),
+                    'hide_empty' => true,
+                ),
+                'title'    => __( 'Right Column Categories', 'snow' ),
+                'subtitle' => __( 'Select name of existing category term from post type to display on right of home page first section. If term is not visible make sure term is selected in atleast one post.', 'snow' ),
+            ),
+        )
+    ) );
+
+    // -> Home page first section settings
+    Redux::setSection( $opt_name, array(
+        'title' => __( 'Open Weather API', 'snow' ),
+        'id'    => 'owapi-settings',
+        'desc'  => __( 'Open weather map API settings for the theme.', 'snow' ),
+        'icon'  => 'el el-file',
+        'subsection' => true,
+        'fields'     => array(
+
+            array(
+                'id'       => 'opt-weatherapiurl',
+                'type'     => 'text',
+                'title'    => __( 'WeatherAPI Url', 'snow' ),
+                'subtitle' => __( 'Add Weather API url without arguments from which data will be fetched', 'snow' ),
+            ),
+
+            array(
+                'id'       => 'opt-weatherapikey',
+                'type'     => 'text',
+                'title'    => __( 'WeatherAPI Key', 'snow' ),
+                'subtitle' => __( 'Add Weather API key, go to openmap api site to get one', 'snow' ),
+            ),
+
+            array(
+                'id'       => 'opt-longitude',
+                'type'     => 'text',
+                'title'    => __( 'Default location longitude', 'snow' ),
+                'subtitle' => __( 'Add a defualt location longitude.', 'snow' ),
+            ),
+
+            array(
+                'id'       => 'opt-latitude',
+                'type'     => 'text',
+                'title'    => __( 'Default location latitude', 'snow' ),
+                'subtitle' => __( 'Add a defualt location latitude.', 'snow' ),
+            ),
+
+        )
+    ) );
+
+    // -> Home page first section settings
+    Redux::setSection( $opt_name, array(
+        'title' => __( 'Recent Post Section', 'snow' ),
+        'id'    => 'home-recent-settings',
+        'desc'  => __( 'Add recent post section settings for the section to be displayed on home page.', 'snow' ),
+        'icon'  => 'el el-globe',
+        'subsection' => true,
+        'fields'     => array(
+
+            array(
+                'id'       => 'section-heading',
+                'type'     => 'text',
+                'title'    => __( 'Section Heading', 'snow' ),
+                'subtitle' => __( 'Add a heading for the section to be displayed on home page.', 'snow' )
+            ),
+            array(
+                'id'       => 'section-description',
+                'type'     => 'textarea',
+                'title'    => __( 'Section Description', 'snow' ),
+                'subtitle' => __( 'Add a section description to be displayed below heading.', 'snow' )
+            ),
+            array(
+                'id'       => 'post-days-padding',
+                'type'     => 'text',
+                'title'    => __( 'Add Days', 'snow' ),
+                'subtitle' => __( 'Add number of days upto which recent posts must be shown. example: if value is 10 then recent posts will be shown from today upto 10 days before.', 'snow' )
+            ),
+
+        )
+    ) );
+
+    // -> Home page first section settings
+    Redux::setSection( $opt_name, array(
+        'title' => __( 'Category Sections', 'snow' ),
+        'id'    => 'home-category-section',
+        'desc'  => __( 'Add categories for the section to be displayed on home page.', 'snow' ),
+        'icon'  => 'el el-globe',
+        'subsection' => true,
+        'fields'     => array(
+
+            array(
+                'id'       => 'section-categories',
+                'type'     => 'select',
+                'multi'    => true,
+                'title'    => __( 'Section Categories', 'snow' ),
+                'data'     => 'terms',
+                'args'  => array(
+                    'taxonomies' => array( 'category' ),
+                    'hide_empty' => true,
+                ),
+                'subtitle' => __( 'Add comma separated name of existing category term from post type to display on home page category section. I want to change display order than right the categories in that order', 'snow' ),
+            ),
+
+        )
+    ) );
+
+
+    // -> START Contact settings
     Redux::setSection( $opt_name, array(
         'title'            => __( 'Contact settings', 'snow' ),
         'id'               => 'contact',
@@ -315,36 +453,48 @@
 
     // -> START Active campaign settings
     Redux::setSection( $opt_name, array(
-        'title' => __( 'Active Campaign', 'snow' ),
-        'id'    => 'active-campaign-settings',
-        'desc'  => __( 'Add all the active campaign related settings here. These settings include API keys, form settings, images, Text, headings, subheadings', 'snow' ),
+        'title' => __( 'Newsletter settings', 'snow' ),
+        'id'    => 'newsletter-settings',
+        'desc'  => __( 'Add all the newsletter related settings here. These settings include images, Text, headings, subheadings', 'snow' ),
         'icon'  => 'el el-envelope',
         'subsection' => true,
         'fields'     => array(
+
             array(
-                'id'       => 'opt-api-url',
-                'type'     => 'text',
-                'title'    => __( 'API URL', 'snow' ),
-                'subtitle' => __( 'Add an Api url for the active campaign, used to connect your email campaign to active campaign accounts', 'snow' ),
+                'id'       => 'opt-toggle',
+                'type'     => 'switch',
+                'title'    => __( 'Enable newsletter popup', 'snow' ),
+                'subtitle' => __( 'Show subscription pop up on site load.', 'snow' ),
             ),
-            array(
-                'id'       => 'opt-api-key',
-                'type'     => 'text',
-                'title'    => __( 'API KEY', 'snow' ),
-                'subtitle' => __( 'Add an API key for the active campaign, used to connect your email campaign to active campaign accounts', 'snow' ),
-            ),
+
             array(
                 'id'       => 'opt-newsletter-image',
                 'type'     => 'media',
                 'title'    => __( 'Newsletter popup image', 'snow' ),
                 'subtitle' => __( 'Image used in the popup for newsletter, this popup will appear on website whenevre the site is loaded', 'snow' ),
+                'required' => array('opt-toggle','equals',true),
                 'desc'     => __( 'The image dimension for normal screen must be atleast 600 X 600', 'snow' ),
             ),
+
             array(
                 'id'       => 'opt-newsletter-heading',
                 'type'     => 'text',
-                'title'    => __( 'Newsletter text', 'snow' ),
-                'subtitle' => __( 'Text used in the popup for newsletter, this popup will appear on website whenevre the site is loaded', 'snow' ),
+                'title'    => __( 'Newsletter heading', 'snow' ),
+                'subtitle' => __( 'Heading used in the popup for newsletter, this popup will appear on website whenever the site is loaded', 'snow' ),
+            ),
+
+            array(
+                'id'       => 'opt-newsletter-text',
+                'type'     => 'text',
+                'title'    => __( 'Newsletter Text', 'snow' ),
+                'subtitle' => __( 'Text used in the popup for newsletter, this popup will appear on website whenever the site is loaded', 'snow' ),
+            ),
+
+            array(
+                'id'       => 'opt-newsletter-form',
+                'type'     => 'textarea',
+                'title'    => __( 'Form shortcode', 'snow' ),
+                'subtitle' => __( 'Add your form shortcode for the site.', 'snow' ),
             ),
         )
     ) );
@@ -419,73 +569,74 @@
     ) );
 
     // -> START Footer settings
-    Redux::setSection( $opt_name, array(
-        'title' => __( 'Slider settings', 'snow' ),
-        'id'    => 'slider-settings',
-        'desc'  => __( 'Add all the site wide default slider settings like slider orientation, slider speed, slider navigation controls, slider image count etc. These settings can be overriden from individual pages', 'snow' ),
-        'icon'  => 'el el-laptop',
-        'fields'     => array(
-          array(
-              'id'            => 'opt-show-slides',
-              'type'          => 'slider',
-              'title'         => __( 'Show images', 'snow' ),
-              'subtitle'      => __( 'Number of images to be shown on slider init or page load. cannot be maximum than total images', 'snow' ),
-              'desc'          => __( 'Min: 1, max: 10, step: 1, default value: 2', 'snow' ),
-              'default'       => 2,
-              'min'           => 1,
-              'step'          => 1,
-              'max'           => 10,
-              'display_value' => 'label'
-          ),
-          array(
-              'id'            => 'opt-image-slides',
-              'type'          => 'slider',
-              'title'         => __( 'Slide images', 'snow' ),
-              'subtitle'      => __( 'Number of images to slide on slider interaction. Make sure to always keep the value equal to or less than total, otherwise slider will break', 'snow' ),
-              'desc'          => __( 'Min: 1, max: 4, step: 1, default value: 1', 'snow' ),
-              'default'       => 1,
-              'min'           => 1,
-              'step'          => 1,
-              'max'           => 4,
-              'display_value' => 'label'
-          ),
-          array(
-              'id'       => 'opt-display-dots',
-              'type'     => 'switch',
-              'title'    => 'Display dots',
-              'subtitle' => 'Display navigation dots below slider. This is a default setting and can be overriden within the page.',
-              'default'  => false
-          ),
-          array(
-              'id'       => 'opt-infinite-scroll',
-              'type'     => 'switch',
-              'title'    => 'Enable Infinite Scroll',
-              'subtitle' => 'Enable slider content scroll infinitely. The slider will always repeat images once all images are shown. This is a default setting and can be overriden within the page.',
-              'default'  => false
-          ),
-          array(
-              'id'       => 'opt-autoscroll',
-              'type'     => 'switch',
-              'title'    => 'Enable Autoscroll',
-              'subtitle' => 'Enable slider autoscroll. Images will change / slide automatically after a given time threshold. This is a default setting and can be overriden within the page.',
-              'default'  => false
-          ),
-          array(
-              'id'            => 'opt-scroll-speed',
-              'type'          => 'slider',
-              'title'         => __( 'Autoscroll Speed', 'snow' ),
-              'subtitle'      => __( 'Autoscrll speed for the slider. This setting will work only if autoscroll setting above is enabled.', 'snow' ),
-              'desc'          => __( 'Min: 1, max: 4, step: 1, default value: 1', 'snow' ),
-              'default'       => 1,
-              'min'           => 1,
-              'step'          => 1,
-              'max'           => 4,
-              'required' => array('opt-autoscroll','equals',true),
-              'display_value' => 'label'
-          ),
-        ),
+    // Redux::setSection( $opt_name, array(
+    //     'title' => __( 'Slider settings', 'snow' ),
+    //     'id'    => 'slider-settings',
+    //     'desc'  => __( 'Add all the site wide default slider settings like slider orientation, slider speed, slider navigation controls, slider image count etc. These settings can be overriden from individual pages', 'snow' ),
+    //     'icon'  => 'el el-laptop',
+    //     'fields'     => array(
+    //       array(
+    //           'id'            => 'opt-show-slides',
+    //           'type'          => 'slider',
+    //           'title'         => __( 'Show images', 'snow' ),
+    //           'subtitle'      => __( 'Number of images to be shown on slider init or page load. cannot be maximum than total images', 'snow' ),
+    //           'desc'          => __( 'Min: 1, max: 10, step: 1, default value: 2', 'snow' ),
+    //           'default'       => 2,
+    //           'min'           => 1,
+    //           'step'          => 1,
+    //           'max'           => 10,
+    //           'display_value' => 'label'
+    //       ),
+    //       array(
+    //           'id'            => 'opt-image-slides',
+    //           'type'          => 'slider',
+    //           'title'         => __( 'Slide images', 'snow' ),
+    //           'subtitle'      => __( 'Number of images to slide on slider interaction. Make sure to always keep the value equal to or less than total, otherwise slider will break', 'snow' ),
+    //           'desc'          => __( 'Min: 1, max: 4, step: 1, default value: 1', 'snow' ),
+    //           'default'       => 1,
+    //           'min'           => 1,
+    //           'step'          => 1,
+    //           'max'           => 4,
+    //           'display_value' => 'label'
+    //       ),
+    //       array(
+    //           'id'       => 'opt-display-dots',
+    //           'type'     => 'switch',
+    //           'title'    => 'Display dots',
+    //           'subtitle' => 'Display navigation dots below slider. This is a default setting and can be overriden within the page.',
+    //           'default'  => false
+    //       ),
+    //       array(
+    //           'id'       => 'opt-infinite-scroll',
+    //           'type'     => 'switch',
+    //           'title'    => 'Enable Infinite Scroll',
+    //           'subtitle' => 'Enable slider content scroll infinitely. The slider will always repeat images once all images are shown. This is a default setting and can be overriden within the page.',
+    //           'default'  => false
+    //       ),
+    //       array(
+    //           'id'       => 'opt-autoscroll',
+    //           'type'     => 'switch',
+    //           'title'    => 'Enable Autoscroll',
+    //           'subtitle' => 'Enable slider autoscroll. Images will change / slide automatically after a given time threshold. This is a default setting and can be overriden within the page.',
+    //           'default'  => false
+    //       ),
+    //       array(
+    //           'id'            => 'opt-scroll-speed',
+    //           'type'          => 'slider',
+    //           'title'         => __( 'Autoscroll Speed', 'snow' ),
+    //           'subtitle'      => __( 'Autoscrll speed for the slider. This setting will work only if autoscroll setting above is enabled.', 'snow' ),
+    //           'desc'          => __( 'Min: 1, max: 4, step: 1, default value: 1', 'snow' ),
+    //           'default'       => 1,
+    //           'min'           => 1,
+    //           'step'          => 1,
+    //           'max'           => 4,
+    //           'required' => array('opt-autoscroll','equals',true),
+    //           'display_value' => 'label'
+    //       ),
+    //     ),
+    //   )
 
-    ) );
+    // );
 
     Redux::setSection( $opt_name, array(
         'title'            => __( 'Google settings', 'snow' ),
@@ -525,6 +676,42 @@
               'type'     => 'text',
               'title'    => __( 'Google maps key', 'snow' ),
               'subtitle' => __( 'Add google maps key to be used in order to display maps. Add only key here script will be genrated and added to header.', 'snow' ),
+          ),
+        )
+    ) );
+
+    Redux::setSection( $opt_name, array(
+        'title' => __( 'Google Adsense', 'snow' ),
+        'id'    => 'opt-init-ad',
+        'desc'  => __( 'Add shortcode ', 'snow' ),
+        'icon'  => 'el el-key',
+        'subsection' => true,
+        'fields'     => array(
+          array(
+              'id'       => 'opt-home-first-section-ad-key',
+              'type'     => 'text',
+              'title'    => __( 'First Section ad code', 'snow' ),
+              'subtitle' => __( 'Add shortcode generated from the adsense plugin. Advanced ads plugin is recommended.', 'snow' ),
+          ),
+
+          array(
+              'id'       => 'opt-ad-placement-key',
+              'type'     => 'text',
+              'title'    => __( 'First Section ad placement', 'snow' ),
+              'subtitle' => __( 'Advertisement will be placed only in right block, first secnd and third position.', 'snow' ),
+          ),
+
+          array(
+              'id'       => 'opt-category-ad-key',
+              'type'     => 'text',
+              'title'    => __( 'Category section ad code', 'snow' ),
+              'subtitle' => __( 'Add shortcode generated from the adsense plugin. Advanced ads plugin is recommended.', 'snow' ),
+          ),
+          array(
+              'id'       => 'opt-category-ad-placement-key',
+              'type'     => 'text',
+              'title'    => __( 'Category sections ad placement', 'snow' ),
+              'subtitle' => __( 'Keep the count equal to or below post total post count. It can vary based on number of posts shown on page.', 'snow' ),
           ),
         )
     ) );

@@ -28,6 +28,34 @@ if ( version_compare( $GLOBALS['wp_version'], '4.4-alpha', '<' ) ) {
 	require get_template_directory() . '/core/back-compat.php';
 }
 
+/**
+ * Include the snow Theme specific settings
+ * TGM script, Redux Framework for theme settings
+ * @since snow 1.0
+ */
+require_once get_template_directory() . '/core/theme-settings.php';
+
+/**
+ * Include the snow Theme helper methods
+ * @since snow 1.0
+ */
+require_once get_template_directory() . '/core/theme-helper.php';
+
+ /**
+  * Include SVG upload support to wordpress media upload.
+  * @since snow 1.0
+  */
+
+//add SVG to allowed file uploads
+function add_file_types_to_uploads($file_types){
+
+     $new_filetypes = array();
+     $new_filetypes['svg'] = 'image/svg';
+     $file_types = array_merge($file_types, $new_filetypes );
+
+     return $file_types;
+}
+add_action('upload_mimes', 'add_file_types_to_uploads');
 
 
 if ( ! function_exists( 'snow_setup' ) ) :
@@ -92,9 +120,11 @@ if ( ! function_exists( 'snow_setup' ) ) :
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
-        'primary' => __( 'Primary Menu', 'snow' ),
+				'primary' => __( 'Primary Menu', 'snow' ),
+				'mobile_nav' => __( 'Mobile Menu', 'snow' ),
+				'mobile_categories' => __( 'Mobile Categories', 'snow' ),
 				'help_links' => __( 'Footer Menu Primary', 'snow' ),
-        'useful_links' => __( 'Footer Menu Secondary', 'snow' ),
+				'useful_links' => __( 'Footer Menu Secondary', 'snow' ),
 				'social'  => __( 'Social Links Menu', 'snow' ),
 			)
 		);
@@ -286,36 +316,110 @@ function snow_scripts() {
 	// Flexbox support for the theme
 	wp_enqueue_style( 'snow-flexbox', 'https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css', array(), '6.3.1' );
 
-	// Theme FullPage concept css
-	wp_enqueue_style( 'snow-fullpage-css', get_template_directory_uri() . '/assets/vendor/fullPageJs/fullpage.css', array(), '3.0.8' );
+	// Slick Slider JS concept css
+	wp_enqueue_style( 'snow-slick-theme', get_template_directory_uri() . '/assets/vendor/SlickJS/slick-theme.css', array(), '1.8.1' );
+
+	wp_enqueue_style( 'snow-slick-default', get_template_directory_uri() . '/assets/vendor/SlickJS/slick.css', array(), '1.8.1' );
 
 	// Theme stylesheet. rand() to avoid caching issues
 	wp_enqueue_style( 'snow-style', get_stylesheet_uri(), array('snow-flexbox'), rand(100,999) );
 
+	/**
+	 * PAGEPILIMG INIT FOR FEW PAGES ONLY
+	 */
 
-	// snow SmoothState support
-	wp_enqueue_script( 'snow-smoothstate', get_template_directory_uri() . '/assets/vendor/jquery.smoothState.min.js', array('jquery'), '1.0.0', true );
+	if( wp_is_mobile() ):
 
-	// snow FullPage Js support
-	wp_enqueue_script( 'snow-fullpage-easing', get_template_directory_uri() . '/assets/vendor/fullPageJs/vendors/easings.min.js', array('jquery'), '1.0.3', true );
-	wp_enqueue_script( 'snow-fullpage-overflow', get_template_directory_uri() . '/assets/vendor/fullPageJs/vendors/scrolloverflow.min.js', array('jquery'), '2.0.5', true );
-	wp_enqueue_script( 'snow-fullpage', get_template_directory_uri() . '/assets/vendor/fullPageJs/fullpage.js', array('jquery', 'snow-fullpage-easing', 'snow-fullpage-overflow'), '3.0.8', true );
+	else:
+
+		if( is_front_page() || is_archive() ):
+			// snow PagePiling Js support
+			wp_enqueue_script( 'snow-pagepiling', get_template_directory_uri() . '/assets/vendor/PagePilingJs/jquery.pagepiling.min.js', array('jquery'), '2.0.5', true );
+
+			// snow PagePiling Js support
+			wp_enqueue_script( 'snow-pagepiling-init', get_template_directory_uri() . '/assets/js/snow-pagepiling-init.js', array('jquery', 'snow-pagepiling'), '1.0.0', true );
+
+		endif;
+
+	endif;
+
+	wp_enqueue_script( 'snow-slick-js', get_template_directory_uri() . '/assets/vendor/SlickJS/slick.min.js', array('jquery'), '1.7.2', true );
 
 
-	// snow Helper scripts
-	wp_enqueue_script( 'snow-helper', get_template_directory_uri() . '/assets/js/snow-helper.js', array('jquery'), '1.0.0', true );	
+	//1. snow Helper scripts
+
+	/**
+	 * 1.3 Glider Init jQuery for snow.
+	 *
+	 * @depends jQuery
+	 * @version 1.0.0
+	 *
+	 */
+	wp_enqueue_script( 'snow-slick-init-js', get_template_directory_uri() . '/assets/js/snow-slick-init.js', array('jquery', 'snow-helper'), '1.0.0', true );
+
+	if( is_home() || is_front_page() ) {
+
+		wp_enqueue_script( 'snow-weatherapi', get_template_directory_uri() . '/assets/js/weatherapi.js', array('jquery'), '1.0.0', true );
+
+		$theme_settings = snow_settings();
+		$apicredentials = array(
+			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+
+		);
+		wp_localize_script( 'snow-weatherapi', 'weatherapi', $apicredentials );
+
+	}
+
+	/**
+	 * 1.1 General helper Jquery modifications
+	 * for theme.
+	 *
+	 * @depends jQuery
+	 * @version 1.0.0
+	 *
+	 */
+	wp_enqueue_script( 'snow-helper', get_template_directory_uri() . '/assets/js/snow-helper.js', array('jquery'), '1.0.0', true );
+
+	/**
+	 * 1.2 SmoothState Init jQuery for snow.
+	 *
+	 * @depends jQuery, snow-helper
+	 * @version 1.0.0
+	 *
+	 */
+	//wp_enqueue_script( 'snow-ss-init', get_template_directory_uri() . '/assets/js/snow-smoothstate.js', array('jquery', 'snow-helper'), '1.0.0', true );
+
 
 	// Load the html5 shiv.
 	wp_enqueue_script( 'snow-html5', get_template_directory_uri() . '/assets/vendor/html5.js', array(), '3.7.3' );
 	wp_script_add_data( 'snow-html5', 'conditional', 'lt IE 9' );
 
 	// FontAwesmoe JS
-	wp_enqueue_script( 'fontawesomesolidstyle', 'https://use.fontawesome.com/releases/v5.0.13/js/solid.js', array(), null );
-	
-	wp_enqueue_script( 'fontawesome5', 'https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js', array('fontawesomesolidstyle'), null );
+	wp_enqueue_script( 'fontawesomesolidstyle', 'https://use.fontawesome.com/releases/v5.13.0/js/solid.js', array(), null );
+
+	// FontAwesmoe Brands JS
+	wp_enqueue_script( 'fontawesomebrandstyle', 'https://use.fontawesome.com/releases/v5.13.0/js/brands.js', array(), null );
+
+	wp_enqueue_script( 'fontawesome5', 'https://use.fontawesome.com/releases/v5.13.0/js/fontawesome.js', array('fontawesomesolidstyle'), null );
 
 }
 add_action( 'wp_enqueue_scripts', 'snow_scripts' );
+
+function snow_add_footer_styles() {
+
+	if( wp_is_mobile() ):
+
+	else:
+
+    if( is_front_page() || is_archive() ):
+			// Theme FullPage concept css
+			wp_enqueue_style( 'snow-pagepiling', get_template_directory_uri() . '/assets/vendor/PagePilingJs/jquery.pagepiling.css', array(), '3.0.8' );
+
+		endif;
+
+	endif;
+};
+add_action( 'get_footer', 'snow_add_footer_styles' );
 
 /**
  * Registers a widget area.
@@ -339,19 +443,6 @@ function snow_widgets_init() {
 	);
 }
 add_action( 'widgets_init', 'snow_widgets_init' );
-
-/**
- * Include the snow Theme specific settings
- * TGM script, Redux Framework for theme settings
- * @since snow 1.0
- */
-require_once get_template_directory() . '/core/theme-settings.php';
-
-/**
- * Include the snow Theme helper methods
- * @since snow 1.0
- */
-require_once get_template_directory() . '/core/theme-helper.php';
 
 
 
