@@ -432,32 +432,3 @@ function snow_get_the_weather() {
 
 add_action("wp_ajax_snow_get_the_weather", "snow_get_the_weather");
 add_action("wp_ajax_nopriv_snow_get_the_weather", "snow_get_the_weather");
-
-
-/**
- * Scrap image from the content in wordpress.
- * acting as fallback image if no image is found.
- *
- * @param Integer $post_id
- * @return IMAGE
- * @since Snow v1.0.0
- *
- */
-
-function snow_scrap_image_from_content( $post_id ) {
-
-  $first_img = '';
-  $get_content = get_the_content( $post_id );
-  ob_start();
-  ob_end_clean();
-
-  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $get_content, $matches);
-  $first_img = $matches [1] [0];
-
-  if(empty($first_img)){ //Defines a default image
-    $first_img = get_template_directory().'/assets/image/default-post-image.jpg';
-  }
-
-  return $first_img;
-
-}
