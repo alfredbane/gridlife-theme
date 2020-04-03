@@ -166,7 +166,7 @@ function snow_get_the_post_thumbnail_url($post_id) {
 
   } else {
 
-    $post_thumbnail_url = $image_from_content;
+    $post_thumbnail_url = $default_image;
 
   }
 
