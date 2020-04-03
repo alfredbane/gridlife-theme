@@ -21,7 +21,7 @@
 			$args = array(
 				'posts_per_page'	=> 6,
 				'post_status'	=> 'publish',
-				'orderby'			=> 'date',
+				'orderby'			=> 'modified',
 				'order'				=> 'DESC',
 				'post_type'		=> 'post',
 				'meta_key'		=> 'the_post_top_story',
