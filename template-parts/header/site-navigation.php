@@ -8,6 +8,7 @@
  * @since 1.0.0
  */
 
+$scrolltype = ( is_front_page() || is_archive() ) ? "pp-scroll" : "windowscroll" ;
 ?>
 
 <?php if ( has_nav_menu( 'primary' ) ) : ?>
@@ -33,7 +34,7 @@
         <a title="site rss feeds" href="<?php bloginfo('rss2_url'); ?>"><i class="fas fa-rss"></i></a>
       </li>
       <li class="menu-item">
-        <a href="#"><i class="fas fa-cloud"></i></a>
+        <a id="weathersectionlink" data-scrolltype="<?php echo $scrolltype ?>" href="javascript:void(0)"><i class="fas fa-cloud"></i></a>
       </li>
     </ul>
   </div>

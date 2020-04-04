@@ -30,19 +30,27 @@
         //events
         onLeave: function(index, nextIndex, direction){},
         afterLoad: function(anchorLink, index){},
-        afterRender: function(){},
+        afterRender: function(){
+          $("[data-scrolltype='pp-scroll']").on('click', function(event){
+            event.preventDefault();
+            var specialIndex = $('.c-weather-forecasts').index();
+            $.fn.pagepiling.moveTo(specialIndex+1);
+          });
+        },
     });
 
   }
 
-  $(window).resize(function(){
+  $(document).ready(function(){
+    $(window).resize(function(){
+      if($(window).width() > 767) {
+        snowpPagePilingInit();
+      }
+    });
+
     if($(window).width() > 767) {
       snowpPagePilingInit();
     }
   });
-
-  if($(window).width() > 767) {
-    snowpPagePilingInit();
-  }
 
 })(jQuery);

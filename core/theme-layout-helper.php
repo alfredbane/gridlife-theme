@@ -23,6 +23,18 @@ if(!function_exists('snow_set_sidebar_label')):
 		$description = '';
 		$color = '';
 		$bg_color = 'has-background-blue-base';
+		$taxonomy = '';
+
+		if( is_tag() ) {
+
+			$taxonomy = 'post_tag';
+			$bg_color = 'has-background-yellow-base';
+
+		} else {
+
+			$taxonomy = 'category';
+
+		}
 
 		if( !$custom ) {
 
@@ -37,11 +49,13 @@ if(!function_exists('snow_set_sidebar_label')):
 
 			else:
 
-				$term = get_term_by('id', $category, 'category');
+				$term = get_term_by('id', $category, $taxonomy);
 				$heading = $term ? $term->name : '';
 				$description = $term ? $term->description : '';
-				$color = $term ? find_and_get_field(get_field('category_color_code', $term)) : '';
-				$bg_color = 'has-background-'.$color.'-base';
+				if( !is_tag() ) {
+					$color = $term ? find_and_get_field(get_field('category_color_code', $term)) : '';
+					$bg_color = 'has-background-'.$color.'-base';
+				}
 
 			endif;
 

@@ -305,11 +305,20 @@ function snow_set_category_content($category, $limit=6) {
   // args
 
     $tax_Query = '';
+    $tag = '';
     $single_post_id = '';
+
 
     $args = array();
 
-    if( $category !== 'recent_posts' ) :
+    if( is_tag() ) :
+
+      $pageobject = get_queried_object();
+      $tag = $pageobject->slug;
+
+    endif;
+
+    if( $category !== 'recent_posts' && !is_tag() ) :
 
       $tax_Query = array(
             'taxonomy' => 'category', //double check your taxonomy name in you dd
@@ -334,6 +343,7 @@ function snow_set_category_content($category, $limit=6) {
         'paged' => $paged,
         'post_status'   => 'publish',
         'post__not_in'  => array($single_post_id),
+        'tag' => $tag,
         'tax_query' => array($tax_Query),
       );
 
@@ -393,7 +403,7 @@ function snow_get_the_weather() {
     $defaultLat = $theme_settings['opt-latitude'];
   }
 
-  $defaultParams = '/?lat='.$defaultLat.'&lon='.$defaultLong.'&cnt=8&appid='.$apiKey;
+  $defaultParams = '/?lat='.$defaultLat.'&lon='.$defaultLong.'&cnt=7&appid='.$apiKey;
 
   $get_data = callAPI('GET', $apiUrl.$defaultParams, false);
 

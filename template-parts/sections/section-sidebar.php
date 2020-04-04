@@ -10,11 +10,15 @@
  */
 
 
- if(is_archive()):
+ if( is_archive() || is_tag() ):
+
  	$term = get_queried_object();
  	$category = $term->term_id;
+
  else :
+
  	$category = $section_category;
+
  endif;
 
 ?>

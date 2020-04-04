@@ -11,8 +11,18 @@
  * @since 1.0.0
  */
 $theme_settings = snow_settings();
+$sectionclass = ( is_front_page() || is_archive() ) ? "c-section " : "";
 
 ?>
+
+			<section id="sectionWeather" class="<?php echo $sectionclass; ?>section c-section-labelcustom c-weather-forecasts">
+
+					<?php
+						get_template_part( 'template-parts/sections/section', 'weather' );
+					?>
+
+			</section>
+
 			<section class="section c-section c-footer-grid">
 
 				<div class="row">

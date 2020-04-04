@@ -10,7 +10,8 @@
 
 
 $get_weather_data = snow_get_the_weather();
-
+$theme_settings = snow_settings();
+$background_class = " has-background-blue-base";
 ?>
 
 <div class="weather-forecast-display">
@@ -24,24 +25,27 @@ $get_weather_data = snow_get_the_weather();
     </aside>
 
     <?php foreach($get_weather_data['main'] as $key=>$value): ?>
-      <section class="c-temp-display c-display-item has-background-blue-base">
-          <span><?php echo $value['icon'] ?></span>
-            <div class="c-time">
-              <time class="c-time-date">
-                <?php
-                  echo $value['date'] ;
-                 ?>
-              </time>
-              <time class="c-time-hours">
-                <?php
-                  echo $value['time'] ;
-                 ?>
-              </time>
-            </div>
-            <span class="c-temp">
-               <?php echo $value['temperature'] ?>
-            </span>
-      </section>
+
+
+        <section class="c-temp-display c-display-item<?php echo $background_class; ?>">
+            <span><?php echo $value['icon'] ?></span>
+              <div class="c-time">
+                <time class="c-time-date">
+                  <?php
+                    echo $value['date'] ;
+                   ?>
+                </time>
+                <time class="c-time-hours">
+                  <?php
+                    echo $value['time'] ;
+                   ?>
+                </time>
+              </div>
+              <span class="c-temp">
+                 <?php echo $value['temperature'] ?>
+              </span>
+        </section>
+
     <?php endforeach;?>
 
   </div>

@@ -349,7 +349,7 @@ function snow_scripts() {
 	//1. snow Helper scripts
 
 	/**
-	 * 1.3 Glider Init jQuery for snow.
+	 * 1.1 Glider Init jQuery for snow.
 	 *
 	 * @depends jQuery
 	 * @version 1.0.0
@@ -357,21 +357,24 @@ function snow_scripts() {
 	 */
 	wp_enqueue_script( 'snow-slick-init-js', get_template_directory_uri() . '/assets/js/snow-slick-init.js', array('jquery', 'snow-helper'), '1.0.0', true );
 
-	if( is_home() || is_front_page() ) {
+	/**
+	 * 1.2 Weather API ajax load.
+	 *
+	 * @depends jQuery
+	 * @version 1.0.0
+	 *
+	 */
+	wp_enqueue_script( 'snow-weatherapi', get_template_directory_uri() . '/assets/js/weatherapi.js', array('jquery'), '1.0.0', true );
 
-		wp_enqueue_script( 'snow-weatherapi', get_template_directory_uri() . '/assets/js/weatherapi.js', array('jquery'), '1.0.0', true );
+	$theme_settings = snow_settings();
+	$apicredentials = array(
+		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 
-		$theme_settings = snow_settings();
-		$apicredentials = array(
-			'ajaxurl' => admin_url( 'admin-ajax.php' ),
-
-		);
-		wp_localize_script( 'snow-weatherapi', 'weatherapi', $apicredentials );
-
-	}
+	);
+	wp_localize_script( 'snow-weatherapi', 'weatherapi', $apicredentials );
 
 	/**
-	 * 1.1 General helper Jquery modifications
+	 * 1.3 General helper Jquery modifications
 	 * for theme.
 	 *
 	 * @depends jQuery
@@ -381,7 +384,7 @@ function snow_scripts() {
 	wp_enqueue_script( 'snow-helper', get_template_directory_uri() . '/assets/js/snow-helper.js', array('jquery'), '1.0.0', true );
 
 	/**
-	 * 1.2 SmoothState Init jQuery for snow.
+	 * 1.4 SmoothState Init jQuery for snow.
 	 *
 	 * @depends jQuery, snow-helper
 	 * @version 1.0.0

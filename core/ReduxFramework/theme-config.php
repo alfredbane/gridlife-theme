@@ -707,11 +707,19 @@
               'title'    => __( 'Category section ad code', 'snow' ),
               'subtitle' => __( 'Add shortcode generated from the adsense plugin. Advanced ads plugin is recommended.', 'snow' ),
           ),
+
+          array(
+              'id'       => 'opt-weather-ad-key',
+              'type'     => 'text',
+              'title'    => __( 'Weather section ad code', 'snow' ),
+              'subtitle' => __( 'Add shortcode generated from the adsense plugin. Advanced ads plugin is recommended.', 'snow' ),
+          ),
+
           array(
               'id'       => 'opt-category-ad-placement-key',
               'type'     => 'text',
               'title'    => __( 'Category sections ad placement', 'snow' ),
-              'subtitle' => __( 'Keep the count equal to or below post total post count. It can vary based on number of posts shown on page.', 'snow' ),
+              'subtitle' => __( 'Keep the count equalto or below total post count. It can vary based on number of posts shown on page.', 'snow' ),
           ),
         )
     ) );
