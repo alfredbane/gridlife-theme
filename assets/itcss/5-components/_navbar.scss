@@ -30,6 +30,31 @@ ul#menu-primary {
     display: flex;
     justify-content: flex-end;
 
+    #mega-menu-wrap-primary {
+
+      @include mobile {
+          display: none;
+      }
+
+      @include tablet {
+          display: none;
+      }
+
+
+      #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu {
+
+        @include laptop {
+          width: 803px;
+        }
+
+        @include laptop-large {
+          width: 803px;
+        }
+
+      }
+
+    }
+
     .wppsac-post-slider.design-1 .wppsac-post-content-left {
       height: 100%;
     }
