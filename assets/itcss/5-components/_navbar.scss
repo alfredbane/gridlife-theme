@@ -45,10 +45,12 @@ ul#menu-primary {
 
         @include laptop {
           width: 803px;
+          left: -460px;
         }
 
         @include laptop-large {
           width: 803px;
+          left: -460px;
         }
 
       }
