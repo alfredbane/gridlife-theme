@@ -1052,6 +1052,12 @@ fieldset {
     margin-bottom: 15px; }
   .c-header__nav #mega-menu-wrap-primary #mega-menu-primary {
     padding: 3px 0px; }
+  .c-header__nav #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-item h4.mega-block-title, .c-header__nav #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu li.mega-menu-column > ul.mega-sub-menu > li.mega-menu-item h4.mega-block-title {
+    background-color: #6270bd;
+    margin: 10px 0;
+    display: block;
+    padding: 4px 14px;
+    color: #fff; }
 
 .c-header__nav-quick-links ul li:last-child a {
   padding-right: 0; }
