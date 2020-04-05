@@ -1045,10 +1045,12 @@ fieldset {
       display: none; } }
   @media (min-width: 1024px) and (max-width: 1199px) {
     .c-header__nav #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu {
-      width: 803px; } }
+      width: 803px;
+      left: -460px; } }
   @media (min-width: 1200px) and (max-width: 1599px) {
     .c-header__nav #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu {
-      width: 803px; } }
+      width: 803px;
+      left: -460px; } }
   .c-header__nav .wppsac-post-slider.design-1 .wppsac-post-content-left {
     height: 100%; }
   .c-header__nav .wppsac-post-slider h2.wppsac-post-title a {
