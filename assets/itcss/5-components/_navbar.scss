@@ -30,6 +30,32 @@ ul#menu-primary {
     display: flex;
     justify-content: flex-end;
 
+    .wppsac-post-slider.design-1 .wppsac-post-content-left {
+      height: 100%;
+    }
+
+    .wppsac-post-slider h2.wppsac-post-title a {
+      font-size: 18px;
+      line-height: 11px;
+    }
+    .rpwd-recent-post-main.rpwd-design-1 .rpwd-recent-post__image a,
+    .rpwd-recent-post-main.rpwd-design-3 .rpwd-recent-post__image a {
+       width: 50px;
+    }
+
+    .rpwd-recent-post__title{
+      font-size: 15px;
+      line-height: 18px;
+    }
+
+    .rpwd-recent-post-main .rpwd-recent-post {
+      margin-bottom: 15px;
+    }
+
+    #mega-menu-wrap-primary #mega-menu-primary {
+      padding: 3px 0px;
+    }
+
 }
 
 .c-header__nav-quick-links {

@@ -444,6 +444,19 @@ function snow_widgets_init() {
 			'after_title'   => '</h5>',
 		)
 	);
+
+	register_sidebar(
+		array(
+			'name'          => __( 'Sidebar widgets', 'snow' ),
+			'id'            => 'sidebar-widgets',
+			'description'   => __( 'Appears at right side of the blog detail page.', 'snow' ),
+			'before_widget' => '<div id="%1$s" class="widget c-sidebar-section %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<label class="sidebar-content">',
+			'after_title'   => '</h5>',
+		)
+	);
+
 }
 add_action( 'widgets_init', 'snow_widgets_init' );
 
