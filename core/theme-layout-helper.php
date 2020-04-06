@@ -17,7 +17,7 @@ if(!function_exists('gridlife_set_sidebar_label')):
 			return;
 		}
 
-
+		$custom_text = __($custom_text, "gridlife");
 		$heading = '';
 		$section_heading = '';
 		$description = '';

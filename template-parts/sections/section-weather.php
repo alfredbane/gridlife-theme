@@ -19,7 +19,7 @@ $background_class = " has-background-blue-base";
     <aside class="c-section-item c-section-aside">
       <?php
           $icon = '<i class="fas fa-cloud"></i>';
-          $label = esc_html__("अधिकतम तापमान", "gridlife");
+          $label = esc_html__("maximum temperature", "gridlife");
         	echo gridlife_set_sidebar_label($label, "", $custom=true, $icon, $get_weather_data['city']);
       ?>
     </aside>
