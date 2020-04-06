@@ -3,12 +3,12 @@
  * Template sub-part for displaying bottom left on front page
  *
  * @package WordPress
- * @subpackage Snow
+ * @subpackage Gridlife
  * @since 1.0
  * @version 1.0
  */
 
-$theme_settings = snow_settings();
+$theme_settings = gridlife_settings();
 
 
 ?>
@@ -24,7 +24,7 @@ $theme_settings = snow_settings();
 		if($theme_settings['first-section-left-bottom']) {
 
 			$tax_Query = array(
-		        'taxonomy' => 'category', //double check your taxonomy name in you dd 
+		        'taxonomy' => 'category', //double check your taxonomy name in you dd
 		        'field'    => 'id',
 		        'terms'    => $theme_settings['first-section-left-bottom'],
 		    );
@@ -33,6 +33,8 @@ $theme_settings = snow_settings();
 		$args = array(
 			'posts_per_page'	=> 1,
 			'post_type'		=> 'post',
+			'orderby'			=> 'date',
+			'order'				=> 'DESC',
 			'tax_query' => array($tax_Query),
 		);
 
@@ -42,13 +44,13 @@ $theme_settings = snow_settings();
 
 			while($the_query->have_posts()) : $the_query->the_post();
 
-				echo snow_article_layout();
+				echo gridlife_article_layout();
 
 			endwhile;
 
 			wp_reset_postdata();
-			
+
 		endif;
 
 	?>
-</div>	
+</div>

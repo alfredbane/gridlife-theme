@@ -3,7 +3,7 @@
  * Config values for schema org
  * 
  * @source https://schema.org
- * @since Snow 1.0.0
+ * @since Gridlife 1.0.0
  * 
  */
 
@@ -27,6 +27,6 @@ function get_schema() {
 
 	);
 
-	return  apply_filters('snow_schema_builder_config', $schema);
+	return  apply_filters('gridlife_schema_builder_config', $schema);
 
 }

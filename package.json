@@ -1,7 +1,7 @@
 {
-  "name": "snow-theme-v1.0",
+  "name": "gridlife-theme-v1.0",
   "version": "1.0.0",
-  "description": "Snow is designed using simple dynamics of wordpress and a little bit of block editor. Organizations and businesses have the ability to create pages with predefined layouts using the group and column blocks. The fine-tuned typography also makes it perfect for traditional blogs. You can give your site a personal touch by changing the background colors and the accent colorusing the Redux Customizer.",
+  "description": "Gridlife is designed using simple dynamics of wordpress and a little bit of block editor. Organizations and businesses have the ability to create pages with predefined layouts using the group and column blocks. The fine-tuned typography also makes it perfect for traditional blogs. You can give your site a personal touch by changing the background colors and the accent colorusing the Redux Customizer.",
   "main": "index.js",
   "scripts": {
     "build": "gulp build --prod=true",

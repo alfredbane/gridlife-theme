@@ -3,12 +3,12 @@
  * Template sub-part for displaying bottom left on front page
  *
  * @package WordPress
- * @subpackage Snow
+ * @subpackage Gridlife
  * @since 1.0
  * @version 1.0
  */
 
-$theme_settings = snow_settings();
+$theme_settings = gridlife_settings();
 $ad_code = $theme_settings['opt-home-first-section-ad-key'];
 $ad_space_position = $theme_settings['opt-ad-placement-key'];
 
@@ -31,7 +31,8 @@ $ad_space_position = $theme_settings['opt-ad-placement-key'];
 					'post_status'	=> 'publish',
 					'cat' => $item,
 					'posts_per_page'	=> 1,
-					'order'		=> 'ASC',
+					'order'		=> 'DESC',
+					'orderby'	=> 'date'
 				);
 
 				$the_query = new WP_Query($args);
@@ -47,7 +48,7 @@ $ad_space_position = $theme_settings['opt-ad-placement-key'];
 							"excerpt"=>false
 						);
 
-						do_action( 'snow_display_post', $args);
+						do_action( 'gridlife_display_post', $args);
 
 					endwhile;
 

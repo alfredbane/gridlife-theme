@@ -30,6 +30,67 @@ ul#menu-primary {
     display: flex;
     justify-content: flex-end;
 
+    #mega-menu-wrap-primary {
+
+      @include mobile {
+          display: none;
+      }
+
+      @include tablet {
+          display: none;
+      }
+
+
+      #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu {
+
+        @include laptop {
+          width: 803px;
+          left: -460px;
+        }
+
+        @include laptop-large {
+          width: 803px;
+          left: -460px;
+        }
+
+      }
+
+    }
+
+    .wppsac-post-slider.design-1 .wppsac-post-content-left {
+      height: 100%;
+    }
+
+    .wppsac-post-slider h2.wppsac-post-title a {
+      font-size: 18px;
+      line-height: 11px;
+    }
+    .rpwd-recent-post-main.rpwd-design-1 .rpwd-recent-post__image a,
+    .rpwd-recent-post-main.rpwd-design-3 .rpwd-recent-post__image a {
+       width: 50px;
+    }
+
+    .rpwd-recent-post__title{
+      font-size: 15px;
+      line-height: 18px;
+    }
+
+    .rpwd-recent-post-main .rpwd-recent-post {
+      margin-bottom: 15px;
+    }
+
+    #mega-menu-wrap-primary #mega-menu-primary {
+      padding: 3px 0px;
+    }
+
+    #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-item h4.mega-block-title, #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu li.mega-menu-column > ul.mega-sub-menu > li.mega-menu-item h4.mega-block-title {
+      background-color: #6270bd;
+      margin: 10px 0;
+      display: block;
+      padding: 4px 14px;
+      color: #fff;
+    }
+
 }
 
 .c-header__nav-quick-links {

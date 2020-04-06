@@ -10,9 +10,19 @@
  * @subpackage Twenty_Twenty
  * @since 1.0.0
  */
-$theme_settings = snow_settings();
+$theme_settings = gridlife_settings();
+$sectionclass = ( is_front_page() || is_archive() ) ? "c-section " : "";
 
 ?>
+
+			<section id="sectionWeather" class="<?php echo $sectionclass; ?>section c-section-labelcustom c-weather-forecasts">
+
+					<?php
+						get_template_part( 'template-parts/sections/section', 'weather' );
+					?>
+
+			</section>
+
 			<section class="section c-section c-footer-grid">
 
 				<div class="row">
@@ -20,7 +30,7 @@ $theme_settings = snow_settings();
 					<div class="c-footer-columns col-lg-4">
 
 						<h5 class="title">
-							<?php echo __("Subscribe", "snow"); ?>
+							<?php echo __("Subscribe", "gridlife"); ?>
 						</h5>
 
 						<div class="column-content c-newsletter">
@@ -39,7 +49,7 @@ $theme_settings = snow_settings();
 
 
 						<h5 class="title">
-							<?php echo __("Quick links", "snow"); ?>
+							<?php echo __("Quick links", "gridlife"); ?>
 						</h5>
 
 						<?php if ( has_nav_menu( 'help_links' ) ) : ?>
@@ -60,7 +70,7 @@ $theme_settings = snow_settings();
 					<div class="c-footer-columns has-background-blue-base c-only-text col-lg-4">
 
 						<h5 class="title">
-							<?php echo __("Disclaimer", "snow"); ?>
+							<?php echo __("Disclaimer", "gridlife"); ?>
 						</h5>
 
 						<div class="c-footer-disclaimer">

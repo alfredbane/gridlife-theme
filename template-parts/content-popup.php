@@ -21,7 +21,7 @@
 
         <div class="c-header__search-bar">
           <label class="search-label">
-            <?php echo __("किसी भी खबर को सर्च करें, केटेगरी भी सर्च कर सकते हैं.", "snow") ?>
+            <?php echo __("किसी भी खबर को सर्च करें, केटेगरी भी सर्च कर सकते हैं.", "gridlife") ?>
           </label>
           <?php get_template_part('searchform'); ?>
         </div>

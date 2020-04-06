@@ -1,5 +1,5 @@
 /**
- * Snow theme helper Js
+ * Gridlife theme helper Js
  *
  * Includes functions for altering theme
  * behaviour using javascript
@@ -49,6 +49,19 @@
 $(document).ready(function(){
 
   $('body').weatherForecast();
+
+  $('[data-scrolltype="windowscroll"]').on("click", function(){
+
+    var target = $("#sectionWeather");
+    if( target.length ) {
+        event.preventDefault();
+        $('html, body').stop().animate({
+            scrollTop: target.offset().top - 70
+        }, 1000, "swing");
+    }
+
+  });
+
   // This needs only be called once and does not
   // have to be called from within a "ready" block
   $.fn.searchFormSubmit.defaults.inputTarget = $('input.c-search-bar__form-control');

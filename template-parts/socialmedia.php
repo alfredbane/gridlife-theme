@@ -4,21 +4,21 @@
  * main sidebar footer
  *
  * @package WordPress
- * @subpackage Snow
+ * @subpackage Gridlife
  * @since 1.0.0
  */
 
 /**
  * Redux Theme Settings
  */
-$snow_settings = snow_settings();
+$gridlife_settings = gridlife_settings();
 
-$facebook_url = !empty( $snow_settings['opt-facebook'] ) ? $snow_settings['opt-facebook'] : '';
-$instagram_url= !empty( $snow_settings['opt-instagram'] ) ? $snow_settings['opt-instagram'] : '';
-$twitter_url = !empty( $snow_settings['opt-twitter'] ) ? $snow_settings['opt-twitter'] : '';
-$youtube_url = !empty( $snow_settings['opt-youtube'] ) ? $snow_settings['opt-youtube'] : '';
-$linkedin_url = !empty( $snow_settings['opt-linkedin'] ) ? $snow_settings['opt-linkedin'] : '';
-$pinterest_url = !empty( $snow_settings['opt-pinterest'] ) ? $snow_settings['opt-pinterest'] : '';
+$facebook_url = !empty( $gridlife_settings['opt-facebook'] ) ? $gridlife_settings['opt-facebook'] : '';
+$instagram_url= !empty( $gridlife_settings['opt-instagram'] ) ? $gridlife_settings['opt-instagram'] : '';
+$twitter_url = !empty( $gridlife_settings['opt-twitter'] ) ? $gridlife_settings['opt-twitter'] : '';
+$youtube_url = !empty( $gridlife_settings['opt-youtube'] ) ? $gridlife_settings['opt-youtube'] : '';
+$linkedin_url = !empty( $gridlife_settings['opt-linkedin'] ) ? $gridlife_settings['opt-linkedin'] : '';
+$pinterest_url = !empty( $gridlife_settings['opt-pinterest'] ) ? $gridlife_settings['opt-pinterest'] : '';
 
 $social_media_links = array(
   ["title"=>"Facebook link", "icon" => "facebook", "link" => $facebook_url],
@@ -31,7 +31,7 @@ $social_media_links = array(
 
 ?>
 
-<?php if ( isset($snow_settings) ): ?>
+<?php if ( isset($gridlife_settings) ): ?>
 
   <ul class="c-social-media">
     <?php foreach($social_media_links as $social_link): ?>

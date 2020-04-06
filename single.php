@@ -20,7 +20,7 @@ get_header(); ?>
 					while ( have_posts() ) :
 						the_post(); ?>
 
-						<?php snow_post_detail_banner(); ?>
+						<?php gridlife_post_detail_banner(); ?>
 
 						<?php
 
