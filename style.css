@@ -1796,6 +1796,8 @@ fieldset {
       margin: 0; }
       .c-slider .slick-dots li button::before {
         font-size: 32px; }
+      .c-slider .slick-dots li .slick-dots li button::before {
+        font-size: 12px; }
       .c-slider .slick-dots li.slick-active button::before {
         color: #ffffff;
         font-size: 12px; }

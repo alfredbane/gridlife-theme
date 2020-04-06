@@ -46,6 +46,12 @@
 
 		    }
 
+        .slick-dots {
+          li button::before {
+            font-size: 12px;
+          }
+        }
+
 		    &.slick-active {
 
 		    	button {
