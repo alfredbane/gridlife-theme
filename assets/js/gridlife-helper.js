@@ -1,5 +1,5 @@
 /**
- * Snow theme helper Js
+ * Gridlife theme helper Js
  *
  * Includes functions for altering theme
  * behaviour using javascript

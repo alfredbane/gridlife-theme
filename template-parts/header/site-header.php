@@ -25,7 +25,7 @@
         SITE NAVIGATION DESKTOP
         Html stored in ./template-parts/header/site-navigation.php
       -->
-      <div class="c-header__nav collapse navbar-collapse" id="navbarSupportedContent" role="navigation" aria-label="<?php esc_attr_e('Main Menu', 'snow'); ?>">
+      <div class="c-header__nav collapse navbar-collapse" id="navbarSupportedContent" role="navigation" aria-label="<?php esc_attr_e('Main Menu', 'gridlife'); ?>">
         <?php get_template_part('template-parts/header/site', 'navigation'); ?>
       </div>
 

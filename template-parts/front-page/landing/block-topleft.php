@@ -4,7 +4,7 @@
  * Template sub-part for displaying top left on front page
  *
  * @package WordPress
- * @subpackage Snow
+ * @subpackage Gridlife
  * @since 1.0
  * @version 1.0
  */
@@ -41,7 +41,7 @@
 
 				echo '<div class="c-slider-meta">';
 
-					echo wp_sprintf('<label class="meta-heading"><i class="fas fa-newspaper"></i>%s</label>', esc_html__('Top stories', 'snow'));
+					echo wp_sprintf('<label class="meta-heading"><i class="fas fa-newspaper"></i>%s</label>', esc_html__('Top stories', 'gridlife'));
 					echo wp_sprintf( '<div class="c-banner__counter">
 						<div class="c-banner__counter-current"></div>
 						<span class="divider"> / </span>
@@ -54,7 +54,7 @@
 
 				while($the_query->have_posts()) : $the_query->the_post();
 
-					echo snow_article_layout();
+					echo gridlife_article_layout();
 
 				endwhile;
 

@@ -12,7 +12,7 @@
 
 (function($){
 
-  function snowpPagePilingInit() {
+  function gridlifepPagePilingInit() {
 
     $('[data-pp-enable="true"]').pagepiling({
         menu: null,
@@ -44,12 +44,12 @@
   $(document).ready(function(){
     $(window).resize(function(){
       if($(window).width() > 767) {
-        snowpPagePilingInit();
+        gridlifepPagePilingInit();
       }
     });
 
     if($(window).width() > 767) {
-      snowpPagePilingInit();
+      gridlifepPagePilingInit();
     }
   });
 

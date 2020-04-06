@@ -32,7 +32,7 @@
             if ("geolocation" in navigator){
 
               var data = {
-                action: "snow_get_the_weather",
+                action: "gridlife_get_the_weather",
                 lat: position.coords.latitude,
                 lon: position.coords.longitude,
                 cnt: 7,

@@ -4,7 +4,7 @@
  * Template part for displaying sidebar on post detail pages
  *
  * @package WordPress
- * @subpackage Snow
+ * @subpackage Gridlife
  * @since 1.0
  * @version 1.0
  */
@@ -15,13 +15,13 @@
 
 	<?php
 
-		$the_cat_query = snow_get_relatedposts_query(get_the_id(), 12);
+		$the_cat_query = gridlife_get_relatedposts_query(get_the_id(), 12);
 
 	?>
 
 	<div class="c-sidebar-header">
 		<label for="sidebar-content">
-			<?php echo esc_html__('Related news', 'snow')?>
+			<?php echo esc_html__('Related news', 'gridlife')?>
 		</label>
 	</div>
 
@@ -81,7 +81,7 @@
 
 	<div class="c-sidebar-header">
 		<label for="sidebar-content">
-			<?php echo esc_html__('Tags', 'snow')?>
+			<?php echo esc_html__('Tags', 'gridlife')?>
 		</label>
 	</div>
 

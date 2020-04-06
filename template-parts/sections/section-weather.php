@@ -3,14 +3,14 @@
  * Template sub-part for displaying Weather reports on front page
  *
  * @package WordPress
- * @subpackage Snow
+ * @subpackage Gridlife
  * @since 1.0
  * @version 1.0
  */
 
 
-$get_weather_data = snow_get_the_weather();
-$theme_settings = snow_settings();
+$get_weather_data = gridlife_get_the_weather();
+$theme_settings = gridlife_settings();
 $background_class = " has-background-blue-base";
 ?>
 
@@ -19,8 +19,8 @@ $background_class = " has-background-blue-base";
     <aside class="c-section-item c-section-aside">
       <?php
           $icon = '<i class="fas fa-cloud"></i>';
-          $label = esc_html__("अधिकतम तापमान", "snow");
-        	echo snow_set_sidebar_label($label, "", $custom=true, $icon, $get_weather_data['city']);
+          $label = esc_html__("अधिकतम तापमान", "gridlife");
+        	echo gridlife_set_sidebar_label($label, "", $custom=true, $icon, $get_weather_data['city']);
       ?>
     </aside>
 

@@ -51,7 +51,7 @@
 					endif;
 
 					// Previous/next post navigation.
-					echo snow_the_post_navigation ('Previous', 'Next');
+					echo gridlife_the_post_navigation ('Previous', 'Next');
 
 				}
 			?>
@@ -73,7 +73,7 @@
 
     $term_list = wp_list_pluck( $terms, 'term_id' );
 
-	do_action('snow_category_var', $term_list[0]);
+	do_action('gridlife_category_var', $term_list[0]);
 
 
 ?>

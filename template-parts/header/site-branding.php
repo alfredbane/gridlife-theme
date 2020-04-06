@@ -7,4 +7,4 @@
  * @since 1.0.0
  */
 
-echo snow_theme_logo('site__branding img-fluid', $schema=array('itemtype'=>'http://schema.org/NewsMediaOrganization'));
+echo gridlife_theme_logo('site__branding img-fluid', $schema=array('itemtype'=>'http://schema.org/NewsMediaOrganization'));

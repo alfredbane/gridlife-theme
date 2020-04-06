@@ -8,7 +8,7 @@
  * @since Autumn 1.0
  */
 
-$theme_settings = snow_settings(); 
+$theme_settings = gridlife_settings(); 
 
 ?>
 

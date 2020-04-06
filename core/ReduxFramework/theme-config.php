@@ -10,7 +10,7 @@
     }
 
     // This is your option name where all the Redux data is stored.
-    $opt_name = "snow_settings";
+    $opt_name = "gridlife_settings";
 
     /**
      * ---> SET ARGUMENTS
@@ -32,8 +32,8 @@
         //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
         'allow_sub_menu'       => true,
         // Show the sections below the admin menu item or not
-        'menu_title'           => __( 'Snow Settings', 'snow' ),
-        'page_title'           => __( 'Snow Settings', 'snow' ),
+        'menu_title'           => __( 'Gridlife Settings', 'gridlife' ),
+        'page_title'           => __( 'Gridlife Settings', 'gridlife' ),
         // You will need to generate a Google API key to use this feature.
         // Please visit: https://developers.google.com/fonts/docs/developer_api#Auth
         'google_api_key'       => '',
@@ -134,7 +134,7 @@
 
     // ADMIN BAR LINKS -> Setup custom links in the admin bar menu as external items.
     $args['admin_bar_links'][] = array(
-        'id'    => 'snow-docs',
+        'id'    => 'gridlife-docs',
         'href'  => '',
         'title' => __( 'Documentation', 'redux-framework-demo' ),
     );
@@ -218,42 +218,42 @@
 
     // -> START Media Uploads
     Redux::setSection( $opt_name, array(
-        'title' => __( 'Website logo', 'snow' ),
+        'title' => __( 'Website logo', 'gridlife' ),
         'id'    => 'website-logo',
-        'desc'  => __( 'Upload a new logo by selecting existing or uploading new images using the WordPress native uploader', 'snow' ),
+        'desc'  => __( 'Upload a new logo by selecting existing or uploading new images using the WordPress native uploader', 'gridlife' ),
         'icon'  => 'el el-picture',
         'subsection' => true,
         'fields'     => array(
             array(
                 'id'       => 'opt-site-logo',
                 'type'     => 'media',
-                'title'    => __( 'Add/Edit Logo', 'snow' ),
-                'subtitle' => __( 'MAIN LOGO, Upload a new logo by selecting existing or uploading new images using the WordPress native uploader', 'snow' ),
-                'desc'     => __( 'The logo dimension for normal screen must be atleast 211 X 72', 'snow' ),
+                'title'    => __( 'Add/Edit Logo', 'gridlife' ),
+                'subtitle' => __( 'MAIN LOGO, Upload a new logo by selecting existing or uploading new images using the WordPress native uploader', 'gridlife' ),
+                'desc'     => __( 'The logo dimension for normal screen must be atleast 211 X 72', 'gridlife' ),
             ),
             array(
                 'id'       => 'opt-mobile-logo',
                 'type'     => 'media',
-                'title'    => __( 'Add/Edit Mobile Logo', 'snow' ),
-                'subtitle' => __( 'MOBILE LOGO, Upload a new mobile logo by selecting existing or uploading new images using the WordPress native uploader', 'snow' ),
-                'desc'     => __( 'The logo dimension for mobile screen must be atleast 71 X 53', 'snow' ),
+                'title'    => __( 'Add/Edit Mobile Logo', 'gridlife' ),
+                'subtitle' => __( 'MOBILE LOGO, Upload a new mobile logo by selecting existing or uploading new images using the WordPress native uploader', 'gridlife' ),
+                'desc'     => __( 'The logo dimension for mobile screen must be atleast 71 X 53', 'gridlife' ),
             ),
         )
     ) );
 
     // -> START Social media links
     Redux::setSection( $opt_name, array(
-        'title'  => __( 'Social media links', 'snow' ),
+        'title'  => __( 'Social media links', 'gridlife' ),
         'id'     => 'social-media-links',
-        'desc'   => __( 'Add new socal media links related to site, add only related URLs.', 'snow' ),
+        'desc'   => __( 'Add new socal media links related to site, add only related URLs.', 'gridlife' ),
         'icon'   => 'el el-globe',
         'subsection' => true,
         'fields' => array(
             array(
                 'id'       => 'opt-facebook',
                 'type'     => 'text',
-                'title'    => __( 'Facebook', 'snow' ),
-                'subtitle' => __( 'Add your facebook page link or a page that tells about your business. It should not be any page name or search term or any personal acccount URL.', 'snow' ),
+                'title'    => __( 'Facebook', 'gridlife' ),
+                'subtitle' => __( 'Add your facebook page link or a page that tells about your business. It should not be any page name or search term or any personal acccount URL.', 'gridlife' ),
                 'hint'     => array(
                     'content' => 'Add only facebook page link type here, no pagenames etc..',
                 )
@@ -261,8 +261,8 @@
             array(
                 'id'       => 'opt-pinterest',
                 'type'     => 'text',
-                'title'    => __( 'Pinterest', 'snow' ),
-                'subtitle' => __( 'Add your pinterest page link or a page that tells about your business. It should not be any page name or search term or any personal acccount URL.', 'snow' ),
+                'title'    => __( 'Pinterest', 'gridlife' ),
+                'subtitle' => __( 'Add your pinterest page link or a page that tells about your business. It should not be any page name or search term or any personal acccount URL.', 'gridlife' ),
                 'hint'     => array(
                     'content' => 'Add only pinterest page link type here, no pagenames etc..',
                 )
@@ -270,8 +270,8 @@
             array(
                 'id'       => 'opt-twitter',
                 'type'     => 'text',
-                'title'    => __( 'Twitter', 'snow' ),
-                'subtitle' => __( 'Add your twitter page link or a page that tells about your business. It should not be any page name or search term or any personal acccount URL.', 'snow' ),
+                'title'    => __( 'Twitter', 'gridlife' ),
+                'subtitle' => __( 'Add your twitter page link or a page that tells about your business. It should not be any page name or search term or any personal acccount URL.', 'gridlife' ),
                 'hint'     => array(
                     'content' => 'Add only twitter page link type here, no pagenames etc..',
                 )
@@ -279,8 +279,8 @@
             array(
                 'id'       => 'opt-instagram',
                 'type'     => 'text',
-                'title'    => __( 'Instagram', 'snow' ),
-                'subtitle' => __( 'Add your instagram page link or a page that tells about your business. It should not be any page name or search term or any personal acccount URL.', 'snow' ),
+                'title'    => __( 'Instagram', 'gridlife' ),
+                'subtitle' => __( 'Add your instagram page link or a page that tells about your business. It should not be any page name or search term or any personal acccount URL.', 'gridlife' ),
                 'hint'     => array(
                     'content' => 'Add only instagram page link type here, no pagenames etc..',
                 )
@@ -288,8 +288,8 @@
             array(
                 'id'       => 'opt-youtube',
                 'type'     => 'text',
-                'title'    => __( 'Youtube', 'snow' ),
-                'subtitle' => __( 'Add your youtube page link or a page that tells about your business. It should not be any page name or search term or any personal acccount URL.', 'snow' ),
+                'title'    => __( 'Youtube', 'gridlife' ),
+                'subtitle' => __( 'Add your youtube page link or a page that tells about your business. It should not be any page name or search term or any personal acccount URL.', 'gridlife' ),
                 'hint'     => array(
                     'content' => 'Add only youtube page link type here, no pagenames etc..',
                 )
@@ -297,8 +297,8 @@
             array(
                 'id'       => 'opt-linkedin',
                 'type'     => 'text',
-                'title'    => __( 'LinkedIn', 'snow' ),
-                'subtitle' => __( 'Add your linkedin page link or a page that tells about your business. It should not be any page name or search term or any personal acccount URL.', 'snow' ),
+                'title'    => __( 'LinkedIn', 'gridlife' ),
+                'subtitle' => __( 'Add your linkedin page link or a page that tells about your business. It should not be any page name or search term or any personal acccount URL.', 'gridlife' ),
                 'hint'     => array(
                     'content' => 'Add only linkedin page link type here, no pagenames etc..',
                 )
@@ -308,16 +308,16 @@
 
     // -> START Home page settings
     Redux::setSection( $opt_name, array(
-        'title'            => __( 'Home settings', 'snow' ),
+        'title'            => __( 'Home settings', 'gridlife' ),
         'id'               => 'home',
         'icon'             => 'el el-magic',
     ) );
 
     // -> Home page first section settings
     Redux::setSection( $opt_name, array(
-        'title' => __( 'First Section', 'snow' ),
+        'title' => __( 'First Section', 'gridlife' ),
         'id'    => 'home-first-settings',
-        'desc'  => __( 'Add categories for first section on home page, add category slug here instead of name.', 'snow' ),
+        'desc'  => __( 'Add categories for first section on home page, add category slug here instead of name.', 'gridlife' ),
         'icon'  => 'el el-file',
         'subsection' => true,
         'fields'     => array(
@@ -329,8 +329,8 @@
                     'taxonomies' => array( 'category' ),
                     'hide_empty' => true,
                 ),
-                'title'    => __( 'Left Bottom Category', 'snow' ),
-                'subtitle' => __( 'Add name of existing category term from post type to display on left bottom of home page first section.', 'snow' ),
+                'title'    => __( 'Left Bottom Category', 'gridlife' ),
+                'subtitle' => __( 'Add name of existing category term from post type to display on left bottom of home page first section.', 'gridlife' ),
             ),
             array(
                 'id'       => 'first-section-right-column',
@@ -341,17 +341,17 @@
                     'taxonomies' => array( 'category' ),
                     'hide_empty' => true,
                 ),
-                'title'    => __( 'Right Column Categories', 'snow' ),
-                'subtitle' => __( 'Select name of existing category term from post type to display on right of home page first section. If term is not visible make sure term is selected in atleast one post.', 'snow' ),
+                'title'    => __( 'Right Column Categories', 'gridlife' ),
+                'subtitle' => __( 'Select name of existing category term from post type to display on right of home page first section. If term is not visible make sure term is selected in atleast one post.', 'gridlife' ),
             ),
         )
     ) );
 
     // -> Home page first section settings
     Redux::setSection( $opt_name, array(
-        'title' => __( 'Open Weather API', 'snow' ),
+        'title' => __( 'Open Weather API', 'gridlife' ),
         'id'    => 'owapi-settings',
-        'desc'  => __( 'Open weather map API settings for the theme.', 'snow' ),
+        'desc'  => __( 'Open weather map API settings for the theme.', 'gridlife' ),
         'icon'  => 'el el-file',
         'subsection' => true,
         'fields'     => array(
@@ -359,29 +359,29 @@
             array(
                 'id'       => 'opt-weatherapiurl',
                 'type'     => 'text',
-                'title'    => __( 'WeatherAPI Url', 'snow' ),
-                'subtitle' => __( 'Add Weather API url without arguments from which data will be fetched', 'snow' ),
+                'title'    => __( 'WeatherAPI Url', 'gridlife' ),
+                'subtitle' => __( 'Add Weather API url without arguments from which data will be fetched', 'gridlife' ),
             ),
 
             array(
                 'id'       => 'opt-weatherapikey',
                 'type'     => 'text',
-                'title'    => __( 'WeatherAPI Key', 'snow' ),
-                'subtitle' => __( 'Add Weather API key, go to openmap api site to get one', 'snow' ),
+                'title'    => __( 'WeatherAPI Key', 'gridlife' ),
+                'subtitle' => __( 'Add Weather API key, go to openmap api site to get one', 'gridlife' ),
             ),
 
             array(
                 'id'       => 'opt-longitude',
                 'type'     => 'text',
-                'title'    => __( 'Default location longitude', 'snow' ),
-                'subtitle' => __( 'Add a defualt location longitude.', 'snow' ),
+                'title'    => __( 'Default location longitude', 'gridlife' ),
+                'subtitle' => __( 'Add a defualt location longitude.', 'gridlife' ),
             ),
 
             array(
                 'id'       => 'opt-latitude',
                 'type'     => 'text',
-                'title'    => __( 'Default location latitude', 'snow' ),
-                'subtitle' => __( 'Add a defualt location latitude.', 'snow' ),
+                'title'    => __( 'Default location latitude', 'gridlife' ),
+                'subtitle' => __( 'Add a defualt location latitude.', 'gridlife' ),
             ),
 
         )
@@ -389,9 +389,9 @@
 
     // -> Home page first section settings
     Redux::setSection( $opt_name, array(
-        'title' => __( 'Recent Post Section', 'snow' ),
+        'title' => __( 'Recent Post Section', 'gridlife' ),
         'id'    => 'home-recent-settings',
-        'desc'  => __( 'Add recent post section settings for the section to be displayed on home page.', 'snow' ),
+        'desc'  => __( 'Add recent post section settings for the section to be displayed on home page.', 'gridlife' ),
         'icon'  => 'el el-globe',
         'subsection' => true,
         'fields'     => array(
@@ -399,20 +399,20 @@
             array(
                 'id'       => 'section-heading',
                 'type'     => 'text',
-                'title'    => __( 'Section Heading', 'snow' ),
-                'subtitle' => __( 'Add a heading for the section to be displayed on home page.', 'snow' )
+                'title'    => __( 'Section Heading', 'gridlife' ),
+                'subtitle' => __( 'Add a heading for the section to be displayed on home page.', 'gridlife' )
             ),
             array(
                 'id'       => 'section-description',
                 'type'     => 'textarea',
-                'title'    => __( 'Section Description', 'snow' ),
-                'subtitle' => __( 'Add a section description to be displayed below heading.', 'snow' )
+                'title'    => __( 'Section Description', 'gridlife' ),
+                'subtitle' => __( 'Add a section description to be displayed below heading.', 'gridlife' )
             ),
             array(
                 'id'       => 'post-days-padding',
                 'type'     => 'text',
-                'title'    => __( 'Add Days', 'snow' ),
-                'subtitle' => __( 'Add number of days upto which recent posts must be shown. example: if value is 10 then recent posts will be shown from today upto 10 days before.', 'snow' )
+                'title'    => __( 'Add Days', 'gridlife' ),
+                'subtitle' => __( 'Add number of days upto which recent posts must be shown. example: if value is 10 then recent posts will be shown from today upto 10 days before.', 'gridlife' )
             ),
 
         )
@@ -420,9 +420,9 @@
 
     // -> Home page first section settings
     Redux::setSection( $opt_name, array(
-        'title' => __( 'Category Sections', 'snow' ),
+        'title' => __( 'Category Sections', 'gridlife' ),
         'id'    => 'home-category-section',
-        'desc'  => __( 'Add categories for the section to be displayed on home page.', 'snow' ),
+        'desc'  => __( 'Add categories for the section to be displayed on home page.', 'gridlife' ),
         'icon'  => 'el el-globe',
         'subsection' => true,
         'fields'     => array(
@@ -431,13 +431,13 @@
                 'id'       => 'section-categories',
                 'type'     => 'select',
                 'multi'    => true,
-                'title'    => __( 'Section Categories', 'snow' ),
+                'title'    => __( 'Section Categories', 'gridlife' ),
                 'data'     => 'terms',
                 'args'  => array(
                     'taxonomies' => array( 'category' ),
                     'hide_empty' => true,
                 ),
-                'subtitle' => __( 'Add comma separated name of existing category term from post type to display on home page category section. I want to change display order than right the categories in that order', 'snow' ),
+                'subtitle' => __( 'Add comma separated name of existing category term from post type to display on home page category section. I want to change display order than right the categories in that order', 'gridlife' ),
             ),
 
         )
@@ -446,16 +446,16 @@
 
     // -> START Contact settings
     Redux::setSection( $opt_name, array(
-        'title'            => __( 'Contact settings', 'snow' ),
+        'title'            => __( 'Contact settings', 'gridlife' ),
         'id'               => 'contact',
         'icon'             => 'el el-signal',
     ) );
 
     // -> START Active campaign settings
     Redux::setSection( $opt_name, array(
-        'title' => __( 'Newsletter settings', 'snow' ),
+        'title' => __( 'Newsletter settings', 'gridlife' ),
         'id'    => 'newsletter-settings',
-        'desc'  => __( 'Add all the newsletter related settings here. These settings include images, Text, headings, subheadings', 'snow' ),
+        'desc'  => __( 'Add all the newsletter related settings here. These settings include images, Text, headings, subheadings', 'gridlife' ),
         'icon'  => 'el el-envelope',
         'subsection' => true,
         'fields'     => array(
@@ -463,124 +463,124 @@
             array(
                 'id'       => 'opt-toggle',
                 'type'     => 'switch',
-                'title'    => __( 'Enable newsletter popup', 'snow' ),
-                'subtitle' => __( 'Show subscription pop up on site load.', 'snow' ),
+                'title'    => __( 'Enable newsletter popup', 'gridlife' ),
+                'subtitle' => __( 'Show subscription pop up on site load.', 'gridlife' ),
             ),
 
             array(
                 'id'       => 'opt-newsletter-image',
                 'type'     => 'media',
-                'title'    => __( 'Newsletter popup image', 'snow' ),
-                'subtitle' => __( 'Image used in the popup for newsletter, this popup will appear on website whenevre the site is loaded', 'snow' ),
+                'title'    => __( 'Newsletter popup image', 'gridlife' ),
+                'subtitle' => __( 'Image used in the popup for newsletter, this popup will appear on website whenevre the site is loaded', 'gridlife' ),
                 'required' => array('opt-toggle','equals',true),
-                'desc'     => __( 'The image dimension for normal screen must be atleast 600 X 600', 'snow' ),
+                'desc'     => __( 'The image dimension for normal screen must be atleast 600 X 600', 'gridlife' ),
             ),
 
             array(
                 'id'       => 'opt-newsletter-heading',
                 'type'     => 'text',
-                'title'    => __( 'Newsletter heading', 'snow' ),
-                'subtitle' => __( 'Heading used in the popup for newsletter, this popup will appear on website whenever the site is loaded', 'snow' ),
+                'title'    => __( 'Newsletter heading', 'gridlife' ),
+                'subtitle' => __( 'Heading used in the popup for newsletter, this popup will appear on website whenever the site is loaded', 'gridlife' ),
             ),
 
             array(
                 'id'       => 'opt-newsletter-text',
                 'type'     => 'text',
-                'title'    => __( 'Newsletter Text', 'snow' ),
-                'subtitle' => __( 'Text used in the popup for newsletter, this popup will appear on website whenever the site is loaded', 'snow' ),
+                'title'    => __( 'Newsletter Text', 'gridlife' ),
+                'subtitle' => __( 'Text used in the popup for newsletter, this popup will appear on website whenever the site is loaded', 'gridlife' ),
             ),
 
             array(
                 'id'       => 'opt-newsletter-form',
                 'type'     => 'textarea',
-                'title'    => __( 'Form shortcode', 'snow' ),
-                'subtitle' => __( 'Add your form shortcode for the site.', 'snow' ),
+                'title'    => __( 'Form shortcode', 'gridlife' ),
+                'subtitle' => __( 'Add your form shortcode for the site.', 'gridlife' ),
             ),
         )
     ) );
 
     // -> START Footer settings
     Redux::setSection( $opt_name, array(
-        'title' => __( 'Contact details', 'snow' ),
+        'title' => __( 'Contact details', 'gridlife' ),
         'id'    => 'contact-details',
-        'desc'  => __( 'Add all the contact details here like address, contact number, email, opening hours.', 'snow' ),
+        'desc'  => __( 'Add all the contact details here like address, contact number, email, opening hours.', 'gridlife' ),
         'icon'  => 'el el-phone',
         'subsection' => true,
         'fields'     => array(
             array(
                 'id'       => 'opt-address-text',
                 'type'     => 'textarea',
-                'title'    => __( 'Address of business', 'snow' ),
-                'subtitle' => __( 'Add address to be displayed and keep it simple text, no HTML allowed. It will not render as HTML.', 'snow' ),
+                'title'    => __( 'Address of business', 'gridlife' ),
+                'subtitle' => __( 'Add address to be displayed and keep it simple text, no HTML allowed. It will not render as HTML.', 'gridlife' ),
             ),
             array(
                 'id'       => 'opt-phone-number',
                 'type'     => 'text',
-                'title'    => __( 'Phone number', 'snow' ),
-                'subtitle' => __( 'Add phone number to be displayed and keep it simple number, no HTML allowed. It will not render as HTML.', 'snow' ),
+                'title'    => __( 'Phone number', 'gridlife' ),
+                'subtitle' => __( 'Add phone number to be displayed and keep it simple number, no HTML allowed. It will not render as HTML.', 'gridlife' ),
             ),
             array(
                 'id'       => 'opt-business-email',
                 'type'     => 'text',
-                'title'    => __( 'Email address', 'snow' ),
-                'subtitle' => __( 'Add email address to be displayed and keep it simple number, no HTML allowed. It will not render as HTML.', 'snow' ),
+                'title'    => __( 'Email address', 'gridlife' ),
+                'subtitle' => __( 'Add email address to be displayed and keep it simple number, no HTML allowed. It will not render as HTML.', 'gridlife' ),
             ),
             array(
                 'id'       => 'opt-opening-days',
                 'type'     => 'text',
-                'title'    => __( 'Opening days', 'snow' ),
-                'subtitle' => __( 'Add opening days for your business to be displayed and keep it simple number, no HTML allowed. It will not render as HTML.', 'snow' ),
+                'title'    => __( 'Opening days', 'gridlife' ),
+                'subtitle' => __( 'Add opening days for your business to be displayed and keep it simple number, no HTML allowed. It will not render as HTML.', 'gridlife' ),
             ),
             array(
                 'id'       => 'opt-opening-hours',
                 'type'     => 'text',
-                'title'    => __( 'Opening hours', 'snow' ),
-                'subtitle' => __( 'Add opening hours for your business to be displayed and keep it simple number, no HTML allowed. It will not render as HTML.', 'snow' ),
+                'title'    => __( 'Opening hours', 'gridlife' ),
+                'subtitle' => __( 'Add opening hours for your business to be displayed and keep it simple number, no HTML allowed. It will not render as HTML.', 'gridlife' ),
             ),
         )
     ) );
 
     // -> START Footer settings
     Redux::setSection( $opt_name, array(
-        'title' => __( 'Footer settings', 'snow' ),
+        'title' => __( 'Footer settings', 'gridlife' ),
         'id'    => 'footer-settings',
-        'desc'  => __( 'Add all the footer settings here like copyright text, payment gateway images, navigation links.', 'snow' ),
+        'desc'  => __( 'Add all the footer settings here like copyright text, payment gateway images, navigation links.', 'gridlife' ),
         'icon'  => 'el el-cogs',
         'fields'     => array(
             array(
                 'id'       => 'opt-copyright-text',
                 'type'     => 'text',
-                'title'    => __( 'Copyright text', 'snow' ),
-                'subtitle' => __( 'Add copyright text to be displayed in footer and keep it simple text, no HTML allowed. It will not render as HTML.', 'snow' ),
+                'title'    => __( 'Copyright text', 'gridlife' ),
+                'subtitle' => __( 'Add copyright text to be displayed in footer and keep it simple text, no HTML allowed. It will not render as HTML.', 'gridlife' ),
             ),
             array(
                 'id'       => 'opt-footer-image',
                 'type'     => 'media',
-                'title'    => __( 'Footer image', 'snow' ),
-                'subtitle' => __( 'This image can be used anywhere in the site. But mainly is used to add important images like different logos, payment gateway images etc.', 'snow' ),
+                'title'    => __( 'Footer image', 'gridlife' ),
+                'subtitle' => __( 'This image can be used anywhere in the site. But mainly is used to add important images like different logos, payment gateway images etc.', 'gridlife' ),
             ),
             array(
                 'id'       => 'opt-extra-text',
                 'type'     => 'textarea',
-                'title'    => __( 'Extra text for footer', 'snow' ),
-                'subtitle' => __( 'Add extra text to be displayed and keep it simple text, no HTML allowed. It will not render as HTML.', 'snow' ),
+                'title'    => __( 'Extra text for footer', 'gridlife' ),
+                'subtitle' => __( 'Add extra text to be displayed and keep it simple text, no HTML allowed. It will not render as HTML.', 'gridlife' ),
             ),
         )
     ) );
 
     // -> START Footer settings
     // Redux::setSection( $opt_name, array(
-    //     'title' => __( 'Slider settings', 'snow' ),
+    //     'title' => __( 'Slider settings', 'gridlife' ),
     //     'id'    => 'slider-settings',
-    //     'desc'  => __( 'Add all the site wide default slider settings like slider orientation, slider speed, slider navigation controls, slider image count etc. These settings can be overriden from individual pages', 'snow' ),
+    //     'desc'  => __( 'Add all the site wide default slider settings like slider orientation, slider speed, slider navigation controls, slider image count etc. These settings can be overriden from individual pages', 'gridlife' ),
     //     'icon'  => 'el el-laptop',
     //     'fields'     => array(
     //       array(
     //           'id'            => 'opt-show-slides',
     //           'type'          => 'slider',
-    //           'title'         => __( 'Show images', 'snow' ),
-    //           'subtitle'      => __( 'Number of images to be shown on slider init or page load. cannot be maximum than total images', 'snow' ),
-    //           'desc'          => __( 'Min: 1, max: 10, step: 1, default value: 2', 'snow' ),
+    //           'title'         => __( 'Show images', 'gridlife' ),
+    //           'subtitle'      => __( 'Number of images to be shown on slider init or page load. cannot be maximum than total images', 'gridlife' ),
+    //           'desc'          => __( 'Min: 1, max: 10, step: 1, default value: 2', 'gridlife' ),
     //           'default'       => 2,
     //           'min'           => 1,
     //           'step'          => 1,
@@ -590,9 +590,9 @@
     //       array(
     //           'id'            => 'opt-image-slides',
     //           'type'          => 'slider',
-    //           'title'         => __( 'Slide images', 'snow' ),
-    //           'subtitle'      => __( 'Number of images to slide on slider interaction. Make sure to always keep the value equal to or less than total, otherwise slider will break', 'snow' ),
-    //           'desc'          => __( 'Min: 1, max: 4, step: 1, default value: 1', 'snow' ),
+    //           'title'         => __( 'Slide images', 'gridlife' ),
+    //           'subtitle'      => __( 'Number of images to slide on slider interaction. Make sure to always keep the value equal to or less than total, otherwise slider will break', 'gridlife' ),
+    //           'desc'          => __( 'Min: 1, max: 4, step: 1, default value: 1', 'gridlife' ),
     //           'default'       => 1,
     //           'min'           => 1,
     //           'step'          => 1,
@@ -623,9 +623,9 @@
     //       array(
     //           'id'            => 'opt-scroll-speed',
     //           'type'          => 'slider',
-    //           'title'         => __( 'Autoscroll Speed', 'snow' ),
-    //           'subtitle'      => __( 'Autoscrll speed for the slider. This setting will work only if autoscroll setting above is enabled.', 'snow' ),
-    //           'desc'          => __( 'Min: 1, max: 4, step: 1, default value: 1', 'snow' ),
+    //           'title'         => __( 'Autoscroll Speed', 'gridlife' ),
+    //           'subtitle'      => __( 'Autoscrll speed for the slider. This setting will work only if autoscroll setting above is enabled.', 'gridlife' ),
+    //           'desc'          => __( 'Min: 1, max: 4, step: 1, default value: 1', 'gridlife' ),
     //           'default'       => 1,
     //           'min'           => 1,
     //           'step'          => 1,
@@ -639,23 +639,23 @@
     // );
 
     Redux::setSection( $opt_name, array(
-        'title'            => __( 'Google settings', 'snow' ),
+        'title'            => __( 'Google settings', 'gridlife' ),
         'id'               => 'google-settings',
         'icon'             => 'el el-graph',
     ) );
 
     Redux::setSection( $opt_name, array(
-        'title' => __( 'Google Analytics code', 'snow' ),
+        'title' => __( 'Google Analytics code', 'gridlife' ),
         'id'    => 'analytics-code',
-        'desc'  => __( '', 'snow' ),
+        'desc'  => __( '', 'gridlife' ),
         'icon'  => 'el el-compass',
         'subsection' => true,
         'fields'     => array(
           array(
               'id'       => 'opt-ace-editor-js',
               'type'     => 'ace_editor',
-              'title'    => __( 'Google Analytics code', 'snow' ),
-              'subtitle' => __( 'Add google analytics code to be injected in header. Add all the code with script tags to added in your header.', 'snow' ),
+              'title'    => __( 'Google Analytics code', 'gridlife' ),
+              'subtitle' => __( 'Add google analytics code to be injected in header. Add all the code with script tags to added in your header.', 'gridlife' ),
               'mode'     => 'javascript',
               'theme'    => 'chrome',
               'desc'     => '',
@@ -665,61 +665,61 @@
     ) );
 
     Redux::setSection( $opt_name, array(
-        'title' => __( 'Google Maps', 'snow' ),
+        'title' => __( 'Google Maps', 'gridlife' ),
         'id'    => 'google-map-key',
-        'desc'  => __( '', 'snow' ),
+        'desc'  => __( '', 'gridlife' ),
         'icon'  => 'el el-key',
         'subsection' => true,
         'fields'     => array(
           array(
               'id'       => 'opt-google-map-key',
               'type'     => 'text',
-              'title'    => __( 'Google maps key', 'snow' ),
-              'subtitle' => __( 'Add google maps key to be used in order to display maps. Add only key here script will be genrated and added to header.', 'snow' ),
+              'title'    => __( 'Google maps key', 'gridlife' ),
+              'subtitle' => __( 'Add google maps key to be used in order to display maps. Add only key here script will be genrated and added to header.', 'gridlife' ),
           ),
         )
     ) );
 
     Redux::setSection( $opt_name, array(
-        'title' => __( 'Google Adsense', 'snow' ),
+        'title' => __( 'Google Adsense', 'gridlife' ),
         'id'    => 'opt-init-ad',
-        'desc'  => __( 'Add shortcode ', 'snow' ),
+        'desc'  => __( 'Add shortcode ', 'gridlife' ),
         'icon'  => 'el el-key',
         'subsection' => true,
         'fields'     => array(
           array(
               'id'       => 'opt-home-first-section-ad-key',
               'type'     => 'text',
-              'title'    => __( 'First Section ad code', 'snow' ),
-              'subtitle' => __( 'Add shortcode generated from the adsense plugin. Advanced ads plugin is recommended.', 'snow' ),
+              'title'    => __( 'First Section ad code', 'gridlife' ),
+              'subtitle' => __( 'Add shortcode generated from the adsense plugin. Advanced ads plugin is recommended.', 'gridlife' ),
           ),
 
           array(
               'id'       => 'opt-ad-placement-key',
               'type'     => 'text',
-              'title'    => __( 'First Section ad placement', 'snow' ),
-              'subtitle' => __( 'Advertisement will be placed only in right block, first secnd and third position.', 'snow' ),
+              'title'    => __( 'First Section ad placement', 'gridlife' ),
+              'subtitle' => __( 'Advertisement will be placed only in right block, first secnd and third position.', 'gridlife' ),
           ),
 
           array(
               'id'       => 'opt-category-ad-key',
               'type'     => 'text',
-              'title'    => __( 'Category section ad code', 'snow' ),
-              'subtitle' => __( 'Add shortcode generated from the adsense plugin. Advanced ads plugin is recommended.', 'snow' ),
+              'title'    => __( 'Category section ad code', 'gridlife' ),
+              'subtitle' => __( 'Add shortcode generated from the adsense plugin. Advanced ads plugin is recommended.', 'gridlife' ),
           ),
 
           array(
               'id'       => 'opt-weather-ad-key',
               'type'     => 'text',
-              'title'    => __( 'Weather section ad code', 'snow' ),
-              'subtitle' => __( 'Add shortcode generated from the adsense plugin. Advanced ads plugin is recommended.', 'snow' ),
+              'title'    => __( 'Weather section ad code', 'gridlife' ),
+              'subtitle' => __( 'Add shortcode generated from the adsense plugin. Advanced ads plugin is recommended.', 'gridlife' ),
           ),
 
           array(
               'id'       => 'opt-category-ad-placement-key',
               'type'     => 'text',
-              'title'    => __( 'Category sections ad placement', 'snow' ),
-              'subtitle' => __( 'Keep the count equalto or below total post count. It can vary based on number of posts shown on page.', 'snow' ),
+              'title'    => __( 'Category sections ad placement', 'gridlife' ),
+              'subtitle' => __( 'Keep the count equalto or below total post count. It can vary based on number of posts shown on page.', 'gridlife' ),
           ),
         )
     ) );

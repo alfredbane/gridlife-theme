@@ -4,14 +4,14 @@
  * @param $section_category  Category term for which label is needed
  *
  * @package WordPress
- * @subpackage Snow
+ * @subpackage Gridlife
  * @since 1.0
  * @version 1.0
  */
 
-if(!function_exists('snow_set_sidebar_label')):
+if(!function_exists('gridlife_set_sidebar_label')):
 
-	function snow_set_sidebar_label ( $section_category, $custom_text='', $custom=false, $icon="", $place="" ) {
+	function gridlife_set_sidebar_label ( $section_category, $custom_text='', $custom=false, $icon="", $place="" ) {
 
 		if(!$section_category){
 			return;
@@ -42,7 +42,7 @@ if(!function_exists('snow_set_sidebar_label')):
 
 			if($category == 'recent_posts'):
 
-				$theme_settings = snow_settings();
+				$theme_settings = gridlife_settings();
 				$heading = $theme_settings['section-heading'];
 				$description = $theme_settings['section-description'];
 				$bg_color = 'has-background-blue-base';
@@ -62,16 +62,16 @@ if(!function_exists('snow_set_sidebar_label')):
 
 			/**
 			 * Create label using text and category
-			 * @method snow_split_string
+			 * @method gridlife_split_string
 			 * @source /core/theme-helper.php
 			 */
-			$section_heading = snow_split_string( $heading, $custom_text );
+			$section_heading = gridlife_split_string( $heading, $custom_text );
 
 		} else {
 
 			$bg_color = "has-background-blue-dark";
 			$description = '<span class="custom-text">'.$place.', India</span>';
-			$section_heading = snow_split_string( $section_category, $custom_text );
+			$section_heading = gridlife_split_string( $section_category, $custom_text );
 
 		}
 
@@ -95,7 +95,7 @@ endif;
  *
  */
 
-function snow_get_post_categories(int $post_ID, boolean $list=null) {
+function gridlife_get_post_categories(int $post_ID, boolean $list=null) {
 
     $getCategoryTerms = get_the_terms( $post_ID, 'category' ); //as it's returning an array
 
@@ -120,17 +120,17 @@ function snow_get_post_categories(int $post_ID, boolean $list=null) {
  * Method for setting layout for the articles
  *
  * @package WordPress
- * @subpackage Snow
+ * @subpackage Gridlife
  * @since 1.0
  * @version 1.0
  */
 
-if(!function_exists('snow_article_layout')):
+if(!function_exists('gridlife_article_layout')):
 
-	function snow_article_layout ($withExcerpt=false) {
+	function gridlife_article_layout ($withExcerpt=false) {
 
 		$post_id = get_the_ID();
-		$post_meta = snow_get_post_categories($post_id);
+		$post_meta = gridlife_get_post_categories($post_id);
 		$class = 'c-article-short';
 		$custom_excerpt = '';
 
@@ -162,7 +162,7 @@ if(!function_exists('snow_article_layout')):
 			</div>
 
 		</article>',
-			esc_url(snow_get_the_post_thumbnail_url(get_the_ID())),
+			esc_url(gridlife_get_the_post_thumbnail_url(get_the_ID())),
 			$post_id,
 			$post_meta,
 			esc_url(get_the_permalink($post_id)),
@@ -175,9 +175,9 @@ if(!function_exists('snow_article_layout')):
 	}
 endif;
 
-function snow_post_detail_banner() { ?>
+function gridlife_post_detail_banner() { ?>
 
-	<div class="c-banner" style="background-image:url(<?php echo snow_get_the_post_thumbnail_url(get_the_ID()); ?>)">
+	<div class="c-banner" style="background-image:url(<?php echo gridlife_get_the_post_thumbnail_url(get_the_ID()); ?>)">
 
 		<div class="c-banner-content">
 
@@ -208,33 +208,33 @@ function snow_post_detail_banner() { ?>
 /**
  * 4.1). Create post navigation buttons from params
  *
- * @method snow_post_navigation_previous_button
- * @method snow_post_navigation_next_button
+ * @method gridlife_post_navigation_previous_button
+ * @method gridlife_post_navigation_next_button
  * @param $link type:string , $text type:string
- * @since snow v1.0.0
+ * @since gridlife v1.0.0
  * @return HTML5
  *
  */
 
-function snow_post_navigation_button($link, $class, $title, $text) {
+function gridlife_post_navigation_button($link, $class, $title, $text) {
 
   return wp_sprintf ('<a href="%1s" rel="prev" class="%2s c-button">
             <span class="c-button__text">%3s</span>
             <span class="c-button__text label">%4s</span>
-        </a>', esc_url( $link ), $class, esc_html__($text, 'snow' ), esc_html__($title,'snow'));
+        </a>', esc_url( $link ), $class, esc_html__($text, 'gridlife' ), esc_html__($title,'gridlife'));
 
 }
 
 /**
  * 4.2). Create post navigation from params
  *
- * @method snow_the_post_navigation
+ * @method gridlife_the_post_navigation
  * @param $previous type:string , $next type:string
- * @since snow v1.0.0
+ * @since gridlife v1.0.0
  * @return HTML5
  *
  */
-function snow_the_post_navigation($previous='', $next='') {
+function gridlife_the_post_navigation($previous='', $next='') {
 
     $prev_post = get_previous_post();
 
@@ -257,10 +257,10 @@ function snow_the_post_navigation($previous='', $next='') {
 
       <div class="c-post-nav">
         <?php if( $prev_post ):
-          echo snow_post_navigation_button($prev_permalink, 'btn-prev', $prev_title, 'Previous');
+          echo gridlife_post_navigation_button($prev_permalink, 'btn-prev', $prev_title, 'Previous');
          endif; ?>
         <?php if( $next_post ):
-          echo snow_post_navigation_button($next_permalink, 'btn-next', $next_title, 'Next');
+          echo gridlife_post_navigation_button($next_permalink, 'btn-next', $next_title, 'Next');
         endif; ?>
       </div>
 
@@ -279,10 +279,10 @@ function snow_the_post_navigation($previous='', $next='') {
  * @param $args[postindex]  current index of the post inside loop.
  * @param $args[meta_content]  content to be added instead of post.
  * @param $args[excerpt]  argument for showing or disabling excerpt.
- * @since Snow v1.0.0
+ * @since Gridlife v1.0.0
  */
 
-add_action('snow_display_post',  'introduce_ad_banner_within_loop', 10, 1);
+add_action('gridlife_display_post',  'introduce_ad_banner_within_loop', 10, 1);
 
 function introduce_ad_banner_within_loop( $args ) {
 
@@ -306,7 +306,7 @@ function introduce_ad_banner_within_loop( $args ) {
 
     } else {
 
-      echo snow_article_layout($args["excerpt"]);
+      echo gridlife_article_layout($args["excerpt"]);
 
     }
 

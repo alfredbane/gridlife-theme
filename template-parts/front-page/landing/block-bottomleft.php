@@ -3,12 +3,12 @@
  * Template sub-part for displaying bottom left on front page
  *
  * @package WordPress
- * @subpackage Snow
+ * @subpackage Gridlife
  * @since 1.0
  * @version 1.0
  */
 
-$theme_settings = snow_settings();
+$theme_settings = gridlife_settings();
 
 
 ?>
@@ -44,7 +44,7 @@ $theme_settings = snow_settings();
 
 			while($the_query->have_posts()) : $the_query->the_post();
 
-				echo snow_article_layout();
+				echo gridlife_article_layout();
 
 			endwhile;
 

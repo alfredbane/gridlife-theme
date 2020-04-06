@@ -4,7 +4,7 @@
  *  in the theme to create schema support.
  *	
  *  @source https://schema.org
- *  @since snow v1.0.0
+ *  @since gridlife v1.0.0
  */
 
 // Get Config file for values 

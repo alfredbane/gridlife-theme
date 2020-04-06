@@ -4,7 +4,7 @@
  * Template sidebar for ub-sections on front page
  *
  * @package WordPress
- * @subpackage Snow
+ * @subpackage Gridlife
  * @since 1.0
  * @version 1.0
  */
@@ -25,7 +25,7 @@
 
 
 <aside class="c-section-item c-section-aside">
-	<?php echo snow_set_sidebar_label($category, 'समाचार') ?>
+	<?php echo gridlife_set_sidebar_label($category, 'समाचार') ?>
 
 	<?php
 		if(is_archive()):
@@ -33,8 +33,8 @@
 			the_posts_pagination(
 				array(
 					'screen_reader_text' => ' ',
-					'prev_text'          => __( '<<', 'snow' ),
-					'next_text'          => __( '>>', 'snow' ),
+					'prev_text'          => __( '<<', 'gridlife' ),
+					'next_text'          => __( '>>', 'gridlife' ),
 					'before_page_number' => '',
 				)
 			);

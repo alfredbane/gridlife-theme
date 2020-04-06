@@ -40,7 +40,7 @@
 						$category = get_the_category();
 						$separator = ' | ';
 						if (!empty($category)) {
-							echo "<span>". __("CATEGORIES: ", "snow")." </span>";
+							echo "<span>". __("CATEGORIES: ", "gridlife")." </span>";
 							foreach ($category as $term) {
 								echo '<a href="'.get_category_link($term->cat_ID).'">'.$term->cat_name.'</a>'. $separator;
 							}
@@ -55,7 +55,7 @@
 						$post_tags = get_the_tags();
 						$separator = ' | ';
 						if (!empty($post_tags)) {
-							echo "<span>". __("TAGS: ", "snow")." </span>";
+							echo "<span>". __("TAGS: ", "gridlife")." </span>";
 								foreach ($post_tags as $tag) {
 										$output .= '<a href="' . get_tag_link($tag->term_id) . '">' . $tag->name . '</a>' . $separator;
 								}

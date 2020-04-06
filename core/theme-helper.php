@@ -3,7 +3,7 @@
  *  The file includes all the helper methods used
  *  in the theme like custom logo etc.
  *
- *  @since snow v1.0.0
+ *  @since gridlife v1.0.0
  */
 
 /*
@@ -22,13 +22,13 @@
 /**
  * 0). Add shortcode support to widgets
  * @method add_action hooks
- * @since snow v1.0.0
+ * @since gridlife v1.0.0
  */
 
 add_filter( 'widget_text', 'do_shortcode' );
 
 /**
-  * Schema-builder for snow.
+  * Schema-builder for gridlife.
   */
 
 require_once( dirname( __FILE__ ) . '/schema-config/config.php' );
@@ -46,15 +46,15 @@ require_once( dirname( __FILE__ ) . '/theme-layout-helper.php' );
  *
  * @since autumn v1.0.0
  */
-function snow_settings() {
+function gridlife_settings() {
 
-  $snow_settings ='';
+  $gridlife_settings ='';
 
   if (file_exists( dirname( __FILE__ ) . '/ReduxFramework/ReduxCore/framework.php' )) {
-     global $snow_settings;
+     global $gridlife_settings;
   }
 
-  return $snow_settings;
+  return $gridlife_settings;
 
 }
 
@@ -63,12 +63,12 @@ function snow_settings() {
  * Get the logo url from redux settings based on device
  * @return string
  *
- * @since snow v1.0.0
+ * @since gridlife v1.0.0
  */
 
-function get_snow_theme_logo() {
+function get_gridlife_theme_logo() {
 
-  $theme_settings = snow_settings();
+  $theme_settings = gridlife_settings();
 
   $site_logo = '';
 
@@ -78,7 +78,7 @@ function get_snow_theme_logo() {
 
   // Mobile device logo
   $mobile_device_logo = !empty ($theme_settings['opt-mobile-logo']['url']) ?
-               $theme_settings['opt-mobile-logo']['url'] : $theme_settings['opt-site-logo']['url'];
+  $theme_settings['opt-mobile-logo']['url'] : $theme_settings['opt-site-logo']['url'];
 
   // If site loads in mobile device load mobile logo
   if ( wp_is_mobile() ) {
@@ -96,21 +96,21 @@ function get_snow_theme_logo() {
  * @param string for custom class
  * @param array of schema.org
  *
- * @since snow v1.0.0
+ * @since gridlife v1.0.0
  * @return HTML5 image tag
  *
  */
-if ( ! function_exists( 'snow_theme_logo' ) ) :
+if ( ! function_exists( 'gridlife_theme_logo' ) ) :
 
-  function snow_theme_logo( string $custom_class='', array $schema=[] ) {
+  function gridlife_theme_logo( string $custom_class='', array $schema=[] ) {
 
-      $site_logo = get_snow_theme_logo();
+      $site_logo = get_gridlife_theme_logo();
       $itemtype = isset($schema['itemtype']) ? $schema['itemtype'] : '';
       $class = isset($custom_class) ? $custom_class : '';
 
-      if(!get_snow_theme_logo()){
+      if(!get_gridlife_theme_logo()){
         if( current_user_can( 'administrator' ) ):
-          return sprintf('<span>%s</span>', esc_html__('Add a logo from theme settings', 'snow'));
+          return sprintf('<span>%s</span>', esc_html__('Add a logo from theme settings', 'gridlife'));
         else:
           return;
         endif;
@@ -148,14 +148,14 @@ function find_and_get_field($field_callback) {
 /**
   * Add admin_ajax for top story toggle feature in post list.
   * Works in dependency with ACF plugin.
-  * @since snow 1.0
+  * @since gridlife 1.0
   */
 
 if(class_exists('ACF')) :
 
-  add_action('wp_ajax_toggle_topstory', 'snow_toggle_topstory_function');
+  add_action('wp_ajax_toggle_topstory', 'gridlife_toggle_topstory_function');
 
-  function snow_toggle_topstory_function(){
+  function gridlife_toggle_topstory_function(){
 
       $fieldname = 'the_post_top_story';
 
@@ -173,37 +173,37 @@ if(class_exists('ACF')) :
   /**
    * Register and enqueue a custom stylesheet in the WordPress admin.
    */
-  function snow_enqueue_custom_admin_script() {
-      // snow SmoothState support
-    wp_enqueue_script( 'snow-admin-helper', get_template_directory_uri() . '/assets/js/admin/snow-admin-helper-script.js', array(), '1.0.0', true );
+  function gridlife_enqueue_custom_admin_script() {
+      // gridlife SmoothState support
+    wp_enqueue_script( 'gridlife-admin-helper', get_template_directory_uri() . '/assets/js/admin/gridlife-admin-helper-script.js', array(), '1.0.0', true );
   }
-  add_action( 'admin_enqueue_scripts', 'snow_enqueue_custom_admin_script' );
+  add_action( 'admin_enqueue_scripts', 'gridlife_enqueue_custom_admin_script' );
 
 endif;
 
 /**
   * Add an extra column to post in ACF for featued post
-  * @since snow 1.0
+  * @since gridlife 1.0
   */
 
 if(class_exists('ACF')) :
 
   // Add the custom columns to the book post type:
-add_filter( 'manage_post_posts_columns', 'snow_custom_edit_post_columns' );
-function snow_custom_edit_post_columns($columns) {
+add_filter( 'manage_post_posts_columns', 'gridlife_custom_edit_post_columns' );
+function gridlife_custom_edit_post_columns($columns) {
     // unset( $columns['author'] );
     unset($columns['date']);
 
-    $columns['top_stories'] = __( 'Top Story', 'snow' );
-    $columns['date'] = __( 'Date', 'snow' );
+    $columns['top_stories'] = __( 'Top Story', 'gridlife' );
+    $columns['date'] = __( 'Date', 'gridlife' );
 
 
     return $columns;
 }
 
 // Add the data to the custom columns for the book post type:
-add_action( 'manage_post_posts_custom_column' , 'snow_custom_top_story_column', 10, 2 );
-function snow_custom_top_story_column( $column, $post_id ) {
+add_action( 'manage_post_posts_custom_column' , 'gridlife_custom_top_story_column', 10, 2 );
+function gridlife_custom_top_story_column( $column, $post_id ) {
     switch ( $column ) {
 
         case 'top_stories' :
@@ -219,11 +219,11 @@ endif;
  * Pass variable to template for sections logic on front page
  *
  * @param $category_var  term slug to be passed.
- * @since Snow v1.0.0
+ * @since Gridlife v1.0.0
  *
  */
 
-add_action('snow_category_var',  'set_category_var_global', 12, 1);
+add_action('gridlife_category_var',  'set_category_var_global', 12, 1);
 
 function set_category_var_global($category_var) {
 
@@ -237,11 +237,11 @@ function set_category_var_global($category_var) {
  * @param String $string Title from the content.
  * @param String $fallback_text Fallback text in case title is single word.
  * @return HTML
- * @since Snow v1.0.0
+ * @since Gridlife v1.0.0
  *
  */
 
-function snow_split_string($string, $fallback_text = 'news') {
+function gridlife_split_string($string, $fallback_text = 'news') {
 
   $split_string = array($string, $fallback_text);
 
@@ -271,7 +271,7 @@ function snow_split_string($string, $fallback_text = 'news') {
 
 }
 
-function snow_get_relatedposts_query($post_id, $post_limit='') {
+function gridlife_get_relatedposts_query($post_id, $post_limit='') {
 
     $terms = get_the_terms( $post_id, 'category' );
 
@@ -301,7 +301,7 @@ function snow_get_relatedposts_query($post_id, $post_limit='') {
 
 }
 
-function snow_set_category_content($category, $limit=6) {
+function gridlife_set_category_content($category, $limit=6) {
   // args
 
     $tax_Query = '';
@@ -381,14 +381,14 @@ function get_weather_icon( $weather_type_id ) {
 
 }
 
-function snow_get_the_weather() {
+function gridlife_get_the_weather() {
 
   if(!function_exists('callAPI')):
     return;
   endif;
 
 
-  $theme_settings = snow_settings();
+  $theme_settings = gridlife_settings();
   $apiUrl = $theme_settings['opt-weatherapiurl'];
   $apiKey = $theme_settings['opt-weatherapikey'];
   $defaultLong = '';
@@ -408,7 +408,7 @@ function snow_get_the_weather() {
   $get_data = callAPI('GET', $apiUrl.$defaultParams, false);
 
   $response = json_decode($get_data, true);
-  $errors = $response['response']['errors'];
+  // $errors = $response['response']['errors'];
 
   $city = array("city"=>$response['city']['name']);
   $temperature_array = array();
@@ -440,5 +440,5 @@ function snow_get_the_weather() {
 
 }
 
-add_action("wp_ajax_snow_get_the_weather", "snow_get_the_weather");
-add_action("wp_ajax_nopriv_snow_get_the_weather", "snow_get_the_weather");
+add_action("wp_ajax_gridlife_get_the_weather", "gridlife_get_the_weather");
+add_action("wp_ajax_nopriv_gridlife_get_the_weather", "gridlife_get_the_weather");

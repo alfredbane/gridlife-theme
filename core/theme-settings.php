@@ -1,24 +1,24 @@
 <?php
 
 /**
- * Include the snow TGM script init class.
+ * Include the gridlife TGM script init class.
  *
- * @since snow 1.0
+ * @since gridlife 1.0
  *
  */
 
-require_once get_template_directory() . '/core/TGM_script/snowtgm_init.php';
+require_once get_template_directory() . '/core/TGM_script/gridlife_init.php';
 
 /**
  * Include the Redux Framework class and settings.
  *
- * @since snow 1.0
+ * @since gridlife 1.0
  *
  */
  if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/ReduxFramework/ReduxCore/framework.php' ) ) {
      require_once( dirname( __FILE__ ) . '/ReduxFramework/ReduxCore/framework.php' );
  }
- if ( !isset( $snow_settings ) && file_exists( dirname( __FILE__ ) . '/ReduxFramework/theme-config.php' ) ) {
+ if ( !isset( $gridlife_settings ) && file_exists( dirname( __FILE__ ) . '/ReduxFramework/theme-config.php' ) ) {
      require_once( dirname( __FILE__ ) . '/ReduxFramework/theme-config.php' );
  }
 
@@ -26,12 +26,12 @@ require_once get_template_directory() . '/core/TGM_script/snowtgm_init.php';
 /**
  * 3.1). Change admin menu & post type "Post" labels
  *
- * @method snow_change_post_label
- * @since snow v1.0.0
+ * @method gridlife_change_post_label
+ * @since gridlife v1.0.0
  * @return HTML5
  *
  */
-function snow_change_post_label() {
+function gridlife_change_post_label() {
     global $menu;
     global $submenu;
     $menu[5][0] = 'News';
@@ -40,17 +40,17 @@ function snow_change_post_label() {
     $submenu['edit.php'][16][0] = 'News Tags';
 }
 
-add_action( 'admin_menu', 'snow_change_post_label' );
+add_action( 'admin_menu', 'gridlife_change_post_label' );
 
 /**
  * 3.2). Change admin menu & post type "Post" object
  *
- * @method snow_change_post_object
- * @since snow v1.0.0
+ * @method gridlife_change_post_object
+ * @since gridlife v1.0.0
  * @return HTML5
  *
  */
-function snow_change_post_object() {
+function gridlife_change_post_object() {
     global $wp_post_types;
     $labels = &$wp_post_types['post']->labels;
     $labels->name = 'News';
@@ -68,13 +68,13 @@ function snow_change_post_object() {
     $labels->name_admin_bar = 'News';
 }
 
-add_action( 'init', 'snow_change_post_object' );
+add_action( 'init', 'gridlife_change_post_object' );
 
 /**
  * 4). Remove emoticon support from theme
  *
  * @method WP hooks, print_emoji_detection_script
- * @since snow v1.0.0
+ * @since gridlife v1.0.0
  *
  */
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
@@ -117,11 +117,11 @@ function callAPI($method, $url, $data){
  *
  * @param Integer $post_id
  * @return IMAGE
- * @since Snow v1.0.0
+ * @since Gridlife v1.0.0
  *
  */
 
-function snow_get_fallback_image( $post_id ) {
+function gridlife_get_fallback_image( $post_id ) {
 
   $first_img = '';
   $get_content = get_the_content( $post_id );
@@ -129,7 +129,9 @@ function snow_get_fallback_image( $post_id ) {
   ob_end_clean();
 
   $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $get_content, $matches);
-  $first_img = $matches [1] [0];
+  if( $output ) {
+    $first_img = $matches [1] [0];
+  }
 
   if(empty($first_img)){ //Defines a default image
     $first_img = get_template_directory_uri().'/assets/image/default-post-image.jpg';
@@ -140,11 +142,11 @@ function snow_get_fallback_image( $post_id ) {
 }
 
 
-function snow_get_the_post_thumbnail($post_id) {
+function gridlife_get_the_post_thumbnail($post_id) {
 
   $post_thumbnail = '';
   $post_title = get_the_title($post_id);
-  $image_from_content = snow_get_fallback_image($post_id);
+  $image_from_content = gridlife_get_fallback_image($post_id);
 
   if (  (function_exists('has_post_thumbnail')) && (has_post_thumbnail())  ) {
 
@@ -160,11 +162,11 @@ function snow_get_the_post_thumbnail($post_id) {
 
 }
 
-function snow_get_the_post_thumbnail_url($post_id) {
+function gridlife_get_the_post_thumbnail_url($post_id) {
 
   $post_thumbnail_url = '';
   $post_title = get_the_title($post_id);
-  $image_from_content = snow_get_fallback_image($post_id);
+  $image_from_content = gridlife_get_fallback_image($post_id);
 
   if (  (function_exists('has_post_thumbnail')) && (has_post_thumbnail())  ) {
 
