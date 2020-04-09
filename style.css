@@ -1004,19 +1004,20 @@ fieldset {
   @media (max-width: 767px) {
     .c-site-header .row {
       margin: 0; } }
-  @media (min-width: 1600px) and (max-width: 2200px) {
-    .c-site-header .c-header__logo {
-      max-width: 250px; } }
-  @media (max-width: 767px) {
-    .c-site-header .c-header__logo {
-      padding-top: 10px;
-      padding-bottom: 10px; } }
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .c-site-header .c-header__logo {
-      padding: 12px; } }
-  .c-site-header .c-header__logo.c-header__logo--has-background {
-    background-color: #fff;
-    z-index: 9; }
+  .c-site-header .c-header__logo {
+    z-index: 8; }
+    @media (min-width: 1600px) and (max-width: 2200px) {
+      .c-site-header .c-header__logo {
+        max-width: 250px; } }
+    @media (max-width: 767px) {
+      .c-site-header .c-header__logo {
+        padding-top: 10px;
+        padding-bottom: 10px; } }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .c-site-header .c-header__logo {
+        padding: 12px; } }
+    .c-site-header .c-header__logo.c-header__logo--has-background {
+      background-color: #fff; }
 
 .c-header__nav-list {
   display: flex;
@@ -1313,6 +1314,20 @@ fieldset {
     @media (max-width: 767px) {
       .c-weather-forecasts .c-temp-display .c-temp {
         font-size: 40px; } }
+
+.type-page {
+  display: block;
+  margin-top: 170px; }
+  .type-page header {
+    display: flex;
+    align-items: baseline; }
+    .type-page header .divider {
+      background-color: #000;
+      height: 2px;
+      width: 200px; }
+    .type-page header h1.entry-title {
+      font-family: "comfortaa";
+      margin-left: 10px; }
 
 .c-article {
   height: calc(46vh - 6px);
@@ -1796,7 +1811,7 @@ fieldset {
       margin: 0; }
       .c-slider .slick-dots li button::before {
         font-size: 32px; }
-      .c-slider .slick-dots li .slick-dots li button::before {
+      .c-slider .slick-dots li li button::before {
         font-size: 12px; }
       .c-slider .slick-dots li.slick-active button::before {
         color: #ffffff;

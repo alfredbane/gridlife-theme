@@ -13,22 +13,24 @@
 
 get_header(); ?>
 
-<!-- Page Content  -->
-	<?php
+<main id="site-content" class="c-main-content" data-pp-enable="true" role="main">
 
-		// Start the loop.
-		while ( have_posts() ) :
-			the_post(); ?>
+	<!-- Page Content  -->
+		<?php
 
-				<?php // Include the page content template.
-					the_content();
-				?>
+			// Start the loop.
+			while ( have_posts() ) :
+				the_post(); ?>
 
-			<?php
-			// End of the loop.
-		endwhile;
-	?>
+					<?php // Include the page content template.
+						get_template_part( 'template-parts/content', 'page' );
+					?>
 
+				<?php
+				// End of the loop.
+			endwhile;
+		?>
 
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+	<?php get_footer(); ?>
+
+</main><!-- #site-content -->

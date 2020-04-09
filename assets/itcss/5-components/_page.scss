@@ -298,3 +298,28 @@
 		}
 
 }
+
+.type-page {
+
+	display: block;
+	margin-top: 170px;
+
+	header {
+
+		display: flex;
+		align-items: baseline;
+
+		.divider {
+	    background-color: #000;
+	    height: 2px;
+	    width: 200px;
+		}
+
+		h1.entry-title {
+			font-family: "comfortaa";
+			margin-left: 10px;
+		}
+
+	}
+
+}
