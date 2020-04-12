@@ -1053,7 +1053,8 @@ fieldset {
       width: 803px;
       left: -460px; } }
   .c-header__nav .wppsac-post-slider.design-1 .wppsac-post-content-left {
-    height: 100%; }
+    height: auto;
+    background-color: transparent; }
   .c-header__nav .wppsac-post-slider h2.wppsac-post-title a {
     font-size: 18px;
     line-height: 11px; }
@@ -1314,6 +1315,9 @@ fieldset {
     @media (max-width: 767px) {
       .c-weather-forecasts .c-temp-display .c-temp {
         font-size: 40px; } }
+
+.page .c-main-content {
+  height: auto; }
 
 .type-page {
   display: block;
@@ -1816,6 +1820,18 @@ fieldset {
       .c-slider .slick-dots li.slick-active button::before {
         color: #ffffff;
         font-size: 12px; }
+
+.wppsac-post-slides.slick-slide {
+  position: relative; }
+  .wppsac-post-slides.slick-slide:after {
+    position: absolute;
+    content: "";
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0; }
 
 #pp-nav.right {
   right: 7px; }

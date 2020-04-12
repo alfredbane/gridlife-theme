@@ -68,3 +68,19 @@
 	}
 
 }
+
+.wppsac-post-slides.slick-slide {
+    position: relative;
+
+    &:after {
+        position: absolute;
+        content: "";
+        background-color: rgba(0,0,0,0.5);
+        height: 100%;
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+    }
+
+}
