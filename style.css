@@ -1044,14 +1044,6 @@ fieldset {
   @media (min-width: 768px) and (max-width: 1023px) {
     .c-header__nav #mega-menu-wrap-primary {
       display: none; } }
-  @media (min-width: 1024px) and (max-width: 1199px) {
-    .c-header__nav #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu {
-      width: 803px;
-      left: -460px; } }
-  @media (min-width: 1200px) and (max-width: 1599px) {
-    .c-header__nav #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu {
-      width: 803px;
-      left: -460px; } }
   .c-header__nav .wppsac-post-slider.design-1 .wppsac-post-content-left {
     height: auto;
     background-color: transparent; }
@@ -1813,9 +1805,7 @@ fieldset {
         bottom: 19px; } }
     .c-slider .slick-dots li {
       margin: 0; }
-      .c-slider .slick-dots li button::before {
-        font-size: 32px; }
-      .c-slider .slick-dots li li button::before {
+      .c-slider .slick-dots li::before {
         font-size: 12px; }
       .c-slider .slick-dots li.slick-active button::before {
         color: #ffffff;

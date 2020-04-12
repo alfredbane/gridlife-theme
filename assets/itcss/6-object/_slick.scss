@@ -38,15 +38,7 @@
 	    li {
 		    margin: 0;
 
-		    button {
-
-		    	&::before {
-		    		font-size: 32px;
-		    	}
-
-		    }
-
-        li button::before {
+        &::before {
           font-size: 12px;
         }
 
