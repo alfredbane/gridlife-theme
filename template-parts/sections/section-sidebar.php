@@ -25,7 +25,7 @@
 
 
 <aside class="c-section-item c-section-aside">
-	<?php echo gridlife_set_sidebar_label($category, 'समाचार') ?>
+	<?php echo gridlife_set_sidebar_label($category, 'news') ?>
 
 	<?php
 		if(is_archive()):

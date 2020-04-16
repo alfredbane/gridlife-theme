@@ -39,26 +39,12 @@ ul#menu-primary {
       @include tablet {
           display: none;
       }
-
-
-      #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu {
-
-        @include laptop {
-          width: 803px;
-          left: -460px;
-        }
-
-        @include laptop-large {
-          width: 803px;
-          left: -460px;
-        }
-
-      }
-
+      
     }
 
     .wppsac-post-slider.design-1 .wppsac-post-content-left {
-      height: 100%;
+      height: auto;
+      background-color: transparent;
     }
 
     .wppsac-post-slider h2.wppsac-post-title a {

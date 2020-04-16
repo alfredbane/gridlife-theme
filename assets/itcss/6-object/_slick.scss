@@ -38,18 +38,8 @@
 	    li {
 		    margin: 0;
 
-		    button {
-
-		    	&::before {
-		    		font-size: 32px;
-		    	}
-
-		    }
-
-        .slick-dots {
-          li button::before {
-            font-size: 12px;
-          }
+        &::before {
+          font-size: 12px;
         }
 
 		    &.slick-active {
@@ -68,5 +58,21 @@
 		}
 
 	}
+
+}
+
+.wppsac-post-slides.slick-slide {
+    position: relative;
+
+    &:after {
+        position: absolute;
+        content: "";
+        background-color: rgba(0,0,0,0.5);
+        height: 100%;
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+    }
 
 }

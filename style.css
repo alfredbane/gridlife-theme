@@ -1004,19 +1004,20 @@ fieldset {
   @media (max-width: 767px) {
     .c-site-header .row {
       margin: 0; } }
-  @media (min-width: 1600px) and (max-width: 2200px) {
-    .c-site-header .c-header__logo {
-      max-width: 250px; } }
-  @media (max-width: 767px) {
-    .c-site-header .c-header__logo {
-      padding-top: 10px;
-      padding-bottom: 10px; } }
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .c-site-header .c-header__logo {
-      padding: 12px; } }
-  .c-site-header .c-header__logo.c-header__logo--has-background {
-    background-color: #fff;
-    z-index: 9; }
+  .c-site-header .c-header__logo {
+    z-index: 8; }
+    @media (min-width: 1600px) and (max-width: 2200px) {
+      .c-site-header .c-header__logo {
+        max-width: 250px; } }
+    @media (max-width: 767px) {
+      .c-site-header .c-header__logo {
+        padding-top: 10px;
+        padding-bottom: 10px; } }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .c-site-header .c-header__logo {
+        padding: 12px; } }
+    .c-site-header .c-header__logo.c-header__logo--has-background {
+      background-color: #fff; }
 
 .c-header__nav-list {
   display: flex;
@@ -1043,16 +1044,9 @@ fieldset {
   @media (min-width: 768px) and (max-width: 1023px) {
     .c-header__nav #mega-menu-wrap-primary {
       display: none; } }
-  @media (min-width: 1024px) and (max-width: 1199px) {
-    .c-header__nav #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu {
-      width: 803px;
-      left: -460px; } }
-  @media (min-width: 1200px) and (max-width: 1599px) {
-    .c-header__nav #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu {
-      width: 803px;
-      left: -460px; } }
   .c-header__nav .wppsac-post-slider.design-1 .wppsac-post-content-left {
-    height: 100%; }
+    height: auto;
+    background-color: transparent; }
   .c-header__nav .wppsac-post-slider h2.wppsac-post-title a {
     font-size: 18px;
     line-height: 11px; }
@@ -1313,6 +1307,23 @@ fieldset {
     @media (max-width: 767px) {
       .c-weather-forecasts .c-temp-display .c-temp {
         font-size: 40px; } }
+
+.page .c-main-content {
+  height: auto; }
+
+.type-page {
+  display: block;
+  margin-top: 170px; }
+  .type-page header {
+    display: flex;
+    align-items: baseline; }
+    .type-page header .divider {
+      background-color: #000;
+      height: 2px;
+      width: 200px; }
+    .type-page header h1.entry-title {
+      font-family: "comfortaa";
+      margin-left: 10px; }
 
 .c-article {
   height: calc(46vh - 6px);
@@ -1794,13 +1805,23 @@ fieldset {
         bottom: 19px; } }
     .c-slider .slick-dots li {
       margin: 0; }
-      .c-slider .slick-dots li button::before {
-        font-size: 32px; }
-      .c-slider .slick-dots li .slick-dots li button::before {
+      .c-slider .slick-dots li::before {
         font-size: 12px; }
       .c-slider .slick-dots li.slick-active button::before {
         color: #ffffff;
         font-size: 12px; }
+
+.wppsac-post-slides.slick-slide {
+  position: relative; }
+  .wppsac-post-slides.slick-slide:after {
+    position: absolute;
+    content: "";
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0; }
 
 #pp-nav.right {
   right: 7px; }
